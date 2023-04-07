@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 option java_package = "com.protobuf";
+option csharp_namespace = "DataAccessClient";
 
 service UserAccess {
   rpc CreateUser(UserCreationDto) returns (UserCreationResponse);

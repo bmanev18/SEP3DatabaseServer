@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class StartServer {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
         DAO dao = new DAOImpl();
-        Server server= ServerBuilder.forPort(9090).addService(new UserAccessService(dao)).build();
+        Server server= ServerBuilder.forPort(9111).addService(new UserAccessService(dao)).build();
         server.start();
         System.out.println("Server started");
         server.awaitTermination();

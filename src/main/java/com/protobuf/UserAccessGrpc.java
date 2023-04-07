@@ -1,7 +1,5 @@
 package com.protobuf;
 
-import java.sql.SQLException;
-
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
@@ -98,7 +96,7 @@ public final class UserAccessGrpc {
     /**
      */
     public void createUser(com.protobuf.DataAccess.UserCreationDto request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserCreationResponse> responseObserver){
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserCreationResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
     }
 

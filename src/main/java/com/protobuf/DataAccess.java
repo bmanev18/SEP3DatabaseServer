@@ -1451,8 +1451,8 @@ public final class DataAccess {
       "rCreationResponse\022%\n\013createdUser\030\001 \001(\0132\020" +
       ".UserCreationDto\022\014\n\004code\030\002 \001(\0052C\n\nUserAc" +
       "cess\0225\n\nCreateUser\022\020.UserCreationDto\032\025.U" +
-      "serCreationResponseB\016\n\014com.protobufb\006pro" +
-      "to3"
+      "serCreationResponseB!\n\014com.protobuf\252\002\020Da" +
+      "taAccessClientb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
