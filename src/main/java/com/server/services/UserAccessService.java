@@ -4,7 +4,6 @@ import com.database.DAO;
 import com.protobuf.DataAccess;
 import com.protobuf.UserAccessGrpc;
 import io.grpc.stub.StreamObserver;
-
 import java.sql.SQLException;
 
 public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
@@ -15,7 +14,7 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
     }
 
     @Override
-    public void createUser(DataAccess.UserCreationDto request, StreamObserver<DataAccess.Response> responseObserver) {
+    public void createUser(DataAccess.UserDto request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to create user: %s", request.getUsername());
 
         try {
@@ -27,7 +26,7 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
     }
 
     /*@Override
-    public void createUser(DataAccess.UserCreationDto request, StreamObserver<DataAccess.UserCreationResponse> responseObserver){
+    public void createUser(DataAccess.UserDto request, StreamObserver<DataAccess.UserCreationResponse> responseObserver){
         System.out.printf("Received request to create user: %s", request.getUsername());
 
         try {
