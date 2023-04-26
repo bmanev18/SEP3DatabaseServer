@@ -14,8 +14,9 @@ service UserAccess {
 
 service ProjectAccess {
   rpc CreateProject(ProjectDto) returns (Response);
-  rpc AddScrumMaster(UserSearchDto) returns (Response);
-  rpc AddDeveloper(UserSearchDto) returns (Response);
+  rpc AddOwner(AddToProjectDto) returns (Response);
+  rpc AddScrumMaster(AddToProjectDto) returns (Response);
+  rpc AddDeveloper(AddToProjectDto) returns (Response);
 }
 
 message UserDto{
@@ -64,6 +65,10 @@ message Username{
   string username = 1;
 }
 
+message AddToProjectDto{
+  UserSearchDto user = 1;
+  int32 projectId =2;
+}
 //ProjectService
 message ProjectDto{
   string ownerUsername = 1;

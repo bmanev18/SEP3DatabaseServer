@@ -30,3 +30,11 @@ CREATE TABLE projectParticipating(
     foreign key (username) references user(username),
     foreign key (project_id) references project(id)
 );
+
+CREATE TABLE projectScrumMaster(
+    username char(25),
+    project_id int,
+    primary key(username, project_id),
+    foreign key (username) references user(username),
+    foreign key (project_id) references project(id)
+);
