@@ -1,40 +1,27 @@
-CREATE TABLE user (
-    username char(25) PRIMARY KEY not null,
-    firstname char(15)   NOT NULL,
-    lastname char(15) NOT NULL,
-    password char(15) NOT NULL check ( length(password) >= 8 )
+CREATE TABLE user
+(
+    username  varchar(25) PRIMARY KEY not null,
+    firstname varchar(15)             NOT NULL,
+    lastname  varchar(15)             NOT NULL,
+    password  varchar(15)             NOT NULL check ( length(password) >= 8 ),
+    role_id   int                     not null references role (id)
 );
 
-CREATE TABLE role(
-  id bigserial primary key,
-  roleName char(20)
-);
-
-CREATE TABLE project (
-    id bigserial primary key,
+CREATE TABLE project
+(
+    id    integer primary key,
     title varchar(100)
 );
 
-CREATE TABLE userOwns(
-    username char(25),
-    project_id int,
-    primary key(username, project_id),
-    foreign key (username) references user(username),
-    foreign key (project_id) references project(id)
+create table role
+(
+    id   integer primary key,
+    name varchar(30)
 );
 
-CREATE TABLE projectParticipating(
-    username char(25),
-    project_id int,
-    primary key(username, project_id),
-    foreign key (username) references user(username),
-    foreign key (project_id) references project(id)
-);
-
-CREATE TABLE projectScrumMaster(
-    username char(25),
-    project_id int,
-    primary key(username, project_id),
-    foreign key (username) references user(username),
-    foreign key (project_id) references project(id)
+create table worksOn
+(
+    username   varchar(25) references user (username),
+    project_id int references project (id),
+    primary key (username, project_id)
 );
