@@ -2,6 +2,7 @@ package com.database;
 
 import com.protobuf.DataAccess;
 
+import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,19 +16,82 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public DataAccess.Response createUser(DataAccess.UserCreationDto dto) throws SQLException {
+    public DataAccess.Response createUser(DataAccess.UserDto dto) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO user(username, firstname, lastname, password, role) VALUES (?,?,?,?,?);");
         statement.setString(1, dto.getUsername());
         statement.setString(2, dto.getFirstName());
         statement.setString(3, dto.getLastName());
         statement.setString(4, dto.getPassword());
-        statement.setString(5, dto.getRole());
+        statement.setString(5, dto.getRoleId());
 
         int rowsAffected = statement.executeUpdate();
         statement.close();
 
         int code = 404;
         if (rowsAffected==1){
+            code = 200;
+        }
+        return DataAccess.Response.newBuilder()
+                .setCode(code)
+                .build();
+    }
+
+    @Override
+    public DataAccess.Response createProject(DataAccess.ProjectDto dto) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO project(title) VALUES(?);");
+
+        int rowsAffected = statement.executeUpdate();
+        statement.close();
+
+        int code = 404;
+
+        if (rowsAffected==1){
+            code = 200;
+        }
+        return DataAccess.Response.newBuilder()
+                .setCode(code)
+                .build();
+    }
+
+    public DataAccess.Response addDeveloper(DataAccess.AddToProjectDto dto) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO projectParticipating(username, project_id) VALUES (?,?)");
+
+        int rowsAffected = statement.executeUpdate();
+        statement.close();
+
+        int code = 404;
+
+        if (rowsAffected==1 ){
+            code = 200;
+        }
+        return DataAccess.Response.newBuilder()
+                .setCode(code)
+                .build();
+    }
+
+    public DataAccess.Response addScrumMaster(DataAccess.AddToProjectDto dto) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO projectScrumMaster(username, project_id) VALUES (?,?)");
+        int rowsAffected = statement.executeUpdate();
+        statement.close();
+
+        int code = 404;
+
+        if (rowsAffected==1 ){
+            code = 200;
+        }
+        return DataAccess.Response.newBuilder()
+                .setCode(code)
+                .build();
+    }
+
+    public DataAccess.Response addOwner(DataAccess.AddToProjectDto dto) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO userOwns(username, project_id) VALUES (?,?)");
+        int rowsAffected = statement.executeUpdate();
+        statement.close();
+
+        int code = 404;
+
+        if (rowsAffected==1 ){
             code = 200;
         }
         return DataAccess.Response.newBuilder()

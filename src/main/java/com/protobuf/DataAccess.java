@@ -6655,6 +6655,699 @@ public final class DataAccess {
 
   }
 
+  public interface AddToProjectDtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AddToProjectDto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.UserSearchDto user = 1;</code>
+     * @return Whether the user field is set.
+     */
+    boolean hasUser();
+    /**
+     * <code>.UserSearchDto user = 1;</code>
+     * @return The user.
+     */
+    com.protobuf.DataAccess.UserSearchDto getUser();
+    /**
+     * <code>.UserSearchDto user = 1;</code>
+     */
+    com.protobuf.DataAccess.UserSearchDtoOrBuilder getUserOrBuilder();
+
+    /**
+     * <code>int32 projectId = 2;</code>
+     * @return The projectId.
+     */
+    int getProjectId();
+  }
+  /**
+   * Protobuf type {@code AddToProjectDto}
+   */
+  public static final class AddToProjectDto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:AddToProjectDto)
+      AddToProjectDtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AddToProjectDto.newBuilder() to construct.
+    private AddToProjectDto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AddToProjectDto() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AddToProjectDto();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddToProjectDto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.protobuf.DataAccess.UserSearchDto.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(com.protobuf.DataAccess.UserSearchDto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              projectId_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.protobuf.DataAccess.internal_static_AddToProjectDto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.protobuf.DataAccess.internal_static_AddToProjectDto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.protobuf.DataAccess.AddToProjectDto.class, com.protobuf.DataAccess.AddToProjectDto.Builder.class);
+    }
+
+    public static final int USER_FIELD_NUMBER = 1;
+    private com.protobuf.DataAccess.UserSearchDto user_;
+    /**
+     * <code>.UserSearchDto user = 1;</code>
+     * @return Whether the user field is set.
+     */
+    @java.lang.Override
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <code>.UserSearchDto user = 1;</code>
+     * @return The user.
+     */
+    @java.lang.Override
+    public com.protobuf.DataAccess.UserSearchDto getUser() {
+      return user_ == null ? com.protobuf.DataAccess.UserSearchDto.getDefaultInstance() : user_;
+    }
+    /**
+     * <code>.UserSearchDto user = 1;</code>
+     */
+    @java.lang.Override
+    public com.protobuf.DataAccess.UserSearchDtoOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
+    public static final int PROJECTID_FIELD_NUMBER = 2;
+    private int projectId_;
+    /**
+     * <code>int32 projectId = 2;</code>
+     * @return The projectId.
+     */
+    @java.lang.Override
+    public int getProjectId() {
+      return projectId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (user_ != null) {
+        output.writeMessage(1, getUser());
+      }
+      if (projectId_ != 0) {
+        output.writeInt32(2, projectId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getUser());
+      }
+      if (projectId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, projectId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.protobuf.DataAccess.AddToProjectDto)) {
+        return super.equals(obj);
+      }
+      com.protobuf.DataAccess.AddToProjectDto other = (com.protobuf.DataAccess.AddToProjectDto) obj;
+
+      if (hasUser() != other.hasUser()) return false;
+      if (hasUser()) {
+        if (!getUser()
+            .equals(other.getUser())) return false;
+      }
+      if (getProjectId()
+          != other.getProjectId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (37 * hash) + PROJECTID_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectId();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.AddToProjectDto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.protobuf.DataAccess.AddToProjectDto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code AddToProjectDto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:AddToProjectDto)
+        com.protobuf.DataAccess.AddToProjectDtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.protobuf.DataAccess.internal_static_AddToProjectDto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.protobuf.DataAccess.internal_static_AddToProjectDto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.protobuf.DataAccess.AddToProjectDto.class, com.protobuf.DataAccess.AddToProjectDto.Builder.class);
+      }
+
+      // Construct using com.protobuf.DataAccess.AddToProjectDto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+        projectId_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.protobuf.DataAccess.internal_static_AddToProjectDto_descriptor;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.AddToProjectDto getDefaultInstanceForType() {
+        return com.protobuf.DataAccess.AddToProjectDto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.AddToProjectDto build() {
+        com.protobuf.DataAccess.AddToProjectDto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.AddToProjectDto buildPartial() {
+        com.protobuf.DataAccess.AddToProjectDto result = new com.protobuf.DataAccess.AddToProjectDto(this);
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
+        result.projectId_ = projectId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.protobuf.DataAccess.AddToProjectDto) {
+          return mergeFrom((com.protobuf.DataAccess.AddToProjectDto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.protobuf.DataAccess.AddToProjectDto other) {
+        if (other == com.protobuf.DataAccess.AddToProjectDto.getDefaultInstance()) return this;
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
+        }
+        if (other.getProjectId() != 0) {
+          setProjectId(other.getProjectId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.protobuf.DataAccess.AddToProjectDto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.protobuf.DataAccess.AddToProjectDto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.protobuf.DataAccess.UserSearchDto user_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.UserSearchDto.Builder, com.protobuf.DataAccess.UserSearchDtoOrBuilder> userBuilder_;
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       * @return Whether the user field is set.
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       * @return The user.
+       */
+      public com.protobuf.DataAccess.UserSearchDto getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? com.protobuf.DataAccess.UserSearchDto.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       */
+      public Builder setUser(com.protobuf.DataAccess.UserSearchDto value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       */
+      public Builder setUser(
+          com.protobuf.DataAccess.UserSearchDto.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       */
+      public Builder mergeUser(com.protobuf.DataAccess.UserSearchDto value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              com.protobuf.DataAccess.UserSearchDto.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       */
+      public com.protobuf.DataAccess.UserSearchDto.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       */
+      public com.protobuf.DataAccess.UserSearchDtoOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              com.protobuf.DataAccess.UserSearchDto.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <code>.UserSearchDto user = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.UserSearchDto.Builder, com.protobuf.DataAccess.UserSearchDtoOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.UserSearchDto.Builder, com.protobuf.DataAccess.UserSearchDtoOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
+      }
+
+      private int projectId_ ;
+      /**
+       * <code>int32 projectId = 2;</code>
+       * @return The projectId.
+       */
+      @java.lang.Override
+      public int getProjectId() {
+        return projectId_;
+      }
+      /**
+       * <code>int32 projectId = 2;</code>
+       * @param value The projectId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProjectId(int value) {
+        
+        projectId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 projectId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProjectId() {
+        
+        projectId_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:AddToProjectDto)
+    }
+
+    // @@protoc_insertion_point(class_scope:AddToProjectDto)
+    private static final com.protobuf.DataAccess.AddToProjectDto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.protobuf.DataAccess.AddToProjectDto();
+    }
+
+    public static com.protobuf.DataAccess.AddToProjectDto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AddToProjectDto>
+        PARSER = new com.google.protobuf.AbstractParser<AddToProjectDto>() {
+      @java.lang.Override
+      public AddToProjectDto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddToProjectDto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AddToProjectDto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddToProjectDto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.protobuf.DataAccess.AddToProjectDto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ProjectDtoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:ProjectDto)
       com.google.protobuf.MessageOrBuilder {
@@ -7429,6 +8122,11 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Username_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AddToProjectDto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AddToProjectDto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ProjectDto_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7454,20 +8152,23 @@ public final class DataAccess {
       "dUsersResponse\022 \n\010username\030\001 \003(\0132\016.UserS" +
       "earchDto\022\014\n\004code\030\002 \001(\005\";\n\023UpdatedUserRes" +
       "ponse\022\026\n\004user\030\001 \001(\0132\010.UserDto\022\014\n\004code\030\002 " +
-      "\001(\005\"\034\n\010Username\022\020\n\010username\030\001 \001(\t\"2\n\nPro" +
-      "jectDto\022\025\n\rownerUsername\030\001 \001(\t\022\r\n\005title\030" +
-      "\002 \001(\t2\215\002\n\nUserAccess\022!\n\nCreateUser\022\010.Use" +
-      "rDto\032\t.Response\022&\n\005Login\022\r.UserLoginDto\032" +
-      "\016.LoginResponse\022,\n\013UsersByRole\022\005.Role\032\026." +
-      "FilteredUsersResponse\0224\n\nUserByName\022\016.Us" +
-      "erSearchDto\032\026.FilteredUsersResponse\022,\n\nU" +
-      "pdateUser\022\010.UserDto\032\024.UpdatedUserRespons" +
-      "e\022\"\n\nDeleteUser\022\t.Username\032\t.Response2\220\001" +
-      "\n\rProjectAccess\022\'\n\rCreateProject\022\013.Proje" +
-      "ctDto\032\t.Response\022+\n\016AddScrumMaster\022\016.Use" +
-      "rSearchDto\032\t.Response\022)\n\014AddDeveloper\022\016." +
-      "UserSearchDto\032\t.ResponseB!\n\014com.protobuf" +
-      "\252\002\020DataAccessClientb\006proto3"
+      "\001(\005\"\034\n\010Username\022\020\n\010username\030\001 \001(\t\"B\n\017Add" +
+      "ToProjectDto\022\034\n\004user\030\001 \001(\0132\016.UserSearchD" +
+      "to\022\021\n\tprojectId\030\002 \001(\005\"2\n\nProjectDto\022\025\n\ro" +
+      "wnerUsername\030\001 \001(\t\022\r\n\005title\030\002 \001(\t2\215\002\n\nUs" +
+      "erAccess\022!\n\nCreateUser\022\010.UserDto\032\t.Respo" +
+      "nse\022&\n\005Login\022\r.UserLoginDto\032\016.LoginRespo" +
+      "nse\022,\n\013UsersByRole\022\005.Role\032\026.FilteredUser" +
+      "sResponse\0224\n\nUserByName\022\016.UserSearchDto\032" +
+      "\026.FilteredUsersResponse\022,\n\nUpdateUser\022\010." +
+      "UserDto\032\024.UpdatedUserResponse\022\"\n\nDeleteU" +
+      "ser\022\t.Username\032\t.Response2\275\001\n\rProjectAcc" +
+      "ess\022\'\n\rCreateProject\022\013.ProjectDto\032\t.Resp" +
+      "onse\022\'\n\010AddOwner\022\020.AddToProjectDto\032\t.Res" +
+      "ponse\022-\n\016AddScrumMaster\022\020.AddToProjectDt" +
+      "o\032\t.Response\022+\n\014AddDeveloper\022\020.AddToProj" +
+      "ectDto\032\t.ResponseB!\n\014com.protobuf\252\002\020Data" +
+      "AccessClientb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7527,8 +8228,14 @@ public final class DataAccess {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Username_descriptor,
         new java.lang.String[] { "Username", });
-    internal_static_ProjectDto_descriptor =
+    internal_static_AddToProjectDto_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_AddToProjectDto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AddToProjectDto_descriptor,
+        new java.lang.String[] { "User", "ProjectId", });
+    internal_static_ProjectDto_descriptor =
+      getDescriptor().getMessageTypes().get(10);
     internal_static_ProjectDto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectDto_descriptor,
