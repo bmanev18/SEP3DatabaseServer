@@ -3,10 +3,9 @@ package com.database;
 import com.protobuf.DataAccess;
 
 import javax.xml.crypto.Data;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOImpl implements DAO {
     private Connection connection;
@@ -18,6 +17,7 @@ public class DAOImpl implements DAO {
     @Override
     public DataAccess.Response createUser(DataAccess.UserDto dto) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO user(username, firstname, lastname, password, role) VALUES (?,?,?,?,?);");
+
         statement.setString(1, dto.getUsername());
         statement.setString(2, dto.getFirstName());
         statement.setString(3, dto.getLastName());
@@ -54,7 +54,7 @@ public class DAOImpl implements DAO {
     }
 
     public DataAccess.Response addDeveloper(DataAccess.AddToProjectDto dto) throws SQLException{
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO projectParticipating(username, project_id) VALUES (?,?)");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO worksOn(username, project_id) VALUES (?,?)");
 
         int rowsAffected = statement.executeUpdate();
         statement.close();
@@ -70,7 +70,7 @@ public class DAOImpl implements DAO {
     }
 
     public DataAccess.Response addScrumMaster(DataAccess.AddToProjectDto dto) throws SQLException{
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO projectScrumMaster(username, project_id) VALUES (?,?)");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO worksOn(username, project_id) VALUES (?,?)");
         int rowsAffected = statement.executeUpdate();
         statement.close();
 
@@ -80,108 +80,117 @@ public class DAOImpl implements DAO {
             code = 200;
         }
         return DataAccess.Response.newBuilder()
-                .setCode(code)
-                .build();
-    }
-
-    @Override
-    public DataAccess.LoginResponse loginUser(DataAccess.UserLoginDto dto) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO user(username, password) VALUES (?,?);");
-        statement.setString(1, dto.getUsername());
-        statement.setString(2, dto.getPassword());
-
-        int rowsAffected = statement.executeUpdate();
-        statement.close();
-
-        int code = 404;
-        if (rowsAffected==1){
-            code = 200;
-        }
-        return DataAccess.LoginResponse.newBuilder()
                 .setCode(code)
                 .build();
     }
 
     @Override
     public DataAccess.FilteredUsersResponse getUsersByRole(DataAccess.Role dto) throws SQLException {
-//        PreparedStatement statement = connection.prepareStatement("INSERT INTO role(username, firstname, lastname, password, role) VALUES (?,?,?,?,?);");
+
+        String sql = "SELECT username, firstName, lastName FROM user INNER JOIN role ON user.role_id = id WHERE name = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, dto.getRoleName());
+
+        ResultSet result = statement.executeQuery();
+
+        DataAccess.FilteredUsersResponse.Builder builder = DataAccess.FilteredUsersResponse.newBuilder();
+        int code = 404;
+
+        while (result.next()){
+            builder.addUsername(DataAccess.UserSearchDto.newBuilder()
+                    .setUsername(result.getString("username"))
+                    .setFirstName(result.getString("firstName"))
+                    .setLastName(result.getString("lastName"))
+                    .build());
+            code = 200;
+        }
+        statement.close();
+
+        return builder.setCode(code).build();
+    }
+
+    @Override
+    public DataAccess.FilteredUsersResponse getUsersByName(DataAccess.UserSearchDto dto) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT username, firstname, lastname from user where username=? and firstname=? and lastname=?;");
+        statement.setString(1, dto.getUsername());
+        statement.setString(2, dto.getFirstName());
+        statement.setString(3, dto.getLastName());
+
+        ResultSet result = statement.executeQuery();
+
+        DataAccess.FilteredUsersResponse.Builder builder = DataAccess.FilteredUsersResponse.newBuilder();
+        int code = 404;
+
+        while (result.next()){
+            builder.addUsername(DataAccess.UserSearchDto.newBuilder()
+                    .setUsername(result.getString("username"))
+                    .setFirstName(result.getString("firstName"))
+                    .setLastName(result.getString("lastName"))
+                    .build());
+            code = 200;
+        }
+        statement.close();
+
+        return builder.setCode(code).build();
+    }
+
+
+    @Override
+    public DataAccess.UpdatedUserResponse updateUser(DataAccess.UserDto dto) throws SQLException {
+//        PreparedStatement statement = connection.prepareStatement("UPDATE user SET username = ? ," +
+//                             "firstname = ?, " + "lastname = ?,"+"password =?,"+ " role_id = ?");
 //        statement.setString(1, dto.getUsername());
 //        statement.setString(2, dto.getFirstName());
 //        statement.setString(3, dto.getLastName());
 //        statement.setString(4, dto.getPassword());
 //        statement.setString(5, dto.getRoleId());
 //
-//        int rowsAffected = statement.executeUpdate();
+//        ResultSet result = statement.executeQuery();
+//
+//        DataAccess.UpdatedUserResponse.Builder builder = DataAccess.UpdatedUserResponse.newBuilder();
+//        int code = 404;
+//
+//        while
+//            code = 200;
+//
 //        statement.close();
 //
-//        int code = 404;
-//        if (rowsAffected==1){
-//            code = 200;
+//        return builder.setCode(code).build();
+
+//        ResultSetMetaData metaData = connection.createStatement().executeQuery("SELECT * FROM user").getMetaData();
+//        for (int i = 1; i <= metaData.getColumnCount(); i++) {
+//
+//            connection.createStatement().executeUpdate("ALTER TABLE user ADD COLUMN `ARTIFACTSDELETED` Boolean DEFAULT FALSE NOT NULL");
+//
 //        }
-//        return DataAccess.Response.newBuilder()
-//                .setCode(code)
-//                .build();
         return null;
+
+
     }
-
-    @Override
-    public DataAccess.FilteredUsersResponse getUsersByName(DataAccess.UserSearchDto dto) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO user(username, firstname, lastname) VALUES (?,?,?,?,?);");
-        statement.setString(1, dto.getUsername());
-        statement.setString(2, dto.getFirstName());
-        statement.setString(3, dto.getLastName());
-
-
-        int rowsAffected = statement.executeUpdate();
-        statement.close();
-
-        int code = 404;
-        if (rowsAffected==1){
-            code = 200;
-        }
-        return DataAccess.FilteredUsersResponse.newBuilder()
-                .setCode(code)
-                .build();
-    }
-
-    @Override
-    public DataAccess.UpdatedUserResponse updateUser(DataAccess.UserDto dto) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO user(username, firstname, lastname, password, role) VALUES (?,?,?,?,?);");
-        statement.setString(1, dto.getUsername());
-        statement.setString(2, dto.getFirstName());
-        statement.setString(3, dto.getLastName());
-        statement.setString(4, dto.getPassword());
-        statement.setString(5, dto.getRoleId());
-
-        int rowsAffected = statement.executeUpdate();
-        statement.close();
-
-        int code = 404;
-        if (rowsAffected==1){
-            code = 200;
-        }
-        return DataAccess.UpdatedUserResponse.newBuilder()
-                .setCode(code)
-                .build();
-    }
-
+    
     @Override
     public DataAccess.Response deleteUser(DataAccess.Username dto) throws SQLException {
+//        PreparedStatement statement = connection.prepareStatement("DELETE FROM user WHERE username = ?");
+//        statement.setString(1, dto.getUsername());
+//
+//        statement.executeQuery();
+//        ResultSet result = statement.executeQuery();
+//
+//
+//        DataAccess.Response.Builder builder = DataAccess.Response.newBuilder();
+//        int code = 404;
+//
+//            code = 200;
+//
+//        while (result.next()){
+////            builder.clear(DataAccess.Username.newBuilder().getUsername());
+//            code = 200;
+//        }
+//
+//        statement.close();
+//
+//        return builder.setCode(code).build();
         return null;
     }
 
-    public DataAccess.Response addOwner(DataAccess.AddToProjectDto dto) throws SQLException{
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO userOwns(username, project_id) VALUES (?,?)");
-        int rowsAffected = statement.executeUpdate();
-        statement.close();
-
-        int code = 404;
-
-        if (rowsAffected==1 ){
-            code = 200;
-        }
-        return DataAccess.Response.newBuilder()
-                .setCode(code)
-                .build();
-    }
 }
