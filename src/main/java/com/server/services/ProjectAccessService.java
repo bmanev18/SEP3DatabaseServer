@@ -30,7 +30,7 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
 
     @Override
     public void addScrumMaster(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to add scrum master: %s", request.getUser());
+        System.out.printf("Received request to add scrum master: %s", request.getUser().getUsername(), request.getProjectId());
         try {
             responseObserver.onNext(dao.addScrumMaster(request));
         } catch (SQLException e) {
@@ -41,7 +41,7 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
 
     @Override
     public void addDeveloper(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to add developer: %s", request.getUser());
+        System.out.printf("Received request to add developer: %s", request.getUser().getUsername(), request.getProjectId());
         try {
             responseObserver.onNext(dao.addScrumMaster(request));
         } catch (SQLException e) {
@@ -50,13 +50,13 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onCompleted();
     }
 
-    public void addOwner(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver){
-        System.out.printf("Received request to add owner: %s", request.getUser());
-        try {
-            responseObserver.onNext(dao.addOwner(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onCompleted();
-    }
+//    public void addOwner(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver){
+//        System.out.printf("Received request to add owner: %s", request.getUser());
+//        try {
+//            responseObserver.onNext(dao.addOwner(request));
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        responseObserver.onCompleted();
+//    }
 }

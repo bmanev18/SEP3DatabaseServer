@@ -66,6 +66,7 @@ message Username{
 }
 
 message AddToProjectDto{
+//  string username = 1;
   UserSearchDto user = 1;
   int32 projectId =2;
 }

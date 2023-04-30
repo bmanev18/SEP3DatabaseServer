@@ -46,37 +46,6 @@ public final class ProjectAccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto,
-      com.protobuf.DataAccess.Response> getAddOwnerMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "AddOwner",
-      requestType = com.protobuf.DataAccess.AddToProjectDto.class,
-      responseType = com.protobuf.DataAccess.Response.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto,
-      com.protobuf.DataAccess.Response> getAddOwnerMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto, com.protobuf.DataAccess.Response> getAddOwnerMethod;
-    if ((getAddOwnerMethod = ProjectAccessGrpc.getAddOwnerMethod) == null) {
-      synchronized (ProjectAccessGrpc.class) {
-        if ((getAddOwnerMethod = ProjectAccessGrpc.getAddOwnerMethod) == null) {
-          ProjectAccessGrpc.getAddOwnerMethod = getAddOwnerMethod =
-              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.AddToProjectDto, com.protobuf.DataAccess.Response>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddOwner"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.AddToProjectDto.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.Response.getDefaultInstance()))
-              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("AddOwner"))
-              .build();
-        }
-      }
-    }
-    return getAddOwnerMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto,
       com.protobuf.DataAccess.Response> getAddScrumMasterMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
@@ -194,13 +163,9 @@ public final class ProjectAccessGrpc {
     }
 
     /**
-     */
-    public void addOwner(com.protobuf.DataAccess.AddToProjectDto request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddOwnerMethod(), responseObserver);
-    }
-
-    /**
+     * <pre>
+     *  rpc AddOwner(AddToProjectDto) returns (Response);
+     * </pre>
      */
     public void addScrumMaster(com.protobuf.DataAccess.AddToProjectDto request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
@@ -223,13 +188,6 @@ public final class ProjectAccessGrpc {
                 com.protobuf.DataAccess.ProjectDto,
                 com.protobuf.DataAccess.Response>(
                   this, METHODID_CREATE_PROJECT)))
-          .addMethod(
-            getAddOwnerMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.protobuf.DataAccess.AddToProjectDto,
-                com.protobuf.DataAccess.Response>(
-                  this, METHODID_ADD_OWNER)))
           .addMethod(
             getAddScrumMasterMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -271,14 +229,9 @@ public final class ProjectAccessGrpc {
     }
 
     /**
-     */
-    public void addOwner(com.protobuf.DataAccess.AddToProjectDto request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getAddOwnerMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
+     * <pre>
+     *  rpc AddOwner(AddToProjectDto) returns (Response);
+     * </pre>
      */
     public void addScrumMaster(com.protobuf.DataAccess.AddToProjectDto request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
@@ -317,13 +270,9 @@ public final class ProjectAccessGrpc {
     }
 
     /**
-     */
-    public com.protobuf.DataAccess.Response addOwner(com.protobuf.DataAccess.AddToProjectDto request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getAddOwnerMethod(), getCallOptions(), request);
-    }
-
-    /**
+     * <pre>
+     *  rpc AddOwner(AddToProjectDto) returns (Response);
+     * </pre>
      */
     public com.protobuf.DataAccess.Response addScrumMaster(com.protobuf.DataAccess.AddToProjectDto request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -361,14 +310,9 @@ public final class ProjectAccessGrpc {
     }
 
     /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> addOwner(
-        com.protobuf.DataAccess.AddToProjectDto request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getAddOwnerMethod(), getCallOptions()), request);
-    }
-
-    /**
+     * <pre>
+     *  rpc AddOwner(AddToProjectDto) returns (Response);
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> addScrumMaster(
         com.protobuf.DataAccess.AddToProjectDto request) {
@@ -386,9 +330,8 @@ public final class ProjectAccessGrpc {
   }
 
   private static final int METHODID_CREATE_PROJECT = 0;
-  private static final int METHODID_ADD_OWNER = 1;
-  private static final int METHODID_ADD_SCRUM_MASTER = 2;
-  private static final int METHODID_ADD_DEVELOPER = 3;
+  private static final int METHODID_ADD_SCRUM_MASTER = 1;
+  private static final int METHODID_ADD_DEVELOPER = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -409,10 +352,6 @@ public final class ProjectAccessGrpc {
       switch (methodId) {
         case METHODID_CREATE_PROJECT:
           serviceImpl.createProject((com.protobuf.DataAccess.ProjectDto) request,
-              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
-          break;
-        case METHODID_ADD_OWNER:
-          serviceImpl.addOwner((com.protobuf.DataAccess.AddToProjectDto) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
           break;
         case METHODID_ADD_SCRUM_MASTER:
@@ -485,7 +424,6 @@ public final class ProjectAccessGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ProjectAccessFileDescriptorSupplier())
               .addMethod(getCreateProjectMethod())
-              .addMethod(getAddOwnerMethod())
               .addMethod(getAddScrumMasterMethod())
               .addMethod(getAddDeveloperMethod())
               .build();

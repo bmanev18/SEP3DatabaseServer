@@ -25,17 +25,17 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void login(DataAccess.UserLoginDto request, StreamObserver<DataAccess.LoginResponse> responseObserver) {
-        System.out.printf("Received request to login: %s", request.getUsername());
-
-        try {
-            responseObserver.onNext(dao.loginUser(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onCompleted();
-    }
+//    @Override
+//    public void login(DataAccess.UserLoginDto request, StreamObserver<DataAccess.LoginResponse> responseObserver) {
+//        System.out.printf("Received request to login: %s", request.getUsername());
+//
+//        try {
+//            responseObserver.onNext(dao.loginUser(request));
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        responseObserver.onCompleted();
+//    }
 
     @Override
     public void usersByRole(DataAccess.Role request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {

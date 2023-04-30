@@ -16,7 +16,7 @@ public class DAOImpl implements DAO {
 
     @Override
     public DataAccess.Response createUser(DataAccess.UserDto dto) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO user(username, firstname, lastname, password, role) VALUES (?,?,?,?,?);");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO user(username, firstname, lastname, password, role_id) VALUES (?,?,?,?,?);");
 
         statement.setString(1, dto.getUsername());
         statement.setString(2, dto.getFirstName());
@@ -40,6 +40,7 @@ public class DAOImpl implements DAO {
     public DataAccess.Response createProject(DataAccess.ProjectDto dto) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO project(title) VALUES(?);");
 
+        statement.setString(1, dto.getTitle());
         int rowsAffected = statement.executeUpdate();
         statement.close();
 
@@ -55,22 +56,27 @@ public class DAOImpl implements DAO {
 
     public DataAccess.Response addDeveloper(DataAccess.AddToProjectDto dto) throws SQLException{
         PreparedStatement statement = connection.prepareStatement("INSERT INTO worksOn(username, project_id) VALUES (?,?)");
+        statement.setString(1, dto.getUser().getUsername());
+        statement.setInt(2, dto.getProjectId());
 
         int rowsAffected = statement.executeUpdate();
         statement.close();
 
         int code = 404;
 
-        if (rowsAffected==1 ){
+        if (rowsAffected==1){
             code = 200;
         }
         return DataAccess.Response.newBuilder()
                 .setCode(code)
                 .build();
+
     }
 
     public DataAccess.Response addScrumMaster(DataAccess.AddToProjectDto dto) throws SQLException{
         PreparedStatement statement = connection.prepareStatement("INSERT INTO worksOn(username, project_id) VALUES (?,?)");
+        statement.setString(1, dto.getUser().getUsername());
+        statement.setInt(2, dto.getProjectId());
         int rowsAffected = statement.executeUpdate();
         statement.close();
 
