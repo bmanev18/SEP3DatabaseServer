@@ -25,3 +25,45 @@ create table worksOn
     project_id int references project (id),
     primary key (username, project_id)
 );
+
+--
+create table productBacklog
+(
+    id        integer primary key autoincrement,
+    userStory varchar(200) not null
+);
+
+create table sprint
+(
+    id integer primary key autoincrement,
+    project_id references project (id)
+);
+
+create table storyInSprint
+(
+    sprint    int references sprint (id),
+    userStory int references productBacklog (id),
+    primary key (sprint, userStory)
+);
+
+create table sprintBacklog
+(
+    id   integer primary key autoincrement,
+    task varchar(100)
+);
+
+create table projectMeeting
+(
+    id         integer primary key autoincrement,
+    project_id int references sprint (id),
+    note       varchar(300),
+    author     varchar(25) references user (username)
+);
+
+create table sprintMeeting
+(
+    id        integer primary key autoincrement,
+    sprint_id int references sprint (id),
+    note      varchar(300),
+    author    varchar(25) references user (username)
+);
