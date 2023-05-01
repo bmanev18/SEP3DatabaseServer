@@ -3119,27 +3119,27 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
     java.util.List<com.protobuf.DataAccess.UserSearchDto> 
-        getUsernameList();
+        getUsersList();
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
-    com.protobuf.DataAccess.UserSearchDto getUsername(int index);
+    com.protobuf.DataAccess.UserSearchDto getUsers(int index);
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
-    int getUsernameCount();
+    int getUsersCount();
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
     java.util.List<? extends com.protobuf.DataAccess.UserSearchDtoOrBuilder> 
-        getUsernameOrBuilderList();
+        getUsersOrBuilderList();
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
-    com.protobuf.DataAccess.UserSearchDtoOrBuilder getUsernameOrBuilder(
+    com.protobuf.DataAccess.UserSearchDtoOrBuilder getUsersOrBuilder(
         int index);
 
     /**
@@ -3161,7 +3161,7 @@ public final class DataAccess {
       super(builder);
     }
     private FilteredUsersResponse() {
-      username_ = java.util.Collections.emptyList();
+      users_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -3197,10 +3197,10 @@ public final class DataAccess {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                username_ = new java.util.ArrayList<com.protobuf.DataAccess.UserSearchDto>();
+                users_ = new java.util.ArrayList<com.protobuf.DataAccess.UserSearchDto>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              username_.add(
+              users_.add(
                   input.readMessage(com.protobuf.DataAccess.UserSearchDto.parser(), extensionRegistry));
               break;
             }
@@ -3227,7 +3227,7 @@ public final class DataAccess {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          username_ = java.util.Collections.unmodifiableList(username_);
+          users_ = java.util.Collections.unmodifiableList(users_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3246,44 +3246,44 @@ public final class DataAccess {
               com.protobuf.DataAccess.FilteredUsersResponse.class, com.protobuf.DataAccess.FilteredUsersResponse.Builder.class);
     }
 
-    public static final int USERNAME_FIELD_NUMBER = 1;
-    private java.util.List<com.protobuf.DataAccess.UserSearchDto> username_;
+    public static final int USERS_FIELD_NUMBER = 1;
+    private java.util.List<com.protobuf.DataAccess.UserSearchDto> users_;
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<com.protobuf.DataAccess.UserSearchDto> getUsernameList() {
-      return username_;
+    public java.util.List<com.protobuf.DataAccess.UserSearchDto> getUsersList() {
+      return users_;
     }
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
     @java.lang.Override
     public java.util.List<? extends com.protobuf.DataAccess.UserSearchDtoOrBuilder> 
-        getUsernameOrBuilderList() {
-      return username_;
+        getUsersOrBuilderList() {
+      return users_;
     }
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
     @java.lang.Override
-    public int getUsernameCount() {
-      return username_.size();
+    public int getUsersCount() {
+      return users_.size();
     }
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
     @java.lang.Override
-    public com.protobuf.DataAccess.UserSearchDto getUsername(int index) {
-      return username_.get(index);
+    public com.protobuf.DataAccess.UserSearchDto getUsers(int index) {
+      return users_.get(index);
     }
     /**
-     * <code>repeated .UserSearchDto username = 1;</code>
+     * <code>repeated .UserSearchDto users = 1;</code>
      */
     @java.lang.Override
-    public com.protobuf.DataAccess.UserSearchDtoOrBuilder getUsernameOrBuilder(
+    public com.protobuf.DataAccess.UserSearchDtoOrBuilder getUsersOrBuilder(
         int index) {
-      return username_.get(index);
+      return users_.get(index);
     }
 
     public static final int CODE_FIELD_NUMBER = 2;
@@ -3311,8 +3311,8 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < username_.size(); i++) {
-        output.writeMessage(1, username_.get(i));
+      for (int i = 0; i < users_.size(); i++) {
+        output.writeMessage(1, users_.get(i));
       }
       if (code_ != 0) {
         output.writeInt32(2, code_);
@@ -3326,9 +3326,9 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < username_.size(); i++) {
+      for (int i = 0; i < users_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, username_.get(i));
+          .computeMessageSize(1, users_.get(i));
       }
       if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -3349,8 +3349,8 @@ public final class DataAccess {
       }
       com.protobuf.DataAccess.FilteredUsersResponse other = (com.protobuf.DataAccess.FilteredUsersResponse) obj;
 
-      if (!getUsernameList()
-          .equals(other.getUsernameList())) return false;
+      if (!getUsersList()
+          .equals(other.getUsersList())) return false;
       if (getCode()
           != other.getCode()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -3364,9 +3364,9 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getUsernameCount() > 0) {
-        hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-        hash = (53 * hash) + getUsernameList().hashCode();
+      if (getUsersCount() > 0) {
+        hash = (37 * hash) + USERS_FIELD_NUMBER;
+        hash = (53 * hash) + getUsersList().hashCode();
       }
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode();
@@ -3498,17 +3498,17 @@ public final class DataAccess {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getUsernameFieldBuilder();
+          getUsersFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (usernameBuilder_ == null) {
-          username_ = java.util.Collections.emptyList();
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          usernameBuilder_.clear();
+          usersBuilder_.clear();
         }
         code_ = 0;
 
@@ -3539,14 +3539,14 @@ public final class DataAccess {
       public com.protobuf.DataAccess.FilteredUsersResponse buildPartial() {
         com.protobuf.DataAccess.FilteredUsersResponse result = new com.protobuf.DataAccess.FilteredUsersResponse(this);
         int from_bitField0_ = bitField0_;
-        if (usernameBuilder_ == null) {
+        if (usersBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
-            username_ = java.util.Collections.unmodifiableList(username_);
+            users_ = java.util.Collections.unmodifiableList(users_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.username_ = username_;
+          result.users_ = users_;
         } else {
-          result.username_ = usernameBuilder_.build();
+          result.users_ = usersBuilder_.build();
         }
         result.code_ = code_;
         onBuilt();
@@ -3597,29 +3597,29 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.protobuf.DataAccess.FilteredUsersResponse other) {
         if (other == com.protobuf.DataAccess.FilteredUsersResponse.getDefaultInstance()) return this;
-        if (usernameBuilder_ == null) {
-          if (!other.username_.isEmpty()) {
-            if (username_.isEmpty()) {
-              username_ = other.username_;
+        if (usersBuilder_ == null) {
+          if (!other.users_.isEmpty()) {
+            if (users_.isEmpty()) {
+              users_ = other.users_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureUsernameIsMutable();
-              username_.addAll(other.username_);
+              ensureUsersIsMutable();
+              users_.addAll(other.users_);
             }
             onChanged();
           }
         } else {
-          if (!other.username_.isEmpty()) {
-            if (usernameBuilder_.isEmpty()) {
-              usernameBuilder_.dispose();
-              usernameBuilder_ = null;
-              username_ = other.username_;
+          if (!other.users_.isEmpty()) {
+            if (usersBuilder_.isEmpty()) {
+              usersBuilder_.dispose();
+              usersBuilder_ = null;
+              users_ = other.users_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              usernameBuilder_ = 
+              usersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getUsernameFieldBuilder() : null;
+                   getUsersFieldBuilder() : null;
             } else {
-              usernameBuilder_.addAllMessages(other.username_);
+              usersBuilder_.addAllMessages(other.users_);
             }
           }
         }
@@ -3656,244 +3656,244 @@ public final class DataAccess {
       }
       private int bitField0_;
 
-      private java.util.List<com.protobuf.DataAccess.UserSearchDto> username_ =
+      private java.util.List<com.protobuf.DataAccess.UserSearchDto> users_ =
         java.util.Collections.emptyList();
-      private void ensureUsernameIsMutable() {
+      private void ensureUsersIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          username_ = new java.util.ArrayList<com.protobuf.DataAccess.UserSearchDto>(username_);
+          users_ = new java.util.ArrayList<com.protobuf.DataAccess.UserSearchDto>(users_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.UserSearchDto.Builder, com.protobuf.DataAccess.UserSearchDtoOrBuilder> usernameBuilder_;
+          com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.UserSearchDto.Builder, com.protobuf.DataAccess.UserSearchDtoOrBuilder> usersBuilder_;
 
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public java.util.List<com.protobuf.DataAccess.UserSearchDto> getUsernameList() {
-        if (usernameBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(username_);
+      public java.util.List<com.protobuf.DataAccess.UserSearchDto> getUsersList() {
+        if (usersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(users_);
         } else {
-          return usernameBuilder_.getMessageList();
+          return usersBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public int getUsernameCount() {
-        if (usernameBuilder_ == null) {
-          return username_.size();
+      public int getUsersCount() {
+        if (usersBuilder_ == null) {
+          return users_.size();
         } else {
-          return usernameBuilder_.getCount();
+          return usersBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public com.protobuf.DataAccess.UserSearchDto getUsername(int index) {
-        if (usernameBuilder_ == null) {
-          return username_.get(index);
+      public com.protobuf.DataAccess.UserSearchDto getUsers(int index) {
+        if (usersBuilder_ == null) {
+          return users_.get(index);
         } else {
-          return usernameBuilder_.getMessage(index);
+          return usersBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder setUsername(
+      public Builder setUsers(
           int index, com.protobuf.DataAccess.UserSearchDto value) {
-        if (usernameBuilder_ == null) {
+        if (usersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureUsernameIsMutable();
-          username_.set(index, value);
+          ensureUsersIsMutable();
+          users_.set(index, value);
           onChanged();
         } else {
-          usernameBuilder_.setMessage(index, value);
+          usersBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder setUsername(
+      public Builder setUsers(
           int index, com.protobuf.DataAccess.UserSearchDto.Builder builderForValue) {
-        if (usernameBuilder_ == null) {
-          ensureUsernameIsMutable();
-          username_.set(index, builderForValue.build());
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.set(index, builderForValue.build());
           onChanged();
         } else {
-          usernameBuilder_.setMessage(index, builderForValue.build());
+          usersBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder addUsername(com.protobuf.DataAccess.UserSearchDto value) {
-        if (usernameBuilder_ == null) {
+      public Builder addUsers(com.protobuf.DataAccess.UserSearchDto value) {
+        if (usersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureUsernameIsMutable();
-          username_.add(value);
+          ensureUsersIsMutable();
+          users_.add(value);
           onChanged();
         } else {
-          usernameBuilder_.addMessage(value);
+          usersBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder addUsername(
+      public Builder addUsers(
           int index, com.protobuf.DataAccess.UserSearchDto value) {
-        if (usernameBuilder_ == null) {
+        if (usersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureUsernameIsMutable();
-          username_.add(index, value);
+          ensureUsersIsMutable();
+          users_.add(index, value);
           onChanged();
         } else {
-          usernameBuilder_.addMessage(index, value);
+          usersBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder addUsername(
+      public Builder addUsers(
           com.protobuf.DataAccess.UserSearchDto.Builder builderForValue) {
-        if (usernameBuilder_ == null) {
-          ensureUsernameIsMutable();
-          username_.add(builderForValue.build());
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(builderForValue.build());
           onChanged();
         } else {
-          usernameBuilder_.addMessage(builderForValue.build());
+          usersBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder addUsername(
+      public Builder addUsers(
           int index, com.protobuf.DataAccess.UserSearchDto.Builder builderForValue) {
-        if (usernameBuilder_ == null) {
-          ensureUsernameIsMutable();
-          username_.add(index, builderForValue.build());
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.add(index, builderForValue.build());
           onChanged();
         } else {
-          usernameBuilder_.addMessage(index, builderForValue.build());
+          usersBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder addAllUsername(
+      public Builder addAllUsers(
           java.lang.Iterable<? extends com.protobuf.DataAccess.UserSearchDto> values) {
-        if (usernameBuilder_ == null) {
-          ensureUsernameIsMutable();
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, username_);
+              values, users_);
           onChanged();
         } else {
-          usernameBuilder_.addAllMessages(values);
+          usersBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder clearUsername() {
-        if (usernameBuilder_ == null) {
-          username_ = java.util.Collections.emptyList();
+      public Builder clearUsers() {
+        if (usersBuilder_ == null) {
+          users_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          usernameBuilder_.clear();
+          usersBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public Builder removeUsername(int index) {
-        if (usernameBuilder_ == null) {
-          ensureUsernameIsMutable();
-          username_.remove(index);
+      public Builder removeUsers(int index) {
+        if (usersBuilder_ == null) {
+          ensureUsersIsMutable();
+          users_.remove(index);
           onChanged();
         } else {
-          usernameBuilder_.remove(index);
+          usersBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public com.protobuf.DataAccess.UserSearchDto.Builder getUsernameBuilder(
+      public com.protobuf.DataAccess.UserSearchDto.Builder getUsersBuilder(
           int index) {
-        return getUsernameFieldBuilder().getBuilder(index);
+        return getUsersFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public com.protobuf.DataAccess.UserSearchDtoOrBuilder getUsernameOrBuilder(
+      public com.protobuf.DataAccess.UserSearchDtoOrBuilder getUsersOrBuilder(
           int index) {
-        if (usernameBuilder_ == null) {
-          return username_.get(index);  } else {
-          return usernameBuilder_.getMessageOrBuilder(index);
+        if (usersBuilder_ == null) {
+          return users_.get(index);  } else {
+          return usersBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
       public java.util.List<? extends com.protobuf.DataAccess.UserSearchDtoOrBuilder> 
-           getUsernameOrBuilderList() {
-        if (usernameBuilder_ != null) {
-          return usernameBuilder_.getMessageOrBuilderList();
+           getUsersOrBuilderList() {
+        if (usersBuilder_ != null) {
+          return usersBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(username_);
+          return java.util.Collections.unmodifiableList(users_);
         }
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public com.protobuf.DataAccess.UserSearchDto.Builder addUsernameBuilder() {
-        return getUsernameFieldBuilder().addBuilder(
+      public com.protobuf.DataAccess.UserSearchDto.Builder addUsersBuilder() {
+        return getUsersFieldBuilder().addBuilder(
             com.protobuf.DataAccess.UserSearchDto.getDefaultInstance());
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
-      public com.protobuf.DataAccess.UserSearchDto.Builder addUsernameBuilder(
+      public com.protobuf.DataAccess.UserSearchDto.Builder addUsersBuilder(
           int index) {
-        return getUsernameFieldBuilder().addBuilder(
+        return getUsersFieldBuilder().addBuilder(
             index, com.protobuf.DataAccess.UserSearchDto.getDefaultInstance());
       }
       /**
-       * <code>repeated .UserSearchDto username = 1;</code>
+       * <code>repeated .UserSearchDto users = 1;</code>
        */
       public java.util.List<com.protobuf.DataAccess.UserSearchDto.Builder> 
-           getUsernameBuilderList() {
-        return getUsernameFieldBuilder().getBuilderList();
+           getUsersBuilderList() {
+        return getUsersFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
           com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.UserSearchDto.Builder, com.protobuf.DataAccess.UserSearchDtoOrBuilder> 
-          getUsernameFieldBuilder() {
-        if (usernameBuilder_ == null) {
-          usernameBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getUsersFieldBuilder() {
+        if (usersBuilder_ == null) {
+          usersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.UserSearchDto.Builder, com.protobuf.DataAccess.UserSearchDtoOrBuilder>(
-                  username_,
+                  users_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
-          username_ = null;
+          users_ = null;
         }
-        return usernameBuilder_;
+        return usersBuilder_;
       }
 
       private int code_ ;
@@ -6723,6 +6723,576 @@ public final class DataAccess {
 
   }
 
+  public interface PasswordOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Password)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string password = 1;</code>
+     * @return The password.
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>string password = 1;</code>
+     * @return The bytes for password.
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+  }
+  /**
+   * Protobuf type {@code Password}
+   */
+  public static final class Password extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Password)
+      PasswordOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Password.newBuilder() to construct.
+    private Password(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Password() {
+      password_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Password();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Password(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.protobuf.DataAccess.internal_static_Password_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.protobuf.DataAccess.internal_static_Password_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.protobuf.DataAccess.Password.class, com.protobuf.DataAccess.Password.Builder.class);
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 1;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>string password = 1;</code>
+     * @return The password.
+     */
+    @java.lang.Override
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string password = 1;</code>
+     * @return The bytes for password.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, password_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, password_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.protobuf.DataAccess.Password)) {
+        return super.equals(obj);
+      }
+      com.protobuf.DataAccess.Password other = (com.protobuf.DataAccess.Password) obj;
+
+      if (!getPassword()
+          .equals(other.getPassword())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.protobuf.DataAccess.Password parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.Password parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.Password parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.Password parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.protobuf.DataAccess.Password prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Password}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Password)
+        com.protobuf.DataAccess.PasswordOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.protobuf.DataAccess.internal_static_Password_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.protobuf.DataAccess.internal_static_Password_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.protobuf.DataAccess.Password.class, com.protobuf.DataAccess.Password.Builder.class);
+      }
+
+      // Construct using com.protobuf.DataAccess.Password.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        password_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.protobuf.DataAccess.internal_static_Password_descriptor;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.Password getDefaultInstanceForType() {
+        return com.protobuf.DataAccess.Password.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.Password build() {
+        com.protobuf.DataAccess.Password result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.Password buildPartial() {
+        com.protobuf.DataAccess.Password result = new com.protobuf.DataAccess.Password(this);
+        result.password_ = password_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.protobuf.DataAccess.Password) {
+          return mergeFrom((com.protobuf.DataAccess.Password)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.protobuf.DataAccess.Password other) {
+        if (other == com.protobuf.DataAccess.Password.getDefaultInstance()) return this;
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.protobuf.DataAccess.Password parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.protobuf.DataAccess.Password) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>string password = 1;</code>
+       * @return The password.
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string password = 1;</code>
+       * @return The bytes for password.
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string password = 1;</code>
+       * @param value The password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string password = 1;</code>
+       * @param value The bytes for password to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Password)
+    }
+
+    // @@protoc_insertion_point(class_scope:Password)
+    private static final com.protobuf.DataAccess.Password DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.protobuf.DataAccess.Password();
+    }
+
+    public static com.protobuf.DataAccess.Password getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Password>
+        PARSER = new com.google.protobuf.AbstractParser<Password>() {
+      @java.lang.Override
+      public Password parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Password(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Password> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Password> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.protobuf.DataAccess.Password getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UserDto_descriptor;
   private static final 
@@ -6768,6 +7338,11 @@ public final class DataAccess {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ProjectDto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Password_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Password_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -6783,24 +7358,26 @@ public final class DataAccess {
       "\n\010Response\022\014\n\004code\030\001 \001(\005\"\030\n\004Role\022\020\n\010role" +
       "Name\030\001 \001(\t\"F\n\rUserSearchDto\022\021\n\tfirstName" +
       "\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\020\n\010username\030\003 \001" +
-      "(\t\"G\n\025FilteredUsersResponse\022 \n\010username\030" +
-      "\001 \003(\0132\016.UserSearchDto\022\014\n\004code\030\002 \001(\005\";\n\023U" +
-      "pdatedUserResponse\022\026\n\004user\030\001 \001(\0132\010.UserD" +
-      "to\022\014\n\004code\030\002 \001(\005\"\034\n\010Username\022\020\n\010username" +
-      "\030\001 \001(\t\"B\n\017AddToProjectDto\022\034\n\004user\030\001 \001(\0132" +
-      "\016.UserSearchDto\022\021\n\tprojectId\030\002 \001(\005\"2\n\nPr" +
-      "ojectDto\022\025\n\rownerUsername\030\001 \001(\t\022\r\n\005title" +
-      "\030\002 \001(\t2\345\001\n\nUserAccess\022!\n\nCreateUser\022\010.Us" +
-      "erDto\032\t.Response\022,\n\013UsersByRole\022\005.Role\032\026" +
-      ".FilteredUsersResponse\0224\n\nUserByName\022\016.U" +
-      "serSearchDto\032\026.FilteredUsersResponse\022,\n\n" +
-      "UpdateUser\022\010.UserDto\032\024.UpdatedUserRespon" +
-      "se\022\"\n\nDeleteUser\022\t.Username\032\t.Response2\224" +
-      "\001\n\rProjectAccess\022\'\n\rCreateProject\022\013.Proj" +
-      "ectDto\032\t.Response\022-\n\016AddScrumMaster\022\020.Ad" +
-      "dToProjectDto\032\t.Response\022+\n\014AddDeveloper" +
-      "\022\020.AddToProjectDto\032\t.ResponseB!\n\014com.pro" +
-      "tobuf\252\002\020DataAccessClientb\006proto3"
+      "(\t\"D\n\025FilteredUsersResponse\022\035\n\005users\030\001 \003" +
+      "(\0132\016.UserSearchDto\022\014\n\004code\030\002 \001(\005\";\n\023Upda" +
+      "tedUserResponse\022\026\n\004user\030\001 \001(\0132\010.UserDto\022" +
+      "\014\n\004code\030\002 \001(\005\"\034\n\010Username\022\020\n\010username\030\001 " +
+      "\001(\t\"B\n\017AddToProjectDto\022\034\n\004user\030\001 \001(\0132\016.U" +
+      "serSearchDto\022\021\n\tprojectId\030\002 \001(\005\"2\n\nProje" +
+      "ctDto\022\025\n\rownerUsername\030\001 \001(\t\022\r\n\005title\030\002 " +
+      "\001(\t\"\034\n\010Password\022\020\n\010password\030\001 \001(\t2\373\001\n\nUs" +
+      "erAccess\022!\n\nCreateUser\022\010.UserDto\032\t.Respo" +
+      "nse\022,\n\013UsersByRole\022\005.Role\032\026.FilteredUser" +
+      "sResponse\022%\n\016UserByUsername\022\t.Username\032\010" +
+      ".UserDto\022,\n\nUpdateUser\022\010.UserDto\032\024.Updat" +
+      "edUserResponse\022\"\n\nDeleteUser\022\t.Username\032" +
+      "\t.Response\022#\n\013GetPassword\022\t.Username\032\t.P" +
+      "assword2\224\001\n\rProjectAccess\022\'\n\rCreateProje" +
+      "ct\022\013.ProjectDto\032\t.Response\022-\n\016AddScrumMa" +
+      "ster\022\020.AddToProjectDto\032\t.Response\022+\n\014Add" +
+      "Developer\022\020.AddToProjectDto\032\t.ResponseB!" +
+      "\n\014com.protobuf\252\002\020DataAccessClientb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6835,7 +7412,7 @@ public final class DataAccess {
     internal_static_FilteredUsersResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FilteredUsersResponse_descriptor,
-        new java.lang.String[] { "Username", "Code", });
+        new java.lang.String[] { "Users", "Code", });
     internal_static_UpdatedUserResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_UpdatedUserResponse_fieldAccessorTable = new
@@ -6860,6 +7437,12 @@ public final class DataAccess {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectDto_descriptor,
         new java.lang.String[] { "OwnerUsername", "Title", });
+    internal_static_Password_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_Password_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Password_descriptor,
+        new java.lang.String[] { "Password", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

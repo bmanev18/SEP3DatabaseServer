@@ -14,6 +14,8 @@ public interface DAO {
     DataAccess.FilteredUsersResponse getUsersByName(DataAccess.UserSearchDto dto) throws SQLException;
     DataAccess.UpdatedUserResponse updateUser(DataAccess.UserDto dto) throws SQLException;
     DataAccess.Response deleteUser(DataAccess.Username dto) throws SQLException;
+    DataAccess.Password getPassword(DataAccess.Username username) throws SQLException;
+    DataAccess.UserDto getUserByUsername(DataAccess.Username username) throws SQLException;
 
 
 

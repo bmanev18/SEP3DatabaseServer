@@ -25,17 +25,15 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
         responseObserver.onCompleted();
     }
 
-//    @Override
-//    public void login(DataAccess.UserLoginDto request, StreamObserver<DataAccess.LoginResponse> responseObserver) {
-//        System.out.printf("Received request to login: %s", request.getUsername());
-//
-//        try {
-//            responseObserver.onNext(dao.loginUser(request));
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        responseObserver.onCompleted();
-//    }
+    @Override
+    public void getPassword(DataAccess.Username request, StreamObserver<DataAccess.Password> responseObserver) {
+        try {
+            responseObserver.onNext(dao.getPassword(request));
+        } catch (SQLException e){
+            throw new RuntimeException();
+        }
+        responseObserver.onCompleted();
+    }
 
     @Override
     public void usersByRole(DataAccess.Role request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
@@ -49,13 +47,13 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void userByName(DataAccess.UserSearchDto request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
-        System.out.printf("Received request to search user by name: %s", request.getFirstName(), request.getLastName(), request.getUsername());
 
+    @Override
+    public void userByUsername(DataAccess.Username request, StreamObserver<DataAccess.UserDto> responseObserver) {
+        System.out.printf("Received request to search user by username: %s", request.getUsername());
         try {
-            responseObserver.onNext(dao.getUsersByName(request));
-        } catch (SQLException e) {
+            responseObserver.onNext(dao.getUserByUsername(request));
+        } catch (SQLException e){
             throw new RuntimeException(e);
         }
         responseObserver.onCompleted();

@@ -76,35 +76,35 @@ public final class UserAccessGrpc {
     return getUsersByRoleMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.UserSearchDto,
-      com.protobuf.DataAccess.FilteredUsersResponse> getUserByNameMethod;
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username,
+      com.protobuf.DataAccess.UserDto> getUserByUsernameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "UserByName",
-      requestType = com.protobuf.DataAccess.UserSearchDto.class,
-      responseType = com.protobuf.DataAccess.FilteredUsersResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "UserByUsername",
+      requestType = com.protobuf.DataAccess.Username.class,
+      responseType = com.protobuf.DataAccess.UserDto.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.UserSearchDto,
-      com.protobuf.DataAccess.FilteredUsersResponse> getUserByNameMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.FilteredUsersResponse> getUserByNameMethod;
-    if ((getUserByNameMethod = UserAccessGrpc.getUserByNameMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username,
+      com.protobuf.DataAccess.UserDto> getUserByUsernameMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username, com.protobuf.DataAccess.UserDto> getUserByUsernameMethod;
+    if ((getUserByUsernameMethod = UserAccessGrpc.getUserByUsernameMethod) == null) {
       synchronized (UserAccessGrpc.class) {
-        if ((getUserByNameMethod = UserAccessGrpc.getUserByNameMethod) == null) {
-          UserAccessGrpc.getUserByNameMethod = getUserByNameMethod =
-              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.UserSearchDto, com.protobuf.DataAccess.FilteredUsersResponse>newBuilder()
+        if ((getUserByUsernameMethod = UserAccessGrpc.getUserByUsernameMethod) == null) {
+          UserAccessGrpc.getUserByUsernameMethod = getUserByUsernameMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.Username, com.protobuf.DataAccess.UserDto>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UserByName"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UserByUsername"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.UserSearchDto.getDefaultInstance()))
+                  com.protobuf.DataAccess.Username.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.FilteredUsersResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new UserAccessMethodDescriptorSupplier("UserByName"))
+                  com.protobuf.DataAccess.UserDto.getDefaultInstance()))
+              .setSchemaDescriptor(new UserAccessMethodDescriptorSupplier("UserByUsername"))
               .build();
         }
       }
     }
-    return getUserByNameMethod;
+    return getUserByUsernameMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.UserDto,
@@ -167,6 +167,37 @@ public final class UserAccessGrpc {
       }
     }
     return getDeleteUserMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username,
+      com.protobuf.DataAccess.Password> getGetPasswordMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetPassword",
+      requestType = com.protobuf.DataAccess.Username.class,
+      responseType = com.protobuf.DataAccess.Password.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username,
+      com.protobuf.DataAccess.Password> getGetPasswordMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username, com.protobuf.DataAccess.Password> getGetPasswordMethod;
+    if ((getGetPasswordMethod = UserAccessGrpc.getGetPasswordMethod) == null) {
+      synchronized (UserAccessGrpc.class) {
+        if ((getGetPasswordMethod = UserAccessGrpc.getGetPasswordMethod) == null) {
+          UserAccessGrpc.getGetPasswordMethod = getGetPasswordMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.Username, com.protobuf.DataAccess.Password>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetPassword"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.Username.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.Password.getDefaultInstance()))
+              .setSchemaDescriptor(new UserAccessMethodDescriptorSupplier("GetPassword"))
+              .build();
+        }
+      }
+    }
+    return getGetPasswordMethod;
   }
 
   /**
@@ -236,9 +267,9 @@ public final class UserAccessGrpc {
 
     /**
      */
-    public void userByName(com.protobuf.DataAccess.UserSearchDto request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.FilteredUsersResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUserByNameMethod(), responseObserver);
+    public void userByUsername(com.protobuf.DataAccess.Username request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserDto> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUserByUsernameMethod(), responseObserver);
     }
 
     /**
@@ -253,6 +284,13 @@ public final class UserAccessGrpc {
     public void deleteUser(com.protobuf.DataAccess.Username request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteUserMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getPassword(com.protobuf.DataAccess.Username request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Password> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPasswordMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -272,12 +310,12 @@ public final class UserAccessGrpc {
                 com.protobuf.DataAccess.FilteredUsersResponse>(
                   this, METHODID_USERS_BY_ROLE)))
           .addMethod(
-            getUserByNameMethod(),
+            getUserByUsernameMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.protobuf.DataAccess.UserSearchDto,
-                com.protobuf.DataAccess.FilteredUsersResponse>(
-                  this, METHODID_USER_BY_NAME)))
+                com.protobuf.DataAccess.Username,
+                com.protobuf.DataAccess.UserDto>(
+                  this, METHODID_USER_BY_USERNAME)))
           .addMethod(
             getUpdateUserMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -292,6 +330,13 @@ public final class UserAccessGrpc {
                 com.protobuf.DataAccess.Username,
                 com.protobuf.DataAccess.Response>(
                   this, METHODID_DELETE_USER)))
+          .addMethod(
+            getGetPasswordMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.protobuf.DataAccess.Username,
+                com.protobuf.DataAccess.Password>(
+                  this, METHODID_GET_PASSWORD)))
           .build();
     }
   }
@@ -331,10 +376,10 @@ public final class UserAccessGrpc {
 
     /**
      */
-    public void userByName(com.protobuf.DataAccess.UserSearchDto request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.FilteredUsersResponse> responseObserver) {
+    public void userByUsername(com.protobuf.DataAccess.Username request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserDto> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getUserByNameMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getUserByUsernameMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -351,6 +396,14 @@ public final class UserAccessGrpc {
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getPassword(com.protobuf.DataAccess.Username request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Password> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetPasswordMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -387,9 +440,9 @@ public final class UserAccessGrpc {
 
     /**
      */
-    public com.protobuf.DataAccess.FilteredUsersResponse userByName(com.protobuf.DataAccess.UserSearchDto request) {
+    public com.protobuf.DataAccess.UserDto userByUsername(com.protobuf.DataAccess.Username request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getUserByNameMethod(), getCallOptions(), request);
+          getChannel(), getUserByUsernameMethod(), getCallOptions(), request);
     }
 
     /**
@@ -404,6 +457,13 @@ public final class UserAccessGrpc {
     public com.protobuf.DataAccess.Response deleteUser(com.protobuf.DataAccess.Username request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.protobuf.DataAccess.Password getPassword(com.protobuf.DataAccess.Username request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetPasswordMethod(), getCallOptions(), request);
     }
   }
 
@@ -442,10 +502,10 @@ public final class UserAccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.FilteredUsersResponse> userByName(
-        com.protobuf.DataAccess.UserSearchDto request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.UserDto> userByUsername(
+        com.protobuf.DataAccess.Username request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getUserByNameMethod(), getCallOptions()), request);
+          getChannel().newCall(getUserByUsernameMethod(), getCallOptions()), request);
     }
 
     /**
@@ -463,13 +523,22 @@ public final class UserAccessGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteUserMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Password> getPassword(
+        com.protobuf.DataAccess.Username request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetPasswordMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_USER = 0;
   private static final int METHODID_USERS_BY_ROLE = 1;
-  private static final int METHODID_USER_BY_NAME = 2;
+  private static final int METHODID_USER_BY_USERNAME = 2;
   private static final int METHODID_UPDATE_USER = 3;
   private static final int METHODID_DELETE_USER = 4;
+  private static final int METHODID_GET_PASSWORD = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -496,9 +565,9 @@ public final class UserAccessGrpc {
           serviceImpl.usersByRole((com.protobuf.DataAccess.Role) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.FilteredUsersResponse>) responseObserver);
           break;
-        case METHODID_USER_BY_NAME:
-          serviceImpl.userByName((com.protobuf.DataAccess.UserSearchDto) request,
-              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.FilteredUsersResponse>) responseObserver);
+        case METHODID_USER_BY_USERNAME:
+          serviceImpl.userByUsername((com.protobuf.DataAccess.Username) request,
+              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserDto>) responseObserver);
           break;
         case METHODID_UPDATE_USER:
           serviceImpl.updateUser((com.protobuf.DataAccess.UserDto) request,
@@ -507,6 +576,10 @@ public final class UserAccessGrpc {
         case METHODID_DELETE_USER:
           serviceImpl.deleteUser((com.protobuf.DataAccess.Username) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
+          break;
+        case METHODID_GET_PASSWORD:
+          serviceImpl.getPassword((com.protobuf.DataAccess.Username) request,
+              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Password>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -571,9 +644,10 @@ public final class UserAccessGrpc {
               .setSchemaDescriptor(new UserAccessFileDescriptorSupplier())
               .addMethod(getCreateUserMethod())
               .addMethod(getUsersByRoleMethod())
-              .addMethod(getUserByNameMethod())
+              .addMethod(getUserByUsernameMethod())
               .addMethod(getUpdateUserMethod())
               .addMethod(getDeleteUserMethod())
+              .addMethod(getGetPasswordMethod())
               .build();
         }
       }

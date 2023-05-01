@@ -22,7 +22,7 @@ public class DAOImpl implements DAO {
         statement.setString(2, dto.getFirstName());
         statement.setString(3, dto.getLastName());
         statement.setString(4, dto.getPassword());
-        statement.setString(5, dto.getRoleId());
+        statement.setInt(5, Integer.parseInt(dto.getRoleId()));
 
         int rowsAffected = statement.executeUpdate();
         statement.close();
@@ -103,7 +103,7 @@ public class DAOImpl implements DAO {
         int code = 404;
 
         while (result.next()){
-            builder.addUsername(DataAccess.UserSearchDto.newBuilder()
+            builder.addUsers(DataAccess.UserSearchDto.newBuilder()
                     .setUsername(result.getString("username"))
                     .setFirstName(result.getString("firstName"))
                     .setLastName(result.getString("lastName"))
@@ -128,7 +128,7 @@ public class DAOImpl implements DAO {
         int code = 404;
 
         while (result.next()){
-            builder.addUsername(DataAccess.UserSearchDto.newBuilder()
+            builder.addUsers(DataAccess.UserSearchDto.newBuilder()
                     .setUsername(result.getString("username"))
                     .setFirstName(result.getString("firstName"))
                     .setLastName(result.getString("lastName"))
@@ -197,6 +197,38 @@ public class DAOImpl implements DAO {
 //
 //        return builder.setCode(code).build();
         return null;
+    }
+
+    @Override
+    public DataAccess.Password getPassword(DataAccess.Username username) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT password from user where username=?;");
+        statement.setString(1, username.getUsername());
+
+        ResultSet rs  = statement.executeQuery();
+        DataAccess.Password.Builder builder = DataAccess.Password.newBuilder();
+        if (rs.next()){
+            builder.setPassword(rs.getString("password"));
+        }
+        statement.close();
+        return builder.build();
+    }
+
+    @Override
+    public DataAccess.UserDto getUserByUsername(DataAccess.Username username) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * from user where username=?;");
+        statement.setString(1, username.getUsername());
+
+        ResultSet rs  = statement.executeQuery();
+        DataAccess.UserDto.Builder builder = DataAccess.UserDto.newBuilder();
+        if (rs.next()){
+            builder.setUsername(rs.getString("username"));
+            builder.setPassword(rs.getString("password"));
+            builder.setFirstName(rs.getString("firstname"));
+            builder.setLastName(rs.getString("lastname"));
+            builder.setRoleId(String.valueOf(rs.getString("role_id")));
+        }
+        statement.close();
+        return builder.build();
     }
 
 }
