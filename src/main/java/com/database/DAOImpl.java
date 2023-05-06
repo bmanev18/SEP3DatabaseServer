@@ -254,7 +254,19 @@ public class DAOImpl implements DAO {
 
     @Override
     public DataAccess.ResponseWithID removeCollaborator(DataAccess.AddToProjectDto user) throws SQLException {
-        return null;
+        PreparedStatement statement = connection.prepareStatement("DELETE from worksOn where  username = ? and project_id = ?");
+        statement.setString(1,user.getUsername());
+        statement.setInt(2,user.getProjectId());
+
+        int rowsAffected = statement.executeUpdate();
+        int code = 404;
+        if (rowsAffected==1){
+            code = 200;
+        }
+        statement.close();
+        return DataAccess.ResponseWithID.newBuilder().
+                setCode(code).
+                build();
     }
 
 }
