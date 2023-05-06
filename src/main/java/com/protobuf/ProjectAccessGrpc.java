@@ -45,6 +45,37 @@ public final class ProjectAccessGrpc {
     return getCreateProjectMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
+      com.protobuf.DataAccess.FilteredUsersResponse> getGetAllCollaboratorsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetAllCollaborators",
+      requestType = com.protobuf.DataAccess.Id.class,
+      responseType = com.protobuf.DataAccess.FilteredUsersResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
+      com.protobuf.DataAccess.FilteredUsersResponse> getGetAllCollaboratorsMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.FilteredUsersResponse> getGetAllCollaboratorsMethod;
+    if ((getGetAllCollaboratorsMethod = ProjectAccessGrpc.getGetAllCollaboratorsMethod) == null) {
+      synchronized (ProjectAccessGrpc.class) {
+        if ((getGetAllCollaboratorsMethod = ProjectAccessGrpc.getGetAllCollaboratorsMethod) == null) {
+          ProjectAccessGrpc.getGetAllCollaboratorsMethod = getGetAllCollaboratorsMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.FilteredUsersResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAllCollaborators"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.Id.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.FilteredUsersResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("GetAllCollaborators"))
+              .build();
+        }
+      }
+    }
+    return getGetAllCollaboratorsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto,
       com.protobuf.DataAccess.Response> getAddCollaboratorMethod;
 
@@ -74,6 +105,37 @@ public final class ProjectAccessGrpc {
       }
     }
     return getAddCollaboratorMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto,
+      com.protobuf.DataAccess.ResponseWithID> getRemoveCollaboratorMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RemoveCollaborator",
+      requestType = com.protobuf.DataAccess.AddToProjectDto.class,
+      responseType = com.protobuf.DataAccess.ResponseWithID.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto,
+      com.protobuf.DataAccess.ResponseWithID> getRemoveCollaboratorMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.AddToProjectDto, com.protobuf.DataAccess.ResponseWithID> getRemoveCollaboratorMethod;
+    if ((getRemoveCollaboratorMethod = ProjectAccessGrpc.getRemoveCollaboratorMethod) == null) {
+      synchronized (ProjectAccessGrpc.class) {
+        if ((getRemoveCollaboratorMethod = ProjectAccessGrpc.getRemoveCollaboratorMethod) == null) {
+          ProjectAccessGrpc.getRemoveCollaboratorMethod = getRemoveCollaboratorMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.AddToProjectDto, com.protobuf.DataAccess.ResponseWithID>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveCollaborator"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.AddToProjectDto.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.ResponseWithID.getDefaultInstance()))
+              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("RemoveCollaborator"))
+              .build();
+        }
+      }
+    }
+    return getRemoveCollaboratorMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.UserStoryMessage,
@@ -226,9 +288,23 @@ public final class ProjectAccessGrpc {
 
     /**
      */
+    public void getAllCollaborators(com.protobuf.DataAccess.Id request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.FilteredUsersResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllCollaboratorsMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void addCollaborator(com.protobuf.DataAccess.AddToProjectDto request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddCollaboratorMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void removeCollaborator(com.protobuf.DataAccess.AddToProjectDto request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ResponseWithID> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRemoveCollaboratorMethod(), responseObserver);
     }
 
     /**
@@ -262,12 +338,26 @@ public final class ProjectAccessGrpc {
                 com.protobuf.DataAccess.ResponseWithID>(
                   this, METHODID_CREATE_PROJECT)))
           .addMethod(
+            getGetAllCollaboratorsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.protobuf.DataAccess.Id,
+                com.protobuf.DataAccess.FilteredUsersResponse>(
+                  this, METHODID_GET_ALL_COLLABORATORS)))
+          .addMethod(
             getAddCollaboratorMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.protobuf.DataAccess.AddToProjectDto,
                 com.protobuf.DataAccess.Response>(
                   this, METHODID_ADD_COLLABORATOR)))
+          .addMethod(
+            getRemoveCollaboratorMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.protobuf.DataAccess.AddToProjectDto,
+                com.protobuf.DataAccess.ResponseWithID>(
+                  this, METHODID_REMOVE_COLLABORATOR)))
           .addMethod(
             getAddUserStoryMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -317,10 +407,26 @@ public final class ProjectAccessGrpc {
 
     /**
      */
+    public void getAllCollaborators(com.protobuf.DataAccess.Id request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.FilteredUsersResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAllCollaboratorsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void addCollaborator(com.protobuf.DataAccess.AddToProjectDto request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getAddCollaboratorMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void removeCollaborator(com.protobuf.DataAccess.AddToProjectDto request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ResponseWithID> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRemoveCollaboratorMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -371,9 +477,23 @@ public final class ProjectAccessGrpc {
 
     /**
      */
+    public com.protobuf.DataAccess.FilteredUsersResponse getAllCollaborators(com.protobuf.DataAccess.Id request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAllCollaboratorsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.protobuf.DataAccess.Response addCollaborator(com.protobuf.DataAccess.AddToProjectDto request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getAddCollaboratorMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.protobuf.DataAccess.ResponseWithID removeCollaborator(com.protobuf.DataAccess.AddToProjectDto request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRemoveCollaboratorMethod(), getCallOptions(), request);
     }
 
     /**
@@ -422,10 +542,26 @@ public final class ProjectAccessGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.FilteredUsersResponse> getAllCollaborators(
+        com.protobuf.DataAccess.Id request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAllCollaboratorsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> addCollaborator(
         com.protobuf.DataAccess.AddToProjectDto request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getAddCollaboratorMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.ResponseWithID> removeCollaborator(
+        com.protobuf.DataAccess.AddToProjectDto request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRemoveCollaboratorMethod(), getCallOptions()), request);
     }
 
     /**
@@ -454,10 +590,12 @@ public final class ProjectAccessGrpc {
   }
 
   private static final int METHODID_CREATE_PROJECT = 0;
-  private static final int METHODID_ADD_COLLABORATOR = 1;
-  private static final int METHODID_ADD_USER_STORY = 2;
-  private static final int METHODID_GET_ALL_PROJECTS = 3;
-  private static final int METHODID_GET_PRODUCT_BACKLOG = 4;
+  private static final int METHODID_GET_ALL_COLLABORATORS = 1;
+  private static final int METHODID_ADD_COLLABORATOR = 2;
+  private static final int METHODID_REMOVE_COLLABORATOR = 3;
+  private static final int METHODID_ADD_USER_STORY = 4;
+  private static final int METHODID_GET_ALL_PROJECTS = 5;
+  private static final int METHODID_GET_PRODUCT_BACKLOG = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -480,9 +618,17 @@ public final class ProjectAccessGrpc {
           serviceImpl.createProject((com.protobuf.DataAccess.ProjectCreationDto) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ResponseWithID>) responseObserver);
           break;
+        case METHODID_GET_ALL_COLLABORATORS:
+          serviceImpl.getAllCollaborators((com.protobuf.DataAccess.Id) request,
+              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.FilteredUsersResponse>) responseObserver);
+          break;
         case METHODID_ADD_COLLABORATOR:
           serviceImpl.addCollaborator((com.protobuf.DataAccess.AddToProjectDto) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
+          break;
+        case METHODID_REMOVE_COLLABORATOR:
+          serviceImpl.removeCollaborator((com.protobuf.DataAccess.AddToProjectDto) request,
+              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ResponseWithID>) responseObserver);
           break;
         case METHODID_ADD_USER_STORY:
           serviceImpl.addUserStory((com.protobuf.DataAccess.UserStoryMessage) request,
@@ -558,7 +704,9 @@ public final class ProjectAccessGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ProjectAccessFileDescriptorSupplier())
               .addMethod(getCreateProjectMethod())
+              .addMethod(getGetAllCollaboratorsMethod())
               .addMethod(getAddCollaboratorMethod())
+              .addMethod(getRemoveCollaboratorMethod())
               .addMethod(getAddUserStoryMethod())
               .addMethod(getGetAllProjectsMethod())
               .addMethod(getGetProductBacklogMethod())

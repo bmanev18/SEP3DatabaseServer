@@ -15,8 +15,10 @@ public interface DAO {
     DataAccess.Response deleteUser(DataAccess.Username dto) throws SQLException;
     DataAccess.UserCreationDto getUserByUsername(DataAccess.Username username) throws SQLException;
     DataAccess.ProjectsResponse getAllProjects (DataAccess.Username username) throws SQLException;
-    DataAccess.ProductBacklogResponse getProductBacklog(DataAccess.Id id) throws SQLException; //todo testing
-    DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) throws SQLException; //todo testing
+    DataAccess.ProductBacklogResponse getProductBacklog(DataAccess.Id id) throws SQLException;
+    DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) throws SQLException;
+    DataAccess.FilteredUsersResponse getAllCollaborators (DataAccess.Id id) throws SQLException;
+    DataAccess.ResponseWithID removeCollaborator (DataAccess.AddToProjectDto user) throws SQLException;
 
 
 

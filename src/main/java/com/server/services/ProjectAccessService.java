@@ -69,4 +69,26 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         }
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void removeCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.ResponseWithID> responseObserver) {
+        System.out.printf("Received request to remove user from project: %s", request.getUsername(),request.getProjectId());
+        try {
+            responseObserver.onNext(dao.removeCollaborator(request));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        responseObserver.onCompleted();;
+    }
+
+    @Override
+    public void getAllCollaborators(DataAccess.Id request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
+        System.out.printf("Received request to get all collaborators from: %s", request.getId());
+        try {
+            responseObserver.onNext(dao.getAllCollaborators(request));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        responseObserver.onCompleted();;
+    }
 }

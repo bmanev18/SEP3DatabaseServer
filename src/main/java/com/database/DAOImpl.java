@@ -231,4 +231,30 @@ public class DAOImpl implements DAO {
                 .build();
     }
 
+    @Override
+    public DataAccess.FilteredUsersResponse getAllCollaborators(DataAccess.Id id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * from user,worksOn where user.username = worksOn.username and project_id = ?");
+        statement.setInt(1, id.getId());
+        ResultSet rs = statement.executeQuery();
+
+        DataAccess.FilteredUsersResponse.Builder builder = DataAccess.FilteredUsersResponse.newBuilder();
+        int code = 404;
+        while (rs.next()) {
+            builder.addUsers(DataAccess.UserSearchDto.newBuilder()
+                    .setUsername(rs.getString("username"))
+                    .setFirstName(rs.getString("firstname"))
+                    .setLastName(rs.getString("lastname"))
+                    .setRole(String.valueOf(rs.getInt("role_id")))
+                    .build());
+            code = 200;
+        }
+        statement.close();
+        return builder.setCode(code).build();
+    }
+
+    @Override
+    public DataAccess.ResponseWithID removeCollaborator(DataAccess.AddToProjectDto user) throws SQLException {
+        return null;
+    }
+
 }

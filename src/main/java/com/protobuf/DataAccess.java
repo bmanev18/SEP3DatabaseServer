@@ -3333,6 +3333,18 @@ public final class DataAccess {
      */
     com.google.protobuf.ByteString
         getUsernameBytes();
+
+    /**
+     * <code>string role = 4;</code>
+     * @return The role.
+     */
+    java.lang.String getRole();
+    /**
+     * <code>string role = 4;</code>
+     * @return The bytes for role.
+     */
+    com.google.protobuf.ByteString
+        getRoleBytes();
   }
   /**
    * Protobuf type {@code UserSearchDto}
@@ -3350,6 +3362,7 @@ public final class DataAccess {
       firstName_ = "";
       lastName_ = "";
       username_ = "";
+      role_ = "";
     }
 
     @java.lang.Override
@@ -3398,6 +3411,12 @@ public final class DataAccess {
               java.lang.String s = input.readStringRequireUtf8();
 
               username_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              role_ = s;
               break;
             }
             default: {
@@ -3548,6 +3567,44 @@ public final class DataAccess {
       }
     }
 
+    public static final int ROLE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object role_;
+    /**
+     * <code>string role = 4;</code>
+     * @return The role.
+     */
+    @java.lang.Override
+    public java.lang.String getRole() {
+      java.lang.Object ref = role_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        role_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string role = 4;</code>
+     * @return The bytes for role.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRoleBytes() {
+      java.lang.Object ref = role_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        role_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3571,6 +3628,9 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, username_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, role_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3588,6 +3648,9 @@ public final class DataAccess {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, username_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(role_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, role_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3610,6 +3673,8 @@ public final class DataAccess {
           .equals(other.getLastName())) return false;
       if (!getUsername()
           .equals(other.getUsername())) return false;
+      if (!getRole()
+          .equals(other.getRole())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3627,6 +3692,8 @@ public final class DataAccess {
       hash = (53 * hash) + getLastName().hashCode();
       hash = (37 * hash) + USERNAME_FIELD_NUMBER;
       hash = (53 * hash) + getUsername().hashCode();
+      hash = (37 * hash) + ROLE_FIELD_NUMBER;
+      hash = (53 * hash) + getRole().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3766,6 +3833,8 @@ public final class DataAccess {
 
         username_ = "";
 
+        role_ = "";
+
         return this;
       }
 
@@ -3795,6 +3864,7 @@ public final class DataAccess {
         result.firstName_ = firstName_;
         result.lastName_ = lastName_;
         result.username_ = username_;
+        result.role_ = role_;
         onBuilt();
         return result;
       }
@@ -3853,6 +3923,10 @@ public final class DataAccess {
         }
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
+          onChanged();
+        }
+        if (!other.getRole().isEmpty()) {
+          role_ = other.role_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -4108,6 +4182,82 @@ public final class DataAccess {
   checkByteStringIsUtf8(value);
         
         username_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object role_ = "";
+      /**
+       * <code>string role = 4;</code>
+       * @return The role.
+       */
+      public java.lang.String getRole() {
+        java.lang.Object ref = role_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          role_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string role = 4;</code>
+       * @return The bytes for role.
+       */
+      public com.google.protobuf.ByteString
+          getRoleBytes() {
+        java.lang.Object ref = role_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          role_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string role = 4;</code>
+       * @param value The role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRole(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        role_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string role = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRole() {
+        
+        role_ = getDefaultInstance().getRole();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string role = 4;</code>
+       * @param value The bytes for role to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        role_ = value;
         onChanged();
         return this;
       }
@@ -6927,6 +7077,801 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.protobuf.DataAccess.AddToProjectDto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CollaboratorsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CollaboratorsResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    java.util.List<com.protobuf.DataAccess.UserCreationDto> 
+        getCollaboratorsList();
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    com.protobuf.DataAccess.UserCreationDto getCollaborators(int index);
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    int getCollaboratorsCount();
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    java.util.List<? extends com.protobuf.DataAccess.UserCreationDtoOrBuilder> 
+        getCollaboratorsOrBuilderList();
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    com.protobuf.DataAccess.UserCreationDtoOrBuilder getCollaboratorsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code CollaboratorsResponse}
+   */
+  public static final class CollaboratorsResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:CollaboratorsResponse)
+      CollaboratorsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CollaboratorsResponse.newBuilder() to construct.
+    private CollaboratorsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CollaboratorsResponse() {
+      collaborators_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CollaboratorsResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CollaboratorsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                collaborators_ = new java.util.ArrayList<com.protobuf.DataAccess.UserCreationDto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              collaborators_.add(
+                  input.readMessage(com.protobuf.DataAccess.UserCreationDto.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          collaborators_ = java.util.Collections.unmodifiableList(collaborators_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.protobuf.DataAccess.internal_static_CollaboratorsResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.protobuf.DataAccess.internal_static_CollaboratorsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.protobuf.DataAccess.CollaboratorsResponse.class, com.protobuf.DataAccess.CollaboratorsResponse.Builder.class);
+    }
+
+    public static final int COLLABORATORS_FIELD_NUMBER = 1;
+    private java.util.List<com.protobuf.DataAccess.UserCreationDto> collaborators_;
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.protobuf.DataAccess.UserCreationDto> getCollaboratorsList() {
+      return collaborators_;
+    }
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.protobuf.DataAccess.UserCreationDtoOrBuilder> 
+        getCollaboratorsOrBuilderList() {
+      return collaborators_;
+    }
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    @java.lang.Override
+    public int getCollaboratorsCount() {
+      return collaborators_.size();
+    }
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    @java.lang.Override
+    public com.protobuf.DataAccess.UserCreationDto getCollaborators(int index) {
+      return collaborators_.get(index);
+    }
+    /**
+     * <code>repeated .UserCreationDto collaborators = 1;</code>
+     */
+    @java.lang.Override
+    public com.protobuf.DataAccess.UserCreationDtoOrBuilder getCollaboratorsOrBuilder(
+        int index) {
+      return collaborators_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < collaborators_.size(); i++) {
+        output.writeMessage(1, collaborators_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < collaborators_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, collaborators_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.protobuf.DataAccess.CollaboratorsResponse)) {
+        return super.equals(obj);
+      }
+      com.protobuf.DataAccess.CollaboratorsResponse other = (com.protobuf.DataAccess.CollaboratorsResponse) obj;
+
+      if (!getCollaboratorsList()
+          .equals(other.getCollaboratorsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getCollaboratorsCount() > 0) {
+        hash = (37 * hash) + COLLABORATORS_FIELD_NUMBER;
+        hash = (53 * hash) + getCollaboratorsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.CollaboratorsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.protobuf.DataAccess.CollaboratorsResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code CollaboratorsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:CollaboratorsResponse)
+        com.protobuf.DataAccess.CollaboratorsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.protobuf.DataAccess.internal_static_CollaboratorsResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.protobuf.DataAccess.internal_static_CollaboratorsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.protobuf.DataAccess.CollaboratorsResponse.class, com.protobuf.DataAccess.CollaboratorsResponse.Builder.class);
+      }
+
+      // Construct using com.protobuf.DataAccess.CollaboratorsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCollaboratorsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (collaboratorsBuilder_ == null) {
+          collaborators_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          collaboratorsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.protobuf.DataAccess.internal_static_CollaboratorsResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.CollaboratorsResponse getDefaultInstanceForType() {
+        return com.protobuf.DataAccess.CollaboratorsResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.CollaboratorsResponse build() {
+        com.protobuf.DataAccess.CollaboratorsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.CollaboratorsResponse buildPartial() {
+        com.protobuf.DataAccess.CollaboratorsResponse result = new com.protobuf.DataAccess.CollaboratorsResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (collaboratorsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            collaborators_ = java.util.Collections.unmodifiableList(collaborators_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.collaborators_ = collaborators_;
+        } else {
+          result.collaborators_ = collaboratorsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.protobuf.DataAccess.CollaboratorsResponse) {
+          return mergeFrom((com.protobuf.DataAccess.CollaboratorsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.protobuf.DataAccess.CollaboratorsResponse other) {
+        if (other == com.protobuf.DataAccess.CollaboratorsResponse.getDefaultInstance()) return this;
+        if (collaboratorsBuilder_ == null) {
+          if (!other.collaborators_.isEmpty()) {
+            if (collaborators_.isEmpty()) {
+              collaborators_ = other.collaborators_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureCollaboratorsIsMutable();
+              collaborators_.addAll(other.collaborators_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.collaborators_.isEmpty()) {
+            if (collaboratorsBuilder_.isEmpty()) {
+              collaboratorsBuilder_.dispose();
+              collaboratorsBuilder_ = null;
+              collaborators_ = other.collaborators_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              collaboratorsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getCollaboratorsFieldBuilder() : null;
+            } else {
+              collaboratorsBuilder_.addAllMessages(other.collaborators_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.protobuf.DataAccess.CollaboratorsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.protobuf.DataAccess.CollaboratorsResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.protobuf.DataAccess.UserCreationDto> collaborators_ =
+        java.util.Collections.emptyList();
+      private void ensureCollaboratorsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          collaborators_ = new java.util.ArrayList<com.protobuf.DataAccess.UserCreationDto>(collaborators_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.protobuf.DataAccess.UserCreationDto, com.protobuf.DataAccess.UserCreationDto.Builder, com.protobuf.DataAccess.UserCreationDtoOrBuilder> collaboratorsBuilder_;
+
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public java.util.List<com.protobuf.DataAccess.UserCreationDto> getCollaboratorsList() {
+        if (collaboratorsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(collaborators_);
+        } else {
+          return collaboratorsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public int getCollaboratorsCount() {
+        if (collaboratorsBuilder_ == null) {
+          return collaborators_.size();
+        } else {
+          return collaboratorsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public com.protobuf.DataAccess.UserCreationDto getCollaborators(int index) {
+        if (collaboratorsBuilder_ == null) {
+          return collaborators_.get(index);
+        } else {
+          return collaboratorsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder setCollaborators(
+          int index, com.protobuf.DataAccess.UserCreationDto value) {
+        if (collaboratorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCollaboratorsIsMutable();
+          collaborators_.set(index, value);
+          onChanged();
+        } else {
+          collaboratorsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder setCollaborators(
+          int index, com.protobuf.DataAccess.UserCreationDto.Builder builderForValue) {
+        if (collaboratorsBuilder_ == null) {
+          ensureCollaboratorsIsMutable();
+          collaborators_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          collaboratorsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder addCollaborators(com.protobuf.DataAccess.UserCreationDto value) {
+        if (collaboratorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCollaboratorsIsMutable();
+          collaborators_.add(value);
+          onChanged();
+        } else {
+          collaboratorsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder addCollaborators(
+          int index, com.protobuf.DataAccess.UserCreationDto value) {
+        if (collaboratorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCollaboratorsIsMutable();
+          collaborators_.add(index, value);
+          onChanged();
+        } else {
+          collaboratorsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder addCollaborators(
+          com.protobuf.DataAccess.UserCreationDto.Builder builderForValue) {
+        if (collaboratorsBuilder_ == null) {
+          ensureCollaboratorsIsMutable();
+          collaborators_.add(builderForValue.build());
+          onChanged();
+        } else {
+          collaboratorsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder addCollaborators(
+          int index, com.protobuf.DataAccess.UserCreationDto.Builder builderForValue) {
+        if (collaboratorsBuilder_ == null) {
+          ensureCollaboratorsIsMutable();
+          collaborators_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          collaboratorsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder addAllCollaborators(
+          java.lang.Iterable<? extends com.protobuf.DataAccess.UserCreationDto> values) {
+        if (collaboratorsBuilder_ == null) {
+          ensureCollaboratorsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, collaborators_);
+          onChanged();
+        } else {
+          collaboratorsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder clearCollaborators() {
+        if (collaboratorsBuilder_ == null) {
+          collaborators_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          collaboratorsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public Builder removeCollaborators(int index) {
+        if (collaboratorsBuilder_ == null) {
+          ensureCollaboratorsIsMutable();
+          collaborators_.remove(index);
+          onChanged();
+        } else {
+          collaboratorsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public com.protobuf.DataAccess.UserCreationDto.Builder getCollaboratorsBuilder(
+          int index) {
+        return getCollaboratorsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public com.protobuf.DataAccess.UserCreationDtoOrBuilder getCollaboratorsOrBuilder(
+          int index) {
+        if (collaboratorsBuilder_ == null) {
+          return collaborators_.get(index);  } else {
+          return collaboratorsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public java.util.List<? extends com.protobuf.DataAccess.UserCreationDtoOrBuilder> 
+           getCollaboratorsOrBuilderList() {
+        if (collaboratorsBuilder_ != null) {
+          return collaboratorsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(collaborators_);
+        }
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public com.protobuf.DataAccess.UserCreationDto.Builder addCollaboratorsBuilder() {
+        return getCollaboratorsFieldBuilder().addBuilder(
+            com.protobuf.DataAccess.UserCreationDto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public com.protobuf.DataAccess.UserCreationDto.Builder addCollaboratorsBuilder(
+          int index) {
+        return getCollaboratorsFieldBuilder().addBuilder(
+            index, com.protobuf.DataAccess.UserCreationDto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .UserCreationDto collaborators = 1;</code>
+       */
+      public java.util.List<com.protobuf.DataAccess.UserCreationDto.Builder> 
+           getCollaboratorsBuilderList() {
+        return getCollaboratorsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.protobuf.DataAccess.UserCreationDto, com.protobuf.DataAccess.UserCreationDto.Builder, com.protobuf.DataAccess.UserCreationDtoOrBuilder> 
+          getCollaboratorsFieldBuilder() {
+        if (collaboratorsBuilder_ == null) {
+          collaboratorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.protobuf.DataAccess.UserCreationDto, com.protobuf.DataAccess.UserCreationDto.Builder, com.protobuf.DataAccess.UserCreationDtoOrBuilder>(
+                  collaborators_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          collaborators_ = null;
+        }
+        return collaboratorsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:CollaboratorsResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:CollaboratorsResponse)
+    private static final com.protobuf.DataAccess.CollaboratorsResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.protobuf.DataAccess.CollaboratorsResponse();
+    }
+
+    public static com.protobuf.DataAccess.CollaboratorsResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CollaboratorsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<CollaboratorsResponse>() {
+      @java.lang.Override
+      public CollaboratorsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CollaboratorsResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CollaboratorsResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CollaboratorsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.protobuf.DataAccess.CollaboratorsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12301,6 +13246,11 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_AddToProjectDto_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CollaboratorsResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CollaboratorsResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ProjectCreationDto_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12349,15 +13299,17 @@ public final class DataAccess {
       "stName\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\014\n\004role\030\005" +
       " \001(\t\"\020\n\002Id\022\n\n\002id\030\001 \001(\005\"\030\n\010Response\022\014\n\004co" +
       "de\030\001 \001(\005\"*\n\016ResponseWithID\022\014\n\004code\030\001 \001(\005" +
-      "\022\n\n\002id\030\002 \001(\005\"\030\n\004Role\022\020\n\010roleName\030\001 \001(\t\"F" +
+      "\022\n\n\002id\030\002 \001(\005\"\030\n\004Role\022\020\n\010roleName\030\001 \001(\t\"T" +
       "\n\rUserSearchDto\022\021\n\tfirstName\030\001 \001(\t\022\020\n\010la" +
-      "stName\030\002 \001(\t\022\020\n\010username\030\003 \001(\t\"D\n\025Filter" +
-      "edUsersResponse\022\035\n\005users\030\001 \003(\0132\016.UserSea" +
-      "rchDto\022\014\n\004code\030\002 \001(\005\"C\n\023UpdatedUserRespo" +
-      "nse\022\036\n\004user\030\001 \001(\0132\020.UserCreationDto\022\014\n\004c" +
-      "ode\030\002 \001(\005\"\034\n\010Username\022\020\n\010username\030\001 \001(\t\"" +
-      "6\n\017AddToProjectDto\022\020\n\010username\030\001 \001(\t\022\021\n\t" +
-      "projectId\030\002 \001(\005\":\n\022ProjectCreationDto\022\025\n" +
+      "stName\030\002 \001(\t\022\020\n\010username\030\003 \001(\t\022\014\n\004role\030\004" +
+      " \001(\t\"D\n\025FilteredUsersResponse\022\035\n\005users\030\001" +
+      " \003(\0132\016.UserSearchDto\022\014\n\004code\030\002 \001(\005\"C\n\023Up" +
+      "datedUserResponse\022\036\n\004user\030\001 \001(\0132\020.UserCr" +
+      "eationDto\022\014\n\004code\030\002 \001(\005\"\034\n\010Username\022\020\n\010u" +
+      "sername\030\001 \001(\t\"6\n\017AddToProjectDto\022\020\n\010user" +
+      "name\030\001 \001(\t\022\021\n\tprojectId\030\002 \001(\005\"@\n\025Collabo" +
+      "ratorsResponse\022\'\n\rcollaborators\030\001 \003(\0132\020." +
+      "UserCreationDto\":\n\022ProjectCreationDto\022\025\n" +
       "\rownerUsername\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\"\034\n\010P" +
       "assword\022\020\n\010password\030\001 \001(\t\"J\n\020UserStoryMe" +
       "ssage\022\020\n\010taskBody\030\001 \001(\t\022\020\n\010priority\030\002 \001(" +
@@ -12375,15 +13327,17 @@ public final class DataAccess {
       "o\0224\n\nUpdateUser\022\020.UserCreationDto\032\024.Upda" +
       "tedUserResponse\022\"\n\nDeleteUser\022\t.Username" +
       "\032\t.Response\022#\n\013GetPassword\022\t.Username\032\t." +
-      "Password2\215\002\n\rProjectAccess\0225\n\rCreateProj" +
+      "Password2\372\002\n\rProjectAccess\0225\n\rCreateProj" +
       "ect\022\023.ProjectCreationDto\032\017.ResponseWithI" +
-      "D\022.\n\017AddCollaborator\022\020.AddToProjectDto\032\t" +
-      ".Response\0222\n\014AddUserStory\022\021.UserStoryMes" +
-      "sage\032\017.ResponseWithID\022.\n\016GetAllProjects\022" +
-      "\t.Username\032\021.ProjectsResponse\0221\n\021GetProd" +
-      "uctBacklog\022\003.Id\032\027.ProductBacklogResponse" +
-      "B!\n\014com.protobuf\252\002\020DataAccessClientb\006pro" +
-      "to3"
+      "D\0222\n\023GetAllCollaborators\022\003.Id\032\026.Filtered" +
+      "UsersResponse\022.\n\017AddCollaborator\022\020.AddTo" +
+      "ProjectDto\032\t.Response\0227\n\022RemoveCollabora" +
+      "tor\022\020.AddToProjectDto\032\017.ResponseWithID\0222" +
+      "\n\014AddUserStory\022\021.UserStoryMessage\032\017.Resp" +
+      "onseWithID\022.\n\016GetAllProjects\022\t.Username\032" +
+      "\021.ProjectsResponse\0221\n\021GetProductBacklog\022" +
+      "\003.Id\032\027.ProductBacklogResponseB!\n\014com.pro" +
+      "tobuf\252\002\020DataAccessClientb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12424,7 +13378,7 @@ public final class DataAccess {
     internal_static_UserSearchDto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserSearchDto_descriptor,
-        new java.lang.String[] { "FirstName", "LastName", "Username", });
+        new java.lang.String[] { "FirstName", "LastName", "Username", "Role", });
     internal_static_FilteredUsersResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_FilteredUsersResponse_fieldAccessorTable = new
@@ -12449,44 +13403,50 @@ public final class DataAccess {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AddToProjectDto_descriptor,
         new java.lang.String[] { "Username", "ProjectId", });
-    internal_static_ProjectCreationDto_descriptor =
+    internal_static_CollaboratorsResponse_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_CollaboratorsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CollaboratorsResponse_descriptor,
+        new java.lang.String[] { "Collaborators", });
+    internal_static_ProjectCreationDto_descriptor =
+      getDescriptor().getMessageTypes().get(11);
     internal_static_ProjectCreationDto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectCreationDto_descriptor,
         new java.lang.String[] { "OwnerUsername", "Title", });
     internal_static_Password_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_Password_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Password_descriptor,
         new java.lang.String[] { "Password", });
     internal_static_UserStoryMessage_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_UserStoryMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStoryMessage_descriptor,
         new java.lang.String[] { "TaskBody", "Priority", "ProjectId", });
     internal_static_ProjectMessage_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_ProjectMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectMessage_descriptor,
         new java.lang.String[] { "Id", "Title", });
     internal_static_ProjectsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_ProjectsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectsResponse_descriptor,
         new java.lang.String[] { "Projects", "Code", });
     internal_static_UserStory_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_UserStory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStory_descriptor,
         new java.lang.String[] { "Id", "ProjectId", "UserStory", "Priority", });
     internal_static_ProductBacklogResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_ProductBacklogResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProductBacklogResponse_descriptor,
