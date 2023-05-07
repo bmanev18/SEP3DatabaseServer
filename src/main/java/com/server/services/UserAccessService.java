@@ -74,5 +74,14 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
         responseObserver.onCompleted();
     }
 
-
+    @Override
+    public void lookForUsers(DataAccess.Username request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
+        System.out.printf("Received request to find users: %s", request.getUsername());
+        try {
+            responseObserver.onNext(dao.LookForUsers(request));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        responseObserver.onCompleted();
+    }
 }

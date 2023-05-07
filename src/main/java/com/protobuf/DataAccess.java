@@ -13320,24 +13320,26 @@ public final class DataAccess {
       "\022\022\n\nproject_id\030\002 \001(\005\022\021\n\tuserStory\030\003 \001(\t\022" +
       "\020\n\010priority\030\004 \001(\t\"G\n\026ProductBacklogRespo" +
       "nse\022\037\n\013userStories\030\001 \003(\0132\n.UserStory\022\014\n\004" +
-      "code\030\002 \001(\0052\223\002\n\nUserAccess\022)\n\nCreateUser\022" +
+      "code\030\002 \001(\0052\306\002\n\nUserAccess\022)\n\nCreateUser\022" +
       "\020.UserCreationDto\032\t.Response\022,\n\013UsersByR" +
       "ole\022\005.Role\032\026.FilteredUsersResponse\022-\n\016Us" +
       "erByUsername\022\t.Username\032\020.UserCreationDt" +
       "o\0224\n\nUpdateUser\022\020.UserCreationDto\032\024.Upda" +
       "tedUserResponse\022\"\n\nDeleteUser\022\t.Username" +
       "\032\t.Response\022#\n\013GetPassword\022\t.Username\032\t." +
-      "Password2\372\002\n\rProjectAccess\0225\n\rCreateProj" +
-      "ect\022\023.ProjectCreationDto\032\017.ResponseWithI" +
-      "D\0222\n\023GetAllCollaborators\022\003.Id\032\026.Filtered" +
-      "UsersResponse\022.\n\017AddCollaborator\022\020.AddTo" +
-      "ProjectDto\032\t.Response\0227\n\022RemoveCollabora" +
-      "tor\022\020.AddToProjectDto\032\017.ResponseWithID\0222" +
-      "\n\014AddUserStory\022\021.UserStoryMessage\032\017.Resp" +
-      "onseWithID\022.\n\016GetAllProjects\022\t.Username\032" +
-      "\021.ProjectsResponse\0221\n\021GetProductBacklog\022" +
-      "\003.Id\032\027.ProductBacklogResponseB!\n\014com.pro" +
-      "tobuf\252\002\020DataAccessClientb\006proto3"
+      "Password\0221\n\014LookForUsers\022\t.Username\032\026.Fi" +
+      "lteredUsersResponse2\372\002\n\rProjectAccess\0225\n" +
+      "\rCreateProject\022\023.ProjectCreationDto\032\017.Re" +
+      "sponseWithID\0222\n\023GetAllCollaborators\022\003.Id" +
+      "\032\026.FilteredUsersResponse\022.\n\017AddCollabora" +
+      "tor\022\020.AddToProjectDto\032\t.Response\0227\n\022Remo" +
+      "veCollaborator\022\020.AddToProjectDto\032\017.Respo" +
+      "nseWithID\0222\n\014AddUserStory\022\021.UserStoryMes" +
+      "sage\032\017.ResponseWithID\022.\n\016GetAllProjects\022" +
+      "\t.Username\032\021.ProjectsResponse\0221\n\021GetProd" +
+      "uctBacklog\022\003.Id\032\027.ProductBacklogResponse" +
+      "B!\n\014com.protobuf\252\002\020DataAccessClientb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

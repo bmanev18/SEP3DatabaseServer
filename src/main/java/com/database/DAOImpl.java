@@ -109,11 +109,10 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public DataAccess.FilteredUsersResponse getUsersByName(DataAccess.UserSearchDto dto) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("SELECT username, firstname, lastname from user where username=? and firstname=? and lastname=?;");
-        statement.setString(1, dto.getUsername());
-        statement.setString(2, dto.getFirstName());
-        statement.setString(3, dto.getLastName());
+    public DataAccess.FilteredUsersResponse LookForUsers(DataAccess.Username username) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT username, firstname, lastname, role_id from user where username like ?");
+        String statementBuild = "%"+username.getUsername()+"%";
+        statement.setString(1, statementBuild);
 
         ResultSet result = statement.executeQuery();
 
@@ -125,6 +124,7 @@ public class DAOImpl implements DAO {
                     .setUsername(result.getString("username"))
                     .setFirstName(result.getString("firstName"))
                     .setLastName(result.getString("lastName"))
+                    .setRole(String.valueOf(result.getInt("role_id")))
                     .build());
             code = 200;
         }

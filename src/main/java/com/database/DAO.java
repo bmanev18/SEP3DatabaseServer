@@ -2,7 +2,6 @@ package com.database;
 
 import com.protobuf.DataAccess;
 
-import javax.xml.crypto.Data;
 import java.sql.SQLException;
 
 public interface DAO {
@@ -10,7 +9,7 @@ public interface DAO {
     DataAccess.ResponseWithID createProject(DataAccess.ProjectCreationDto dto) throws SQLException;
     DataAccess.Response addCollaborator(DataAccess.AddToProjectDto dto) throws SQLException;
     DataAccess.FilteredUsersResponse getUsersByRole(DataAccess.Role dto) throws SQLException;
-    DataAccess.FilteredUsersResponse getUsersByName(DataAccess.UserSearchDto dto) throws SQLException;
+    DataAccess.FilteredUsersResponse LookForUsers(DataAccess.Username username) throws SQLException;
     DataAccess.UpdatedUserResponse updateUser(DataAccess.UserCreationDto dto) throws SQLException;
     DataAccess.Response deleteUser(DataAccess.Username dto) throws SQLException;
     DataAccess.UserCreationDto getUserByUsername(DataAccess.Username username) throws SQLException;
