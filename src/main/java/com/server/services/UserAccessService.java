@@ -25,20 +25,6 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
         responseObserver.onCompleted();
     }
 
-
-    @Override
-    public void usersByRole(DataAccess.Role request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
-        System.out.printf("Received request to search user by role: %s", request.getRoleName());
-
-        try {
-            responseObserver.onNext(dao.getUsersByRole(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onCompleted();
-    }
-
-
     @Override
     public void userByUsername(DataAccess.Username request, StreamObserver<DataAccess.UserCreationDto> responseObserver) {
         System.out.printf("Received request to search user by username: %s", request.getUsername());
@@ -78,7 +64,7 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
     public void lookForUsers(DataAccess.Username request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
         System.out.printf("Received request to find users: %s", request.getUsername());
         try {
-            responseObserver.onNext(dao.LookForUsers(request));
+            responseObserver.onNext(dao.lookForUsers(request));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

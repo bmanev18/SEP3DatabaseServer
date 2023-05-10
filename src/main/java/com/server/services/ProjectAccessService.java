@@ -40,7 +40,7 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
-    public void getProductBacklog(DataAccess.Id request, StreamObserver<DataAccess.ProductBacklogResponse> responseObserver) {
+    public void getProductBacklog(DataAccess.Id request, StreamObserver<DataAccess.UserStoriesResponse> responseObserver) {
         System.out.printf("Received request to get product backlog: %s", request.getId());
         try {
             responseObserver.onNext(dao.getProductBacklog(request));
@@ -71,7 +71,7 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
-    public void removeCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.ResponseWithID> responseObserver) {
+    public void removeCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to remove user from project: %s", request.getUsername(),request.getProjectId());
         try {
             responseObserver.onNext(dao.removeCollaborator(request));

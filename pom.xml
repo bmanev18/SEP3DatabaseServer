@@ -79,7 +79,8 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <protocVersion>3.21.4</protocVersion>
+                            <protocVersion>3.22.2</protocVersion>
+                            <includeMavenTypes>direct</includeMavenTypes>
                             <inputDirectories>
                                 <include>src/main/proto</include>
                             </inputDirectories>
