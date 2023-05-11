@@ -7477,34 +7477,46 @@ public final class DataAccess {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string taskBody = 1;</code>
+     * <code>int32 project_id = 1;</code>
+     * @return The projectId.
+     */
+    int getProjectId();
+
+    /**
+     * <code>string taskBody = 2;</code>
      * @return The taskBody.
      */
     java.lang.String getTaskBody();
     /**
-     * <code>string taskBody = 1;</code>
+     * <code>string taskBody = 2;</code>
      * @return The bytes for taskBody.
      */
     com.google.protobuf.ByteString
         getTaskBodyBytes();
 
     /**
-     * <code>string priority = 2;</code>
+     * <code>string priority = 3;</code>
      * @return The priority.
      */
     java.lang.String getPriority();
     /**
-     * <code>string priority = 2;</code>
+     * <code>string priority = 3;</code>
      * @return The bytes for priority.
      */
     com.google.protobuf.ByteString
         getPriorityBytes();
 
     /**
-     * <code>int32 project_id = 3;</code>
-     * @return The projectId.
+     * <code>int32 status = 4;</code>
+     * @return The status.
      */
-    int getProjectId();
+    int getStatus();
+
+    /**
+     * <code>int32 storyPoint = 5;</code>
+     * @return The storyPoint.
+     */
+    int getStoryPoint();
   }
   /**
    * Protobuf type {@code UserStoryMessage}
@@ -7543,11 +7555,22 @@ public final class DataAccess {
               com.protobuf.DataAccess.UserStoryMessage.class, com.protobuf.DataAccess.UserStoryMessage.Builder.class);
     }
 
-    public static final int TASKBODY_FIELD_NUMBER = 1;
+    public static final int PROJECT_ID_FIELD_NUMBER = 1;
+    private int projectId_ = 0;
+    /**
+     * <code>int32 project_id = 1;</code>
+     * @return The projectId.
+     */
+    @java.lang.Override
+    public int getProjectId() {
+      return projectId_;
+    }
+
+    public static final int TASKBODY_FIELD_NUMBER = 2;
     @SuppressWarnings("serial")
     private volatile java.lang.Object taskBody_ = "";
     /**
-     * <code>string taskBody = 1;</code>
+     * <code>string taskBody = 2;</code>
      * @return The taskBody.
      */
     @java.lang.Override
@@ -7564,7 +7587,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string taskBody = 1;</code>
+     * <code>string taskBody = 2;</code>
      * @return The bytes for taskBody.
      */
     @java.lang.Override
@@ -7582,11 +7605,11 @@ public final class DataAccess {
       }
     }
 
-    public static final int PRIORITY_FIELD_NUMBER = 2;
+    public static final int PRIORITY_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
     private volatile java.lang.Object priority_ = "";
     /**
-     * <code>string priority = 2;</code>
+     * <code>string priority = 3;</code>
      * @return The priority.
      */
     @java.lang.Override
@@ -7603,7 +7626,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string priority = 2;</code>
+     * <code>string priority = 3;</code>
      * @return The bytes for priority.
      */
     @java.lang.Override
@@ -7621,15 +7644,26 @@ public final class DataAccess {
       }
     }
 
-    public static final int PROJECT_ID_FIELD_NUMBER = 3;
-    private int projectId_ = 0;
+    public static final int STATUS_FIELD_NUMBER = 4;
+    private int status_ = 0;
     /**
-     * <code>int32 project_id = 3;</code>
-     * @return The projectId.
+     * <code>int32 status = 4;</code>
+     * @return The status.
      */
     @java.lang.Override
-    public int getProjectId() {
-      return projectId_;
+    public int getStatus() {
+      return status_;
+    }
+
+    public static final int STORYPOINT_FIELD_NUMBER = 5;
+    private int storyPoint_ = 0;
+    /**
+     * <code>int32 storyPoint = 5;</code>
+     * @return The storyPoint.
+     */
+    @java.lang.Override
+    public int getStoryPoint() {
+      return storyPoint_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7646,14 +7680,20 @@ public final class DataAccess {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (projectId_ != 0) {
+        output.writeInt32(1, projectId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskBody_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, taskBody_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, taskBody_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, priority_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, priority_);
       }
-      if (projectId_ != 0) {
-        output.writeInt32(3, projectId_);
+      if (status_ != 0) {
+        output.writeInt32(4, status_);
+      }
+      if (storyPoint_ != 0) {
+        output.writeInt32(5, storyPoint_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7664,15 +7704,23 @@ public final class DataAccess {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskBody_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, taskBody_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, priority_);
-      }
       if (projectId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, projectId_);
+          .computeInt32Size(1, projectId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskBody_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, taskBody_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, priority_);
+      }
+      if (status_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, status_);
+      }
+      if (storyPoint_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, storyPoint_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -7689,12 +7737,16 @@ public final class DataAccess {
       }
       com.protobuf.DataAccess.UserStoryMessage other = (com.protobuf.DataAccess.UserStoryMessage) obj;
 
+      if (getProjectId()
+          != other.getProjectId()) return false;
       if (!getTaskBody()
           .equals(other.getTaskBody())) return false;
       if (!getPriority()
           .equals(other.getPriority())) return false;
-      if (getProjectId()
-          != other.getProjectId()) return false;
+      if (getStatus()
+          != other.getStatus()) return false;
+      if (getStoryPoint()
+          != other.getStoryPoint()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -7706,12 +7758,16 @@ public final class DataAccess {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectId();
       hash = (37 * hash) + TASKBODY_FIELD_NUMBER;
       hash = (53 * hash) + getTaskBody().hashCode();
       hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
       hash = (53 * hash) + getPriority().hashCode();
-      hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getProjectId();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus();
+      hash = (37 * hash) + STORYPOINT_FIELD_NUMBER;
+      hash = (53 * hash) + getStoryPoint();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7841,9 +7897,11 @@ public final class DataAccess {
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
+        projectId_ = 0;
         taskBody_ = "";
         priority_ = "";
-        projectId_ = 0;
+        status_ = 0;
+        storyPoint_ = 0;
         return this;
       }
 
@@ -7878,13 +7936,19 @@ public final class DataAccess {
       private void buildPartial0(com.protobuf.DataAccess.UserStoryMessage result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.taskBody_ = taskBody_;
+          result.projectId_ = projectId_;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.priority_ = priority_;
+          result.taskBody_ = taskBody_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.projectId_ = projectId_;
+          result.priority_ = priority_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.status_ = status_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.storyPoint_ = storyPoint_;
         }
       }
 
@@ -7900,18 +7964,24 @@ public final class DataAccess {
 
       public Builder mergeFrom(com.protobuf.DataAccess.UserStoryMessage other) {
         if (other == com.protobuf.DataAccess.UserStoryMessage.getDefaultInstance()) return this;
+        if (other.getProjectId() != 0) {
+          setProjectId(other.getProjectId());
+        }
         if (!other.getTaskBody().isEmpty()) {
           taskBody_ = other.taskBody_;
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getPriority().isEmpty()) {
           priority_ = other.priority_;
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        if (other.getProjectId() != 0) {
-          setProjectId(other.getProjectId());
+        if (other.getStatus() != 0) {
+          setStatus(other.getStatus());
+        }
+        if (other.getStoryPoint() != 0) {
+          setStoryPoint(other.getStoryPoint());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -7939,21 +8009,31 @@ public final class DataAccess {
               case 0:
                 done = true;
                 break;
-              case 10: {
-                taskBody_ = input.readStringRequireUtf8();
+              case 8: {
+                projectId_ = input.readInt32();
                 bitField0_ |= 0x00000001;
                 break;
-              } // case 10
+              } // case 8
               case 18: {
-                priority_ = input.readStringRequireUtf8();
+                taskBody_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000002;
                 break;
               } // case 18
-              case 24: {
-                projectId_ = input.readInt32();
+              case 26: {
+                priority_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000004;
                 break;
-              } // case 24
+              } // case 26
+              case 32: {
+                status_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                storyPoint_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -7971,9 +8051,41 @@ public final class DataAccess {
       }
       private int bitField0_;
 
+      private int projectId_ ;
+      /**
+       * <code>int32 project_id = 1;</code>
+       * @return The projectId.
+       */
+      @java.lang.Override
+      public int getProjectId() {
+        return projectId_;
+      }
+      /**
+       * <code>int32 project_id = 1;</code>
+       * @param value The projectId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProjectId(int value) {
+
+        projectId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 project_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProjectId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        projectId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object taskBody_ = "";
       /**
-       * <code>string taskBody = 1;</code>
+       * <code>string taskBody = 2;</code>
        * @return The taskBody.
        */
       public java.lang.String getTaskBody() {
@@ -7989,7 +8101,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string taskBody = 1;</code>
+       * <code>string taskBody = 2;</code>
        * @return The bytes for taskBody.
        */
       public com.google.protobuf.ByteString
@@ -8006,7 +8118,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string taskBody = 1;</code>
+       * <code>string taskBody = 2;</code>
        * @param value The taskBody to set.
        * @return This builder for chaining.
        */
@@ -8014,22 +8126,22 @@ public final class DataAccess {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         taskBody_ = value;
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>string taskBody = 1;</code>
+       * <code>string taskBody = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearTaskBody() {
         taskBody_ = getDefaultInstance().getTaskBody();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
-       * <code>string taskBody = 1;</code>
+       * <code>string taskBody = 2;</code>
        * @param value The bytes for taskBody to set.
        * @return This builder for chaining.
        */
@@ -8038,14 +8150,14 @@ public final class DataAccess {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         taskBody_ = value;
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private java.lang.Object priority_ = "";
       /**
-       * <code>string priority = 2;</code>
+       * <code>string priority = 3;</code>
        * @return The priority.
        */
       public java.lang.String getPriority() {
@@ -8061,7 +8173,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string priority = 2;</code>
+       * <code>string priority = 3;</code>
        * @return The bytes for priority.
        */
       public com.google.protobuf.ByteString
@@ -8078,7 +8190,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string priority = 2;</code>
+       * <code>string priority = 3;</code>
        * @param value The priority to set.
        * @return This builder for chaining.
        */
@@ -8086,22 +8198,22 @@ public final class DataAccess {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         priority_ = value;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string priority = 2;</code>
+       * <code>string priority = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPriority() {
         priority_ = getDefaultInstance().getPriority();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
-       * <code>string priority = 2;</code>
+       * <code>string priority = 3;</code>
        * @param value The bytes for priority to set.
        * @return This builder for chaining.
        */
@@ -8110,39 +8222,71 @@ public final class DataAccess {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         priority_ = value;
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return this;
-      }
-
-      private int projectId_ ;
-      /**
-       * <code>int32 project_id = 3;</code>
-       * @return The projectId.
-       */
-      @java.lang.Override
-      public int getProjectId() {
-        return projectId_;
-      }
-      /**
-       * <code>int32 project_id = 3;</code>
-       * @param value The projectId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setProjectId(int value) {
-
-        projectId_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
+
+      private int status_ ;
       /**
-       * <code>int32 project_id = 3;</code>
+       * <code>int32 status = 4;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public int getStatus() {
+        return status_;
+      }
+      /**
+       * <code>int32 status = 4;</code>
+       * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder clearProjectId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        projectId_ = 0;
+      public Builder setStatus(int value) {
+
+        status_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 status = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        status_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int storyPoint_ ;
+      /**
+       * <code>int32 storyPoint = 5;</code>
+       * @return The storyPoint.
+       */
+      @java.lang.Override
+      public int getStoryPoint() {
+        return storyPoint_;
+      }
+      /**
+       * <code>int32 storyPoint = 5;</code>
+       * @param value The storyPoint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStoryPoint(int value) {
+
+        storyPoint_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 storyPoint = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStoryPoint() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        storyPoint_ = 0;
         onChanged();
         return this;
       }
@@ -16982,61 +17126,62 @@ public final class DataAccess {
       "CollaboratorsResponse\022\'\n\rcollaborators\030\001" +
       " \003(\0132\020.UserCreationDto\":\n\022ProjectCreatio" +
       "nDto\022\025\n\rownerUsername\030\001 \001(\t\022\r\n\005title\030\002 \001" +
-      "(\t\"J\n\020UserStoryMessage\022\020\n\010taskBody\030\001 \001(\t" +
-      "\022\020\n\010priority\030\002 \001(\t\022\022\n\nproject_id\030\003 \001(\005\"+" +
-      "\n\016ProjectMessage\022\n\n\002id\030\001 \001(\005\022\r\n\005title\030\002 " +
-      "\001(\t\"C\n\020ProjectsResponse\022!\n\010projects\030\001 \003(" +
-      "\0132\017.ProjectMessage\022\014\n\004code\030\002 \001(\005\"P\n\tUser" +
-      "Story\022\n\n\002id\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(\005\022\021\n" +
-      "\tuserStory\030\003 \001(\t\022\020\n\010priority\030\004 \001(\t\"D\n\023Us" +
-      "erStoriesResponse\022\037\n\013userStories\030\001 \003(\0132\n" +
-      ".UserStory\022\014\n\004code\030\002 \001(\005\"\224\001\n\025SprintCreat" +
-      "ionRequest\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002" +
-      " \001(\t\022,\n\010starDate\030\003 \001(\0132\032.google.protobuf" +
-      ".Timestamp\022+\n\007endDate\030\004 \001(\0132\032.google.pro" +
-      "tobuf.Timestamp\"\204\001\n\rSprintMessage\022\n\n\002id\030" +
-      "\001 \001(\005\022\014\n\004name\030\002 \001(\t\022,\n\010starDate\030\003 \001(\0132\032." +
-      "google.protobuf.Timestamp\022+\n\007endDate\030\004 \001" +
-      "(\0132\032.google.protobuf.Timestamp\"4\n\021AllSpr" +
-      "intsMessage\022\037\n\007sprints\030\001 \003(\0132\016.SprintMes" +
-      "sage\"T\n\013TaskRequest\022\021\n\tsprint_id\030\001 \001(\005\022\020" +
-      "\n\010assignee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\022\n\nstoryP" +
-      "oint\030\004 \001(\005\"V\n\021ChangeTaskRequest\022\017\n\007task_" +
-      "id\030\001 \001(\005\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryPoint\030\003 \001" +
-      "(\005\022\016\n\006status\030\004 \001(\010\"C\n\030UserStoryToSprintR" +
-      "equest\022\024\n\014userStory_id\030\001 \001(\005\022\021\n\tsprint_i" +
-      "d\030\002 \001(\005\"H\n\017AllTasksMessage\022!\n\005tasks\030\001 \003(" +
-      "\0132\022.ChangeTaskRequest\022\022\n\nproject_id\030\002 \001(" +
-      "\0052\363\001\n\nUserAccess\022)\n\nCreateUser\022\020.UserCre" +
-      "ationDto\032\t.Response\022-\n\016UserByUsername\022\t." +
-      "Username\032\020.UserCreationDto\0224\n\nUpdateUser" +
-      "\022\020.UserCreationDto\032\024.UpdatedUserResponse" +
-      "\022\"\n\nDeleteUser\022\t.Username\032\t.Response\0221\n\014" +
-      "LookForUsers\022\t.Username\032\026.FilteredUsersR" +
-      "esponse2\360\006\n\rProjectAccess\0225\n\rCreateProje" +
-      "ct\022\023.ProjectCreationDto\032\017.ResponseWithID" +
-      "\022.\n\016GetAllProjects\022\t.Username\032\021.Projects" +
-      "Response\0222\n\023GetAllCollaborators\022\003.Id\032\026.F" +
-      "ilteredUsersResponse\022.\n\017AddCollaborator\022" +
-      "\020.AddToProjectDto\032\t.Response\0221\n\022RemoveCo" +
-      "llaborator\022\020.AddToProjectDto\032\t.Response\022" +
-      "2\n\014AddUserStory\022\021.UserStoryMessage\032\017.Res" +
-      "ponseWithID\022.\n\021GetProductBacklog\022\003.Id\032\024." +
-      "UserStoriesResponse\0221\n\014CreateSprint\022\026.Sp" +
-      "rintCreationRequest\032\t.Response\022$\n\rGetSpr" +
-      "intByID\022\003.Id\032\016.SprintMessage\022/\n\024GetSprin" +
-      "tByProjectId\022\003.Id\032\022.AllSprintsMessage\022\036\n" +
-      "\014RemoveSprint\022\003.Id\032\t.Response\022\"\n\007AddTask" +
-      "\022\014.TaskRequest\032\t.Response\022!\n\010GetTasks\022\003." +
-      "Id\032\020.AllTasksMessage\022$\n\014AssignTaskTo\022\t.U" +
-      "sername\032\t.Response\022+\n\nChangeTask\022\022.Chang" +
-      "eTaskRequest\032\t.Response\022<\n\024AddUserStoryT" +
-      "oSprint\022\031.UserStoryToSprintRequest\032\t.Res" +
-      "ponse\022A\n\031RemoveUserStoryFromSprint\022\031.Use" +
-      "rStoryToSprintRequest\032\t.Response\0228\n\033GetA" +
-      "llUserStoriesFromSprint\022\003.Id\032\024.UserStori" +
-      "esResponseB!\n\014com.protobuf\252\002\020DataAccessC" +
-      "lientb\006proto3"
+      "(\t\"n\n\020UserStoryMessage\022\022\n\nproject_id\030\001 \001" +
+      "(\005\022\020\n\010taskBody\030\002 \001(\t\022\020\n\010priority\030\003 \001(\t\022\016" +
+      "\n\006status\030\004 \001(\005\022\022\n\nstoryPoint\030\005 \001(\005\"+\n\016Pr" +
+      "ojectMessage\022\n\n\002id\030\001 \001(\005\022\r\n\005title\030\002 \001(\t\"" +
+      "C\n\020ProjectsResponse\022!\n\010projects\030\001 \003(\0132\017." +
+      "ProjectMessage\022\014\n\004code\030\002 \001(\005\"P\n\tUserStor" +
+      "y\022\n\n\002id\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(\005\022\021\n\tuse" +
+      "rStory\030\003 \001(\t\022\020\n\010priority\030\004 \001(\t\"D\n\023UserSt" +
+      "oriesResponse\022\037\n\013userStories\030\001 \003(\0132\n.Use" +
+      "rStory\022\014\n\004code\030\002 \001(\005\"\224\001\n\025SprintCreationR" +
+      "equest\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t" +
+      "\022,\n\010starDate\030\003 \001(\0132\032.google.protobuf.Tim" +
+      "estamp\022+\n\007endDate\030\004 \001(\0132\032.google.protobu" +
+      "f.Timestamp\"\204\001\n\rSprintMessage\022\n\n\002id\030\001 \001(" +
+      "\005\022\014\n\004name\030\002 \001(\t\022,\n\010starDate\030\003 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022+\n\007endDate\030\004 \001(\0132\032" +
+      ".google.protobuf.Timestamp\"4\n\021AllSprints" +
+      "Message\022\037\n\007sprints\030\001 \003(\0132\016.SprintMessage" +
+      "\"T\n\013TaskRequest\022\021\n\tsprint_id\030\001 \001(\005\022\020\n\010as" +
+      "signee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\022\n\nstoryPoint" +
+      "\030\004 \001(\005\"V\n\021ChangeTaskRequest\022\017\n\007task_id\030\001" +
+      " \001(\005\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryPoint\030\003 \001(\005\022\016" +
+      "\n\006status\030\004 \001(\010\"C\n\030UserStoryToSprintReque" +
+      "st\022\024\n\014userStory_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 " +
+      "\001(\005\"H\n\017AllTasksMessage\022!\n\005tasks\030\001 \003(\0132\022." +
+      "ChangeTaskRequest\022\022\n\nproject_id\030\002 \001(\0052\363\001" +
+      "\n\nUserAccess\022)\n\nCreateUser\022\020.UserCreatio" +
+      "nDto\032\t.Response\022-\n\016UserByUsername\022\t.User" +
+      "name\032\020.UserCreationDto\0224\n\nUpdateUser\022\020.U" +
+      "serCreationDto\032\024.UpdatedUserResponse\022\"\n\n" +
+      "DeleteUser\022\t.Username\032\t.Response\0221\n\014Look" +
+      "ForUsers\022\t.Username\032\026.FilteredUsersRespo" +
+      "nse2\360\006\n\rProjectAccess\0225\n\rCreateProject\022\023" +
+      ".ProjectCreationDto\032\017.ResponseWithID\022.\n\016" +
+      "GetAllProjects\022\t.Username\032\021.ProjectsResp" +
+      "onse\0222\n\023GetAllCollaborators\022\003.Id\032\026.Filte" +
+      "redUsersResponse\022.\n\017AddCollaborator\022\020.Ad" +
+      "dToProjectDto\032\t.Response\0221\n\022RemoveCollab" +
+      "orator\022\020.AddToProjectDto\032\t.Response\0222\n\014A" +
+      "ddUserStory\022\021.UserStoryMessage\032\017.Respons" +
+      "eWithID\022.\n\021GetProductBacklog\022\003.Id\032\024.User" +
+      "StoriesResponse\0221\n\014CreateSprint\022\026.Sprint" +
+      "CreationRequest\032\t.Response\022$\n\rGetSprintB" +
+      "yID\022\003.Id\032\016.SprintMessage\022/\n\024GetSprintByP" +
+      "rojectId\022\003.Id\032\022.AllSprintsMessage\022\036\n\014Rem" +
+      "oveSprint\022\003.Id\032\t.Response\022\"\n\007AddTask\022\014.T" +
+      "askRequest\032\t.Response\022!\n\010GetTasks\022\003.Id\032\020" +
+      ".AllTasksMessage\022$\n\014AssignTaskTo\022\t.Usern" +
+      "ame\032\t.Response\022+\n\nChangeTask\022\022.ChangeTas" +
+      "kRequest\032\t.Response\022<\n\024AddUserStoryToSpr" +
+      "int\022\031.UserStoryToSprintRequest\032\t.Respons" +
+      "e\022A\n\031RemoveUserStoryFromSprint\022\031.UserSto" +
+      "ryToSprintRequest\032\t.Response\0228\n\033GetAllUs" +
+      "erStoriesFromSprint\022\003.Id\032\024.UserStoriesRe" +
+      "sponseB!\n\014com.protobuf\252\002\020DataAccessClien" +
+      "tb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17114,7 +17259,7 @@ public final class DataAccess {
     internal_static_UserStoryMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStoryMessage_descriptor,
-        new java.lang.String[] { "TaskBody", "Priority", "ProjectId", });
+        new java.lang.String[] { "ProjectId", "TaskBody", "Priority", "Status", "StoryPoint", });
     internal_static_ProjectMessage_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_ProjectMessage_fieldAccessorTable = new

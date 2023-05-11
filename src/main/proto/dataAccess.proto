@@ -102,9 +102,11 @@ message ProjectCreationDto {
 }
 
 message UserStoryMessage {
-    string taskBody = 1;
-    string priority = 2;
-    int32 project_id = 3;
+    int32 project_id = 1;
+    string taskBody = 2;
+    string priority = 3;
+    int32 status= 4;
+    int32 storyPoint=5;
 }
 message ProjectMessage {
     int32 id = 1;
