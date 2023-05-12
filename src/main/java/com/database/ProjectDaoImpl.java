@@ -17,7 +17,7 @@ public class ProjectDaoImpl implements IProjectDao {
 
     @Override
     public DataAccess.ResponseWithID createProject(DataAccess.ProjectCreationDto dto) {
-        try (Connection connection=DatabaseDriver.getInstance().getConnection()){
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
             PreparedStatement statement1 = connection.prepareStatement("INSERT INTO project(title) VALUES(?) returning id;");
             PreparedStatement statement2 = connection.prepareStatement("INSERT INTO worksOn(username, project_id) VALUES(?,?); ");
 
@@ -39,29 +39,28 @@ public class ProjectDaoImpl implements IProjectDao {
 
             statement2.close();
             return DataAccess.ResponseWithID.newBuilder().setCode(code).setId(id).build();
-        }
-        catch (SQLException e) {
-         throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
 
     @Override
     public DataAccess.ProjectsResponse getAllProjects(DataAccess.Username username) {
-        try(Connection connection=DatabaseDriver.getInstance().getConnection()){
-        PreparedStatement statement = connection.prepareStatement("SELECT * from project, worksOn where id= worksOn.project_id and username = ?");
-        statement.setString(1, username.getUsername());
-        ResultSet rs = statement.executeQuery();
-        DataAccess.ProjectsResponse.Builder builder = DataAccess.ProjectsResponse.newBuilder();
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from project, worksOn where id= worksOn.project_id and username = ?");
+            statement.setString(1, username.getUsername());
+            ResultSet rs = statement.executeQuery();
+            DataAccess.ProjectsResponse.Builder builder = DataAccess.ProjectsResponse.newBuilder();
 
-        int code = 404;
-        while (rs.next()) {
-            builder.addProjects(DataAccess.ProjectMessage.newBuilder().setId(rs.getInt("id")).setTitle(rs.getString("title")));
+            int code = 404;
+            while (rs.next()) {
+                builder.addProjects(DataAccess.ProjectMessage.newBuilder().setId(rs.getInt("id")).setTitle(rs.getString("title")));
 
-            code = 200;
-        }
-        statement.close();
-        return builder.setCode(code).build();
+                code = 200;
+            }
+            statement.close();
+            return builder.setCode(code).build();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -84,8 +83,8 @@ public class ProjectDaoImpl implements IProjectDao {
     }
 
     @Override
-    public DataAccess.FilteredUsersResponse getAllCollaborators(DataAccess.Id id)  {
-        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+    public DataAccess.FilteredUsersResponse getAllCollaborators(DataAccess.Id id) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * from user,worksOn where user.username = worksOn.username and project_id = ?");
             statement.setInt(1, id.getId());
             ResultSet rs = statement.executeQuery();
@@ -109,22 +108,22 @@ public class ProjectDaoImpl implements IProjectDao {
     }
 
     @Override
-    public DataAccess.Response addCollaborator(DataAccess.AddToProjectDto dto)  {
-        try(Connection connection=DatabaseDriver.getInstance().getConnection()){
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO worksOn(username, project_id) VALUES (?,?)");
-        statement.setString(1, dto.getUsername());
-        statement.setInt(2, dto.getProjectId());
-        int rowsAffected = statement.executeUpdate();
-        statement.close();
+    public DataAccess.Response addCollaborator(DataAccess.AddToProjectDto dto) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO worksOn(username, project_id) VALUES (?,?)");
+            statement.setString(1, dto.getUsername());
+            statement.setInt(2, dto.getProjectId());
+            int rowsAffected = statement.executeUpdate();
+            statement.close();
 
-        int code = 404;
+            int code = 404;
 
-        if (rowsAffected==1 ){
-            code = 200;
-        }
-        return DataAccess.Response.newBuilder()
-                .setCode(code)
-                .build();
+            if (rowsAffected == 1) {
+                code = 200;
+            }
+            return DataAccess.Response.newBuilder()
+                    .setCode(code)
+                    .build();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -133,15 +132,15 @@ public class ProjectDaoImpl implements IProjectDao {
     }
 
     @Override
-    public DataAccess.Response removeCollaborator(DataAccess.AddToProjectDto user)  {
-        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+    public DataAccess.Response removeCollaborator(DataAccess.AddToProjectDto user) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("DELETE from worksOn where  username = ? and project_id = ?");
-            statement.setString(1,user.getUsername());
-            statement.setInt(2,user.getProjectId());
+            statement.setString(1, user.getUsername());
+            statement.setInt(2, user.getProjectId());
 
             int rowsAffected = statement.executeUpdate();
             int code = 404;
-            if (rowsAffected==1){
+            if (rowsAffected == 1) {
                 code = 200;
             }
             statement.close();
@@ -158,19 +157,20 @@ public class ProjectDaoImpl implements IProjectDao {
     // UserStory->
     @Override
     public DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) {
-        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            int status = userStory.getStatus() ? 1 : 0;
             PreparedStatement statement = connection.prepareStatement("INSERT INTO userStory( project_id,body, priority, status, storyPoint) VALUES (?,?,?,?,?) returning id");
-            statement.setString(2,userStory.getTaskBody());
-            statement.setInt(1,userStory.getProjectId());
+            statement.setString(2, userStory.getTaskBody());
+            statement.setInt(1, userStory.getProjectId());
             statement.setString(3, userStory.getPriority());
-            statement.setInt(4, userStory.getStatus());
+            statement.setInt(4, status);
             statement.setInt(5, userStory.getStoryPoint());
 
             ResultSet resultSet = statement.executeQuery();
 
             int code = 404;
             int id = -1;
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 code = 200;
                 id = resultSet.getInt("id");
             }
@@ -186,20 +186,22 @@ public class ProjectDaoImpl implements IProjectDao {
     }
 
     @Override
-    public DataAccess.UserStoriesResponse getProductBacklog(DataAccess.Id id)  {
-        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * from userStory where id=?;");
-            statement.setInt(1,id.getId());
+    public DataAccess.UserStoriesResponse getUserStories(DataAccess.Id id) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from userStory where project_id=?;");
+            statement.setInt(1, id.getId());
             ResultSet rs = statement.executeQuery();
             DataAccess.UserStoriesResponse.Builder builder = DataAccess.UserStoriesResponse.newBuilder();
 
             int code = 404;
             while (rs.next()) {
                 builder.addUserStories(DataAccess.UserStory.newBuilder()
-                        .setProjectId(rs.getInt("project_id"))
                         .setId(rs.getInt("id"))
+                        .setProjectId(rs.getInt("project_id"))
                         .setUserStory(rs.getString("body"))
                         .setPriority(rs.getString("priority"))
+                        .setStatus(Boolean.parseBoolean(rs.getString("status")))
+                        .setStoryPoint(rs.getInt("storyPoint"))
                         .build());
                 code = 200;
             }

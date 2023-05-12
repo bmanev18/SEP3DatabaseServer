@@ -201,34 +201,34 @@ public final class ProjectAccessGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
-      com.protobuf.DataAccess.UserStoriesResponse> getGetProductBacklogMethod;
+      com.protobuf.DataAccess.UserStoriesResponse> getGetUserStoriesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetProductBacklog",
+      fullMethodName = SERVICE_NAME + '/' + "getUserStories",
       requestType = com.protobuf.DataAccess.Id.class,
       responseType = com.protobuf.DataAccess.UserStoriesResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
-      com.protobuf.DataAccess.UserStoriesResponse> getGetProductBacklogMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.UserStoriesResponse> getGetProductBacklogMethod;
-    if ((getGetProductBacklogMethod = ProjectAccessGrpc.getGetProductBacklogMethod) == null) {
+      com.protobuf.DataAccess.UserStoriesResponse> getGetUserStoriesMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.UserStoriesResponse> getGetUserStoriesMethod;
+    if ((getGetUserStoriesMethod = ProjectAccessGrpc.getGetUserStoriesMethod) == null) {
       synchronized (ProjectAccessGrpc.class) {
-        if ((getGetProductBacklogMethod = ProjectAccessGrpc.getGetProductBacklogMethod) == null) {
-          ProjectAccessGrpc.getGetProductBacklogMethod = getGetProductBacklogMethod =
+        if ((getGetUserStoriesMethod = ProjectAccessGrpc.getGetUserStoriesMethod) == null) {
+          ProjectAccessGrpc.getGetUserStoriesMethod = getGetUserStoriesMethod =
               io.grpc.MethodDescriptor.<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.UserStoriesResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetProductBacklog"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getUserStories"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.protobuf.DataAccess.Id.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.protobuf.DataAccess.UserStoriesResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("GetProductBacklog"))
+              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("getUserStories"))
               .build();
         }
       }
     }
-    return getGetProductBacklogMethod;
+    return getGetUserStoriesMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.SprintCreationRequest,
@@ -673,9 +673,9 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public void getProductBacklog(com.protobuf.DataAccess.Id request,
+    public void getUserStories(com.protobuf.DataAccess.Id request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserStoriesResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetProductBacklogMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserStoriesMethod(), responseObserver);
     }
 
     /**
@@ -806,12 +806,12 @@ public final class ProjectAccessGrpc {
                 com.protobuf.DataAccess.ResponseWithID>(
                   this, METHODID_ADD_USER_STORY)))
           .addMethod(
-            getGetProductBacklogMethod(),
+            getGetUserStoriesMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.protobuf.DataAccess.Id,
                 com.protobuf.DataAccess.UserStoriesResponse>(
-                  this, METHODID_GET_PRODUCT_BACKLOG)))
+                  this, METHODID_GET_USER_STORIES)))
           .addMethod(
             getCreateSprintMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -966,10 +966,10 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public void getProductBacklog(com.protobuf.DataAccess.Id request,
+    public void getUserStories(com.protobuf.DataAccess.Id request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserStoriesResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetProductBacklogMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetUserStoriesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1134,9 +1134,9 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public com.protobuf.DataAccess.UserStoriesResponse getProductBacklog(com.protobuf.DataAccess.Id request) {
+    public com.protobuf.DataAccess.UserStoriesResponse getUserStories(com.protobuf.DataAccess.Id request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetProductBacklogMethod(), getCallOptions(), request);
+          getChannel(), getGetUserStoriesMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1296,10 +1296,10 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.UserStoriesResponse> getProductBacklog(
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.UserStoriesResponse> getUserStories(
         com.protobuf.DataAccess.Id request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetProductBacklogMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetUserStoriesMethod(), getCallOptions()), request);
     }
 
     /**
@@ -1403,7 +1403,7 @@ public final class ProjectAccessGrpc {
   private static final int METHODID_ADD_COLLABORATOR = 3;
   private static final int METHODID_REMOVE_COLLABORATOR = 4;
   private static final int METHODID_ADD_USER_STORY = 5;
-  private static final int METHODID_GET_PRODUCT_BACKLOG = 6;
+  private static final int METHODID_GET_USER_STORIES = 6;
   private static final int METHODID_CREATE_SPRINT = 7;
   private static final int METHODID_GET_SPRINT_BY_ID = 8;
   private static final int METHODID_GET_SPRINT_BY_PROJECT_ID = 9;
@@ -1457,8 +1457,8 @@ public final class ProjectAccessGrpc {
           serviceImpl.addUserStory((com.protobuf.DataAccess.UserStoryMessage) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ResponseWithID>) responseObserver);
           break;
-        case METHODID_GET_PRODUCT_BACKLOG:
-          serviceImpl.getProductBacklog((com.protobuf.DataAccess.Id) request,
+        case METHODID_GET_USER_STORIES:
+          serviceImpl.getUserStories((com.protobuf.DataAccess.Id) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.UserStoriesResponse>) responseObserver);
           break;
         case METHODID_CREATE_SPRINT:
@@ -1572,7 +1572,7 @@ public final class ProjectAccessGrpc {
               .addMethod(getAddCollaboratorMethod())
               .addMethod(getRemoveCollaboratorMethod())
               .addMethod(getAddUserStoryMethod())
-              .addMethod(getGetProductBacklogMethod())
+              .addMethod(getGetUserStoriesMethod())
               .addMethod(getCreateSprintMethod())
               .addMethod(getGetSprintByIDMethod())
               .addMethod(getGetSprintByProjectIdMethod())

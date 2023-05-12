@@ -1,13 +1,9 @@
 package com.server.services;
 
-import com.database.DAO;
 import com.database.IProjectDao;
 import com.protobuf.DataAccess;
 import com.protobuf.ProjectAccessGrpc;
 import io.grpc.stub.StreamObserver;
-
-import javax.xml.crypto.Data;
-import java.sql.SQLException;
 
 public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBase{
     private final IProjectDao dao;
@@ -33,11 +29,12 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
-    public void getProductBacklog(DataAccess.Id request, StreamObserver<DataAccess.UserStoriesResponse> responseObserver) {
+    public void getUserStories(DataAccess.Id request, StreamObserver<DataAccess.UserStoriesResponse> responseObserver) {
         System.out.printf("Received request to get product backlog: %s", request.getId());
-        responseObserver.onNext(dao.getProductBacklog(request));
+        responseObserver.onNext(dao.getUserStories(request));
         responseObserver.onCompleted();
     }
+
     @Override
     public void getAllProjects(DataAccess.Username request, StreamObserver<DataAccess.ProjectsResponse> responseObserver) {
         System.out.printf("Received request to get projects for user: %s", request.getUsername());

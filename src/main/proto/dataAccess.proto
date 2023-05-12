@@ -27,7 +27,7 @@ service ProjectAccess {
 
     //UserStories
     rpc AddUserStory (UserStoryMessage) returns (ResponseWithID);
-    rpc GetProductBacklog (Id) returns (UserStoriesResponse);
+    rpc getUserStories (Id) returns (UserStoriesResponse);
 
     //Sprints
     rpc CreateSprint(SprintCreationRequest) returns (Response);
@@ -105,7 +105,7 @@ message UserStoryMessage {
     int32 project_id = 1;
     string taskBody = 2;
     string priority = 3;
-    int32 status= 4;
+    bool status= 4;
     int32 storyPoint=5;
 }
 message ProjectMessage {
@@ -121,6 +121,8 @@ message UserStory {
     int32 project_id = 2;
     string userStory = 3;
     string priority = 4;
+    bool status= 5;
+    int32 storyPoint=6;
 }
 message UserStoriesResponse {
     repeated UserStory userStories = 1;

@@ -7507,10 +7507,10 @@ public final class DataAccess {
         getPriorityBytes();
 
     /**
-     * <code>int32 status = 4;</code>
+     * <code>bool status = 4;</code>
      * @return The status.
      */
-    int getStatus();
+    boolean getStatus();
 
     /**
      * <code>int32 storyPoint = 5;</code>
@@ -7645,13 +7645,13 @@ public final class DataAccess {
     }
 
     public static final int STATUS_FIELD_NUMBER = 4;
-    private int status_ = 0;
+    private boolean status_ = false;
     /**
-     * <code>int32 status = 4;</code>
+     * <code>bool status = 4;</code>
      * @return The status.
      */
     @java.lang.Override
-    public int getStatus() {
+    public boolean getStatus() {
       return status_;
     }
 
@@ -7689,8 +7689,8 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, priority_);
       }
-      if (status_ != 0) {
-        output.writeInt32(4, status_);
+      if (status_ != false) {
+        output.writeBool(4, status_);
       }
       if (storyPoint_ != 0) {
         output.writeInt32(5, storyPoint_);
@@ -7714,9 +7714,9 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, priority_);
       }
-      if (status_ != 0) {
+      if (status_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, status_);
+          .computeBoolSize(4, status_);
       }
       if (storyPoint_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -7765,7 +7765,8 @@ public final class DataAccess {
       hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
       hash = (53 * hash) + getPriority().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getStatus();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getStatus());
       hash = (37 * hash) + STORYPOINT_FIELD_NUMBER;
       hash = (53 * hash) + getStoryPoint();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -7900,7 +7901,7 @@ public final class DataAccess {
         projectId_ = 0;
         taskBody_ = "";
         priority_ = "";
-        status_ = 0;
+        status_ = false;
         storyPoint_ = 0;
         return this;
       }
@@ -7977,7 +7978,7 @@ public final class DataAccess {
           bitField0_ |= 0x00000004;
           onChanged();
         }
-        if (other.getStatus() != 0) {
+        if (other.getStatus() != false) {
           setStatus(other.getStatus());
         }
         if (other.getStoryPoint() != 0) {
@@ -8025,7 +8026,7 @@ public final class DataAccess {
                 break;
               } // case 26
               case 32: {
-                status_ = input.readInt32();
+                status_ = input.readBool();
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
@@ -8227,21 +8228,21 @@ public final class DataAccess {
         return this;
       }
 
-      private int status_ ;
+      private boolean status_ ;
       /**
-       * <code>int32 status = 4;</code>
+       * <code>bool status = 4;</code>
        * @return The status.
        */
       @java.lang.Override
-      public int getStatus() {
+      public boolean getStatus() {
         return status_;
       }
       /**
-       * <code>int32 status = 4;</code>
+       * <code>bool status = 4;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(int value) {
+      public Builder setStatus(boolean value) {
 
         status_ = value;
         bitField0_ |= 0x00000008;
@@ -8249,12 +8250,12 @@ public final class DataAccess {
         return this;
       }
       /**
-       * <code>int32 status = 4;</code>
+       * <code>bool status = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        status_ = 0;
+        status_ = false;
         onChanged();
         return this;
       }
@@ -9803,6 +9804,18 @@ public final class DataAccess {
      */
     com.google.protobuf.ByteString
         getPriorityBytes();
+
+    /**
+     * <code>bool status = 5;</code>
+     * @return The status.
+     */
+    boolean getStatus();
+
+    /**
+     * <code>int32 storyPoint = 6;</code>
+     * @return The storyPoint.
+     */
+    int getStoryPoint();
   }
   /**
    * Protobuf type {@code UserStory}
@@ -9941,6 +9954,28 @@ public final class DataAccess {
       }
     }
 
+    public static final int STATUS_FIELD_NUMBER = 5;
+    private boolean status_ = false;
+    /**
+     * <code>bool status = 5;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public boolean getStatus() {
+      return status_;
+    }
+
+    public static final int STORYPOINT_FIELD_NUMBER = 6;
+    private int storyPoint_ = 0;
+    /**
+     * <code>int32 storyPoint = 6;</code>
+     * @return The storyPoint.
+     */
+    @java.lang.Override
+    public int getStoryPoint() {
+      return storyPoint_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9967,6 +10002,12 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, priority_);
       }
+      if (status_ != false) {
+        output.writeBool(5, status_);
+      }
+      if (storyPoint_ != 0) {
+        output.writeInt32(6, storyPoint_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -9989,6 +10030,14 @@ public final class DataAccess {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, priority_);
+      }
+      if (status_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, status_);
+      }
+      if (storyPoint_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, storyPoint_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -10013,6 +10062,10 @@ public final class DataAccess {
           .equals(other.getUserStory())) return false;
       if (!getPriority()
           .equals(other.getPriority())) return false;
+      if (getStatus()
+          != other.getStatus()) return false;
+      if (getStoryPoint()
+          != other.getStoryPoint()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -10032,6 +10085,11 @@ public final class DataAccess {
       hash = (53 * hash) + getUserStory().hashCode();
       hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
       hash = (53 * hash) + getPriority().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getStatus());
+      hash = (37 * hash) + STORYPOINT_FIELD_NUMBER;
+      hash = (53 * hash) + getStoryPoint();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10165,6 +10223,8 @@ public final class DataAccess {
         projectId_ = 0;
         userStory_ = "";
         priority_ = "";
+        status_ = false;
+        storyPoint_ = 0;
         return this;
       }
 
@@ -10210,6 +10270,12 @@ public final class DataAccess {
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.priority_ = priority_;
         }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.status_ = status_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.storyPoint_ = storyPoint_;
+        }
       }
 
       @java.lang.Override
@@ -10239,6 +10305,12 @@ public final class DataAccess {
           priority_ = other.priority_;
           bitField0_ |= 0x00000008;
           onChanged();
+        }
+        if (other.getStatus() != false) {
+          setStatus(other.getStatus());
+        }
+        if (other.getStoryPoint() != 0) {
+          setStoryPoint(other.getStoryPoint());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -10286,6 +10358,16 @@ public final class DataAccess {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
+              case 40: {
+                status_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                storyPoint_ = input.readInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -10507,6 +10589,70 @@ public final class DataAccess {
         checkByteStringIsUtf8(value);
         priority_ = value;
         bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private boolean status_ ;
+      /**
+       * <code>bool status = 5;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public boolean getStatus() {
+        return status_;
+      }
+      /**
+       * <code>bool status = 5;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(boolean value) {
+
+        status_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool status = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        status_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int storyPoint_ ;
+      /**
+       * <code>int32 storyPoint = 6;</code>
+       * @return The storyPoint.
+       */
+      @java.lang.Override
+      public int getStoryPoint() {
+        return storyPoint_;
+      }
+      /**
+       * <code>int32 storyPoint = 6;</code>
+       * @param value The storyPoint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStoryPoint(int value) {
+
+        storyPoint_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 storyPoint = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStoryPoint() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        storyPoint_ = 0;
         onChanged();
         return this;
       }
@@ -17128,60 +17274,61 @@ public final class DataAccess {
       "nDto\022\025\n\rownerUsername\030\001 \001(\t\022\r\n\005title\030\002 \001" +
       "(\t\"n\n\020UserStoryMessage\022\022\n\nproject_id\030\001 \001" +
       "(\005\022\020\n\010taskBody\030\002 \001(\t\022\020\n\010priority\030\003 \001(\t\022\016" +
-      "\n\006status\030\004 \001(\005\022\022\n\nstoryPoint\030\005 \001(\005\"+\n\016Pr" +
+      "\n\006status\030\004 \001(\010\022\022\n\nstoryPoint\030\005 \001(\005\"+\n\016Pr" +
       "ojectMessage\022\n\n\002id\030\001 \001(\005\022\r\n\005title\030\002 \001(\t\"" +
       "C\n\020ProjectsResponse\022!\n\010projects\030\001 \003(\0132\017." +
-      "ProjectMessage\022\014\n\004code\030\002 \001(\005\"P\n\tUserStor" +
+      "ProjectMessage\022\014\n\004code\030\002 \001(\005\"t\n\tUserStor" +
       "y\022\n\n\002id\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(\005\022\021\n\tuse" +
-      "rStory\030\003 \001(\t\022\020\n\010priority\030\004 \001(\t\"D\n\023UserSt" +
-      "oriesResponse\022\037\n\013userStories\030\001 \003(\0132\n.Use" +
-      "rStory\022\014\n\004code\030\002 \001(\005\"\224\001\n\025SprintCreationR" +
-      "equest\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t" +
-      "\022,\n\010starDate\030\003 \001(\0132\032.google.protobuf.Tim" +
-      "estamp\022+\n\007endDate\030\004 \001(\0132\032.google.protobu" +
-      "f.Timestamp\"\204\001\n\rSprintMessage\022\n\n\002id\030\001 \001(" +
-      "\005\022\014\n\004name\030\002 \001(\t\022,\n\010starDate\030\003 \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\022+\n\007endDate\030\004 \001(\0132\032" +
-      ".google.protobuf.Timestamp\"4\n\021AllSprints" +
-      "Message\022\037\n\007sprints\030\001 \003(\0132\016.SprintMessage" +
-      "\"T\n\013TaskRequest\022\021\n\tsprint_id\030\001 \001(\005\022\020\n\010as" +
-      "signee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\022\n\nstoryPoint" +
-      "\030\004 \001(\005\"V\n\021ChangeTaskRequest\022\017\n\007task_id\030\001" +
-      " \001(\005\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryPoint\030\003 \001(\005\022\016" +
-      "\n\006status\030\004 \001(\010\"C\n\030UserStoryToSprintReque" +
-      "st\022\024\n\014userStory_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 " +
-      "\001(\005\"H\n\017AllTasksMessage\022!\n\005tasks\030\001 \003(\0132\022." +
-      "ChangeTaskRequest\022\022\n\nproject_id\030\002 \001(\0052\363\001" +
-      "\n\nUserAccess\022)\n\nCreateUser\022\020.UserCreatio" +
-      "nDto\032\t.Response\022-\n\016UserByUsername\022\t.User" +
-      "name\032\020.UserCreationDto\0224\n\nUpdateUser\022\020.U" +
-      "serCreationDto\032\024.UpdatedUserResponse\022\"\n\n" +
-      "DeleteUser\022\t.Username\032\t.Response\0221\n\014Look" +
-      "ForUsers\022\t.Username\032\026.FilteredUsersRespo" +
-      "nse2\360\006\n\rProjectAccess\0225\n\rCreateProject\022\023" +
-      ".ProjectCreationDto\032\017.ResponseWithID\022.\n\016" +
-      "GetAllProjects\022\t.Username\032\021.ProjectsResp" +
-      "onse\0222\n\023GetAllCollaborators\022\003.Id\032\026.Filte" +
-      "redUsersResponse\022.\n\017AddCollaborator\022\020.Ad" +
-      "dToProjectDto\032\t.Response\0221\n\022RemoveCollab" +
-      "orator\022\020.AddToProjectDto\032\t.Response\0222\n\014A" +
-      "ddUserStory\022\021.UserStoryMessage\032\017.Respons" +
-      "eWithID\022.\n\021GetProductBacklog\022\003.Id\032\024.User" +
-      "StoriesResponse\0221\n\014CreateSprint\022\026.Sprint" +
-      "CreationRequest\032\t.Response\022$\n\rGetSprintB" +
-      "yID\022\003.Id\032\016.SprintMessage\022/\n\024GetSprintByP" +
-      "rojectId\022\003.Id\032\022.AllSprintsMessage\022\036\n\014Rem" +
-      "oveSprint\022\003.Id\032\t.Response\022\"\n\007AddTask\022\014.T" +
-      "askRequest\032\t.Response\022!\n\010GetTasks\022\003.Id\032\020" +
-      ".AllTasksMessage\022$\n\014AssignTaskTo\022\t.Usern" +
-      "ame\032\t.Response\022+\n\nChangeTask\022\022.ChangeTas" +
-      "kRequest\032\t.Response\022<\n\024AddUserStoryToSpr" +
-      "int\022\031.UserStoryToSprintRequest\032\t.Respons" +
-      "e\022A\n\031RemoveUserStoryFromSprint\022\031.UserSto" +
-      "ryToSprintRequest\032\t.Response\0228\n\033GetAllUs" +
-      "erStoriesFromSprint\022\003.Id\032\024.UserStoriesRe" +
-      "sponseB!\n\014com.protobuf\252\002\020DataAccessClien" +
-      "tb\006proto3"
+      "rStory\030\003 \001(\t\022\020\n\010priority\030\004 \001(\t\022\016\n\006status" +
+      "\030\005 \001(\010\022\022\n\nstoryPoint\030\006 \001(\005\"D\n\023UserStorie" +
+      "sResponse\022\037\n\013userStories\030\001 \003(\0132\n.UserSto" +
+      "ry\022\014\n\004code\030\002 \001(\005\"\224\001\n\025SprintCreationReque" +
+      "st\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022,\n\010" +
+      "starDate\030\003 \001(\0132\032.google.protobuf.Timesta" +
+      "mp\022+\n\007endDate\030\004 \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\"\204\001\n\rSprintMessage\022\n\n\002id\030\001 \001(\005\022\014\n" +
+      "\004name\030\002 \001(\t\022,\n\010starDate\030\003 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022+\n\007endDate\030\004 \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\"4\n\021AllSprintsMess" +
+      "age\022\037\n\007sprints\030\001 \003(\0132\016.SprintMessage\"T\n\013" +
+      "TaskRequest\022\021\n\tsprint_id\030\001 \001(\005\022\020\n\010assign" +
+      "ee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\022\n\nstoryPoint\030\004 \001" +
+      "(\005\"V\n\021ChangeTaskRequest\022\017\n\007task_id\030\001 \001(\005" +
+      "\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryPoint\030\003 \001(\005\022\016\n\006st" +
+      "atus\030\004 \001(\010\"C\n\030UserStoryToSprintRequest\022\024" +
+      "\n\014userStory_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 \001(\005\"" +
+      "H\n\017AllTasksMessage\022!\n\005tasks\030\001 \003(\0132\022.Chan" +
+      "geTaskRequest\022\022\n\nproject_id\030\002 \001(\0052\363\001\n\nUs" +
+      "erAccess\022)\n\nCreateUser\022\020.UserCreationDto" +
+      "\032\t.Response\022-\n\016UserByUsername\022\t.Username" +
+      "\032\020.UserCreationDto\0224\n\nUpdateUser\022\020.UserC" +
+      "reationDto\032\024.UpdatedUserResponse\022\"\n\nDele" +
+      "teUser\022\t.Username\032\t.Response\0221\n\014LookForU" +
+      "sers\022\t.Username\032\026.FilteredUsersResponse2" +
+      "\355\006\n\rProjectAccess\0225\n\rCreateProject\022\023.Pro" +
+      "jectCreationDto\032\017.ResponseWithID\022.\n\016GetA" +
+      "llProjects\022\t.Username\032\021.ProjectsResponse" +
+      "\0222\n\023GetAllCollaborators\022\003.Id\032\026.FilteredU" +
+      "sersResponse\022.\n\017AddCollaborator\022\020.AddToP" +
+      "rojectDto\032\t.Response\0221\n\022RemoveCollaborat" +
+      "or\022\020.AddToProjectDto\032\t.Response\0222\n\014AddUs" +
+      "erStory\022\021.UserStoryMessage\032\017.ResponseWit" +
+      "hID\022+\n\016getUserStories\022\003.Id\032\024.UserStories" +
+      "Response\0221\n\014CreateSprint\022\026.SprintCreatio" +
+      "nRequest\032\t.Response\022$\n\rGetSprintByID\022\003.I" +
+      "d\032\016.SprintMessage\022/\n\024GetSprintByProjectI" +
+      "d\022\003.Id\032\022.AllSprintsMessage\022\036\n\014RemoveSpri" +
+      "nt\022\003.Id\032\t.Response\022\"\n\007AddTask\022\014.TaskRequ" +
+      "est\032\t.Response\022!\n\010GetTasks\022\003.Id\032\020.AllTas" +
+      "ksMessage\022$\n\014AssignTaskTo\022\t.Username\032\t.R" +
+      "esponse\022+\n\nChangeTask\022\022.ChangeTaskReques" +
+      "t\032\t.Response\022<\n\024AddUserStoryToSprint\022\031.U" +
+      "serStoryToSprintRequest\032\t.Response\022A\n\031Re" +
+      "moveUserStoryFromSprint\022\031.UserStoryToSpr" +
+      "intRequest\032\t.Response\0228\n\033GetAllUserStori" +
+      "esFromSprint\022\003.Id\032\024.UserStoriesResponseB" +
+      "!\n\014com.protobuf\252\002\020DataAccessClientb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17277,7 +17424,7 @@ public final class DataAccess {
     internal_static_UserStory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStory_descriptor,
-        new java.lang.String[] { "Id", "ProjectId", "UserStory", "Priority", });
+        new java.lang.String[] { "Id", "ProjectId", "UserStory", "Priority", "Status", "StoryPoint", });
     internal_static_UserStoriesResponse_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_UserStoriesResponse_fieldAccessorTable = new

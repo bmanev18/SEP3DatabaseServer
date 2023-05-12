@@ -2,8 +2,6 @@ package com.database;
 
 import com.protobuf.DataAccess;
 
-import java.sql.SQLException;
-
 public interface IProjectDao {
     DataAccess.ResponseWithID createProject(DataAccess.ProjectCreationDto dto);
 
@@ -20,5 +18,5 @@ public interface IProjectDao {
     // UserStory->
     DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) ;
 
-    DataAccess.UserStoriesResponse getProductBacklog(DataAccess.Id id) ;
+    DataAccess.UserStoriesResponse getUserStories(DataAccess.Id id) ;
 }
