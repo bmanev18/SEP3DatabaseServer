@@ -1,11 +1,10 @@
 package com.database;
 
+import com.google.protobuf.Message;
+import com.google.protobuf.Timestamp;
 import com.protobuf.DataAccess;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ProjectDaoImpl implements IProjectDao {
 
@@ -208,6 +207,166 @@ public class ProjectDaoImpl implements IProjectDao {
             statement.close();
 
             return builder.setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response createSprint(DataAccess.SprintCreationRequest sprint) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO sprint(project_id, name, startDate, endDate) VALUES (?,?,?,?)");
+            statement.setInt(1, sprint.getProjectId());
+            statement.setString(2, sprint.getName());
+            statement.setString(3, String.valueOf(sprint.getStarDate()));
+            statement.setString(4, String.valueOf(sprint.getEndDate()));
+
+            int rowsInserted = statement.executeUpdate();
+
+            int code = 404;
+            if (rowsInserted > 0) {
+                code = 200;
+            }
+
+            statement.close();
+
+            return DataAccess.Response.newBuilder().setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.SprintMessage getSprintById(DataAccess.Id id) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from sprint where id=?;");
+            statement.setInt(1, id.getId());
+            ResultSet rs = statement.executeQuery();
+            DataAccess.SprintMessage.Builder builder = DataAccess.SprintMessage.newBuilder();
+
+            int code = 404;
+            if (rs.next()) {
+                builder.setId(rs.getInt("id"))
+                        .setName(rs.getString("name"))
+                        .setStarDate(rs.getString("startDate"))
+                        .setEndDate(rs.getString("endDate"))
+                        .build();
+                code = 200;
+            }
+
+            statement.close();
+
+            return builder.setCode(code).build();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.AllSprintsMessage getSprintByProjectId(DataAccess.Id id) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from sprint where project_id=?;");
+            statement.setInt(1, id.getId());
+            ResultSet rs = statement.executeQuery();
+            DataAccess.AllSprintsMessage.Builder builder = DataAccess.AllSprintsMessage.newBuilder();
+
+            int code = 404;
+            while (rs.next()) {
+                builder.addSprints(DataAccess.SprintMessage.newBuilder().setId(rs.getInt("id"))
+                                .setName(rs.getString("name"))
+
+                                .setStarDate(rs.getString("startDate"))
+                                .setEndDate(rs.getString("endDate")).build());
+                code = 200;
+            }
+
+            statement.close();
+
+            return builder.setCode(code).build();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response addTask(DataAccess.TaskRequest task) {  try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO task(assignee, body, status) VALUES (?,?,?) ");
+        statement.setString(1, task.getAsignee());
+        statement.setString(2, task.getBody());
+        statement.setBoolean(3, task.getStatus());
+
+        int rowsInserted = statement.executeUpdate();
+
+        int code = 404;
+        if (rowsInserted > 0) {
+            code = 200;
+        }
+
+        statement.close();
+
+        return DataAccess.Response.newBuilder().setCode(code).build();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+    }
+
+    //error404
+    @Override
+    public DataAccess.AllTasksMessage getTask(DataAccess.Id id) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from task where id= ?");
+            statement.setInt(1, id.getId());
+            ResultSet rs = statement.executeQuery();
+
+            DataAccess.AllTasksMessage.Builder builder = DataAccess.AllTasksMessage.newBuilder();
+            int code = 404;
+
+            while (rs.next()) {
+                DataAccess.ChangeTaskRequest task = DataAccess.ChangeTaskRequest.newBuilder()
+                        .setTaskId(rs.getInt("id"))
+                        .setBody(rs.getString("body"))
+                        .setStatus(rs.getBoolean("status"))
+                        .build();
+                builder.addTasks(task);
+                code = 200;
+            }
+
+            builder.setProjectId(id.getId());
+            builder.setCode(code);
+            statement.close();
+
+            return builder.build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //error404
+    @Override
+    public DataAccess.Response changeTask(DataAccess.ChangeTaskRequest taskRequest) {
+        int taskId = taskRequest.getTaskId();
+        boolean newStatus = taskRequest.getStatus();
+
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE task SET status = ? WHERE id = ?"
+            );
+            statement.setBoolean(1, newStatus);
+            statement.setInt(2, taskId);
+            int rowsAffected = statement.executeUpdate();
+            statement.close();
+
+            if (rowsAffected > 0) {
+                return DataAccess.Response.newBuilder()
+                        .setCode(200)
+                        .build();
+            } else {
+                return DataAccess.Response.newBuilder()
+                        .setCode(404)
+                        .build();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

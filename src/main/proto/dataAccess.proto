@@ -1,7 +1,5 @@
 
 syntax = "proto3";
-import "google/protobuf/timestamp.proto";
-
 
 option java_package = "com.protobuf";
 option csharp_namespace = "DataAccessClient";
@@ -131,29 +129,32 @@ message UserStoriesResponse {
 message SprintCreationRequest{
     int32 project_id = 1;
     string name = 2;
-    google.protobuf.Timestamp starDate = 3;
-    google.protobuf.Timestamp endDate = 4;
+    string starDate = 3;
+    string endDate = 4;
 }
 message SprintMessage{
     int32 id = 1;
     string name = 2;
-    google.protobuf.Timestamp starDate = 3;
-    google.protobuf.Timestamp endDate = 4;
+    string starDate = 3;
+    string endDate = 4;
+    int32 code = 5;
 }
 message AllSprintsMessage{
     repeated SprintMessage sprints = 1;
+    int32 code = 2;
 }
 message TaskRequest{
-    int32 sprint_id = 1;
-    string assignee = 2;
+    int32 id = 1;
+    string asignee = 2;
     string body = 3;
-    int32 storyPoint = 4;
+    bool status = 4;
 }
 message ChangeTaskRequest{
     int32 task_id = 1;
     string body = 2;
     int32 storyPoint = 3;
-    bool status = 4;
+    int32 userStory_id=4;
+    bool status = 5;
 }
 message UserStoryToSprintRequest{
     int32 userStory_id = 1;
@@ -162,4 +163,5 @@ message UserStoryToSprintRequest{
 message AllTasksMessage{
     repeated ChangeTaskRequest tasks = 1;
     int32 project_id = 2;
+    int32 code = 3;
 }

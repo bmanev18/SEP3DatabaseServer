@@ -63,4 +63,53 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onCompleted();;
     }
 
+
+    @Override
+    public void createSprint(DataAccess.SprintCreationRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to create sprint: %s", request.getName());
+
+        responseObserver.onNext(dao.createSprint(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getSprintByID(DataAccess.Id request, StreamObserver<DataAccess.SprintMessage> responseObserver) {
+        System.out.printf("Received request to get sprint by ID: %s", request.getId());
+
+        responseObserver.onNext(dao.getSprintById(request));
+        responseObserver.onCompleted();
+    }
+
+
+    @Override
+    public void getSprintByProjectId(DataAccess.Id request, StreamObserver<DataAccess.AllSprintsMessage> responseObserver) {
+        System.out.printf("Received request to get sprints for project: %s", request.getId());
+
+        responseObserver.onNext(dao.getSprintByProjectId(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void addTask(DataAccess.TaskRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to create task: %s", request.getBody());
+
+        responseObserver.onNext(dao.addTask(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getTasks(DataAccess.Id request, StreamObserver<DataAccess.AllTasksMessage> responseObserver) {
+        System.out.printf("Received request to get the task with ID: %s", request.getId());
+
+        responseObserver.onNext(dao.getTask(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void changeTask(DataAccess.ChangeTaskRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to change the task with ID: %s", request.getTaskId());
+
+        responseObserver.onNext(dao.changeTask(request));
+        responseObserver.onCompleted();
+    }
 }

@@ -1,11 +1,9 @@
 package com.server.services;
 
-import com.database.DAO;
 import com.database.IUserDao;
 import com.protobuf.DataAccess;
 import com.protobuf.UserAccessGrpc;
 import io.grpc.stub.StreamObserver;
-import java.sql.SQLException;
 
 public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
     private final IUserDao dao;
