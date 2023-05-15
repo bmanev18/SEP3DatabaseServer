@@ -112,4 +112,60 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onNext(dao.changeTask(request));
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void getAllUserStoriesFromSprint(DataAccess.Id request, StreamObserver<DataAccess.UserStoriesResponse> responseObserver) {
+        System.out.printf("Received request to get all user stories from sprint: %s", request.getId());
+
+        responseObserver.onNext(dao.getAllUserStoriesFromSprint(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void assignTaskTo(DataAccess.AssignTaskMessage request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to assign task to: %s", request.getUsername());
+
+        responseObserver.onNext(dao.assignTaskTo(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void addUserStoryToSprint(DataAccess.UserStoryToSprintRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to add user story to sprint: %s", request.getSprintId());
+
+        responseObserver.onNext(dao.addUserStoryToSprint(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void removeUserStoryFromSprint(DataAccess.UserStoryToSprintRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to remove user story to sprint: %s", request.getSprintId());
+
+        responseObserver.onNext(dao.removeUserStoryFromSprint(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void removeSprint(DataAccess.RemoveSprintMessage request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to remove sprint: %s", request.getSprintId());
+
+        responseObserver.onNext(dao.removeSprint(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void removeTask(DataAccess.Id request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to remove task: %s", request.getId());
+
+        responseObserver.onNext(dao.removeTask(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deleteUserStory(DataAccess.Id request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to delete user story: %s", request.getId());
+
+        responseObserver.onNext(dao.deleteUserStory(request));
+        responseObserver.onCompleted();
+    }
 }

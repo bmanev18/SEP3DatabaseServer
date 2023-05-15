@@ -2,6 +2,8 @@ package com.database;
 
 import com.protobuf.DataAccess;
 
+import javax.xml.crypto.Data;
+
 public interface IProjectDao {
     DataAccess.ResponseWithID createProject(DataAccess.ProjectCreationDto dto);
 
@@ -30,5 +32,16 @@ public interface IProjectDao {
     DataAccess.Response addTask(DataAccess.TaskRequest task);
     DataAccess.AllTasksMessage getTask(DataAccess.Id id);
     DataAccess.Response changeTask(DataAccess.ChangeTaskRequest taskRequest);
+    DataAccess.UserStoriesResponse getAllUserStoriesFromSprint(DataAccess.Id sprintId);
+    DataAccess.Response assignTaskTo(DataAccess.AssignTaskMessage message);
 
+    DataAccess.Response addUserStoryToSprint(DataAccess.UserStoryToSprintRequest request);
+
+    DataAccess.Response removeUserStoryFromSprint(DataAccess.UserStoryToSprintRequest request);
+
+    DataAccess.Response removeSprint(DataAccess.RemoveSprintMessage request);
+
+    DataAccess.Response removeTask(DataAccess.Id request);
+
+    DataAccess.Response deleteUserStory(DataAccess.Id request);
 }

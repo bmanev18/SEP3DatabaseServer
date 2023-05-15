@@ -3,6 +3,8 @@ package com.database;
 import com.google.protobuf.Message;
 import com.google.protobuf.Timestamp;
 import com.protobuf.DataAccess;
+import jdk.jshell.spi.ExecutionControl;
+import org.springframework.boot.autoconfigure.web.servlet.JspTemplateAvailabilityProvider;
 
 import java.sql.*;
 
@@ -291,11 +293,14 @@ public class ProjectDaoImpl implements IProjectDao {
     }
 
     @Override
-    public DataAccess.Response addTask(DataAccess.TaskRequest task) {  try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO task(assignee, body, status) VALUES (?,?,?) ");
+    public DataAccess.Response addTask(DataAccess.TaskRequest task) {
+        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO task(assignee, body, status,story_id,storyPoints) VALUES (?,?,?,?,?)");
         statement.setString(1, task.getAsignee());
         statement.setString(2, task.getBody());
         statement.setBoolean(3, task.getStatus());
+        statement.setInt(4,task.getStoryId());
+        statement.setInt(5,task.getStoryPoints());
 
         int rowsInserted = statement.executeUpdate();
 
@@ -316,7 +321,7 @@ public class ProjectDaoImpl implements IProjectDao {
     @Override
     public DataAccess.AllTasksMessage getTask(DataAccess.Id id) {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * from task where id= ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * from task where story_id= ?");
             statement.setInt(1, id.getId());
             ResultSet rs = statement.executeQuery();
 
@@ -324,16 +329,16 @@ public class ProjectDaoImpl implements IProjectDao {
             int code = 404;
 
             while (rs.next()) {
-                DataAccess.ChangeTaskRequest task = DataAccess.ChangeTaskRequest.newBuilder()
-                        .setTaskId(rs.getInt("id"))
+                DataAccess.TaskRequest task = DataAccess.TaskRequest.newBuilder()
+                        .setId(rs.getInt("id"))
                         .setBody(rs.getString("body"))
                         .setStatus(rs.getBoolean("status"))
+                        .setAsignee(rs.getString("assignee"))
+                        .setStoryPoints(rs.getInt("storyPoints"))
                         .build();
                 builder.addTasks(task);
                 code = 200;
             }
-
-            builder.setProjectId(id.getId());
             builder.setCode(code);
             statement.close();
 
@@ -367,6 +372,167 @@ public class ProjectDaoImpl implements IProjectDao {
                         .setCode(404)
                         .build();
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.UserStoriesResponse getAllUserStoriesFromSprint(DataAccess.Id sprintId) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from userStory,storyInSprint where storyInSprint.userStory= userStory.id and sprint = ?;");
+            statement.setInt(1, sprintId.getId());
+            ResultSet rs = statement.executeQuery();
+            DataAccess.UserStoriesResponse.Builder builder = DataAccess.UserStoriesResponse.newBuilder();
+
+            int code = 404;
+            while (rs.next()) {
+                builder.addUserStories(DataAccess.UserStory.newBuilder()
+                        .setId(rs.getInt("id"))
+                        .setProjectId(rs.getInt("project_id"))
+                        .setUserStory(rs.getString("body"))
+                        .setPriority(rs.getString("priority"))
+                        .setStatus(Boolean.parseBoolean(rs.getString("status")))
+                        .setStoryPoint(rs.getInt("storyPoint"))
+                        .build());
+                code = 200;
+            }
+            statement.close();
+
+            return builder.setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response assignTaskTo(DataAccess.AssignTaskMessage message) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE task SET assignee = ? WHERE id = ?"
+            );
+            statement.setString(1, message.getUsername().getUsername());
+            statement.setInt(2, message.getTaskId());
+            int rowsAffected = statement.executeUpdate();
+            statement.close();
+
+            if (rowsAffected > 0) {
+                return DataAccess.Response.newBuilder()
+                        .setCode(200)
+                        .build();
+            } else {
+                return DataAccess.Response.newBuilder()
+                        .setCode(404)
+                        .build();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response addUserStoryToSprint(DataAccess.UserStoryToSprintRequest request) {
+        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO storyInSprint(sprint, userStory) VALUES (?,?) ");
+            statement.setInt(1, request.getSprintId());
+            statement.setInt(2, request.getUserStoryId());
+
+            int rowsInserted = statement.executeUpdate();
+
+            int code = 404;
+            if (rowsInserted > 0) {
+                code = 200;
+            }
+
+            statement.close();
+
+            return DataAccess.Response.newBuilder().setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response removeUserStoryFromSprint(DataAccess.UserStoryToSprintRequest request) {
+        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM storyInSprint where sprint = ? and userStory = ?");
+            statement.setInt(1, request.getSprintId());
+            statement.setInt(2, request.getUserStoryId());
+
+            int rowsInserted = statement.executeUpdate();
+
+            int code = 404;
+            if (rowsInserted > 0) {
+                code = 200;
+            }
+
+            statement.close();
+
+            return DataAccess.Response.newBuilder().setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response removeSprint(DataAccess.RemoveSprintMessage request) {
+        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM sprint where project_id= ? and id = ?");
+            statement.setInt(1, request.getProjectId());
+            statement.setInt(2, request.getSprintId());
+
+            int rowsInserted = statement.executeUpdate();
+
+            int code = 404;
+            if (rowsInserted > 0) {
+                code = 200;
+            }
+
+            statement.close();
+
+            return DataAccess.Response.newBuilder().setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response removeTask(DataAccess.Id request) {
+        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM task where id = ?");
+            statement.setInt(1, request.getId());
+
+            int rowsInserted = statement.executeUpdate();
+
+            int code = 404;
+            if (rowsInserted > 0) {
+                code = 200;
+            }
+
+            statement.close();
+
+            return DataAccess.Response.newBuilder().setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public DataAccess.Response deleteUserStory(DataAccess.Id request) {
+        try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM userStory where id = ?");
+            statement.setInt(1, request.getId());
+
+            int rowsInserted = statement.executeUpdate();
+
+            int code = 404;
+            if (rowsInserted > 0) {
+                code = 200;
+            }
+
+            statement.close();
+
+            return DataAccess.Response.newBuilder().setCode(code).build();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
