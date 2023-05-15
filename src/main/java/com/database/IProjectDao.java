@@ -44,4 +44,6 @@ public interface IProjectDao {
     DataAccess.Response removeTask(DataAccess.Id request);
 
     DataAccess.Response deleteUserStory(DataAccess.Id request);
+
+    DataAccess.Response editTask(DataAccess.TaskRequest request);
 }

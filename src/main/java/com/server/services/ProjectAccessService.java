@@ -105,13 +105,6 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void changeTask(DataAccess.ChangeTaskRequest request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to change the task with ID: %s", request.getTaskId());
-
-        responseObserver.onNext(dao.changeTask(request));
-        responseObserver.onCompleted();
-    }
 
     @Override
     public void getAllUserStoriesFromSprint(DataAccess.Id request, StreamObserver<DataAccess.UserStoriesResponse> responseObserver) {
@@ -121,13 +114,6 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onCompleted();
     }
 
-    @Override
-    public void assignTaskTo(DataAccess.AssignTaskMessage request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to assign task to: %s", request.getUsername());
-
-        responseObserver.onNext(dao.assignTaskTo(request));
-        responseObserver.onCompleted();
-    }
 
     @Override
     public void addUserStoryToSprint(DataAccess.UserStoryToSprintRequest request, StreamObserver<DataAccess.Response> responseObserver) {
@@ -166,6 +152,14 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         System.out.printf("Received request to delete user story: %s", request.getId());
 
         responseObserver.onNext(dao.deleteUserStory(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void editTask(DataAccess.TaskRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to edit task: %s", request.getId());
+
+        responseObserver.onNext(dao.editTask(request));
         responseObserver.onCompleted();
     }
 }

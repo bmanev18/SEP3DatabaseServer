@@ -537,5 +537,33 @@ public class ProjectDaoImpl implements IProjectDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public DataAccess.Response editTask(DataAccess.TaskRequest request) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE task SET assignee = ?, status = ?, storyPoints = ? WHERE id = ?"
+            );
+            statement.setString(1, request.getAsignee());
+            statement.setBoolean(2, request.getStatus());
+            statement.setInt(3,request.getStoryPoints());
+            statement.setInt(4,request.getId());
+            int rowsAffected = statement.executeUpdate();
+            statement.close();
+
+            if (rowsAffected > 0) {
+                return DataAccess.Response.newBuilder()
+                        .setCode(200)
+                        .build();
+            } else {
+                return DataAccess.Response.newBuilder()
+                        .setCode(404)
+                        .build();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
 

@@ -479,66 +479,35 @@ public final class ProjectAccessGrpc {
     return getGetTasksMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.AssignTaskMessage,
-      com.protobuf.DataAccess.Response> getAssignTaskToMethod;
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskRequest,
+      com.protobuf.DataAccess.Response> getEditTaskMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "AssignTaskTo",
-      requestType = com.protobuf.DataAccess.AssignTaskMessage.class,
+      fullMethodName = SERVICE_NAME + '/' + "EditTask",
+      requestType = com.protobuf.DataAccess.TaskRequest.class,
       responseType = com.protobuf.DataAccess.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.AssignTaskMessage,
-      com.protobuf.DataAccess.Response> getAssignTaskToMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.AssignTaskMessage, com.protobuf.DataAccess.Response> getAssignTaskToMethod;
-    if ((getAssignTaskToMethod = ProjectAccessGrpc.getAssignTaskToMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskRequest,
+      com.protobuf.DataAccess.Response> getEditTaskMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskRequest, com.protobuf.DataAccess.Response> getEditTaskMethod;
+    if ((getEditTaskMethod = ProjectAccessGrpc.getEditTaskMethod) == null) {
       synchronized (ProjectAccessGrpc.class) {
-        if ((getAssignTaskToMethod = ProjectAccessGrpc.getAssignTaskToMethod) == null) {
-          ProjectAccessGrpc.getAssignTaskToMethod = getAssignTaskToMethod =
-              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.AssignTaskMessage, com.protobuf.DataAccess.Response>newBuilder()
+        if ((getEditTaskMethod = ProjectAccessGrpc.getEditTaskMethod) == null) {
+          ProjectAccessGrpc.getEditTaskMethod = getEditTaskMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.TaskRequest, com.protobuf.DataAccess.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AssignTaskTo"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "EditTask"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.AssignTaskMessage.getDefaultInstance()))
+                  com.protobuf.DataAccess.TaskRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.protobuf.DataAccess.Response.getDefaultInstance()))
-              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("AssignTaskTo"))
+              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("EditTask"))
               .build();
         }
       }
     }
-    return getAssignTaskToMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.ChangeTaskRequest,
-      com.protobuf.DataAccess.Response> getChangeTaskMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ChangeTask",
-      requestType = com.protobuf.DataAccess.ChangeTaskRequest.class,
-      responseType = com.protobuf.DataAccess.Response.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.ChangeTaskRequest,
-      com.protobuf.DataAccess.Response> getChangeTaskMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.ChangeTaskRequest, com.protobuf.DataAccess.Response> getChangeTaskMethod;
-    if ((getChangeTaskMethod = ProjectAccessGrpc.getChangeTaskMethod) == null) {
-      synchronized (ProjectAccessGrpc.class) {
-        if ((getChangeTaskMethod = ProjectAccessGrpc.getChangeTaskMethod) == null) {
-          ProjectAccessGrpc.getChangeTaskMethod = getChangeTaskMethod =
-              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.ChangeTaskRequest, com.protobuf.DataAccess.Response>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ChangeTask"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.ChangeTaskRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.Response.getDefaultInstance()))
-              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("ChangeTask"))
-              .build();
-        }
-      }
-    }
-    return getChangeTaskMethod;
+    return getEditTaskMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.UserStoryToSprintRequest,
@@ -804,16 +773,9 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public void assignTaskTo(com.protobuf.DataAccess.AssignTaskMessage request,
+    public void editTask(com.protobuf.DataAccess.TaskRequest request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAssignTaskToMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void changeTask(com.protobuf.DataAccess.ChangeTaskRequest request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getChangeTaskMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEditTaskMethod(), responseObserver);
     }
 
     /**
@@ -945,19 +907,12 @@ public final class ProjectAccessGrpc {
                 com.protobuf.DataAccess.AllTasksMessage>(
                   this, METHODID_GET_TASKS)))
           .addMethod(
-            getAssignTaskToMethod(),
+            getEditTaskMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.protobuf.DataAccess.AssignTaskMessage,
+                com.protobuf.DataAccess.TaskRequest,
                 com.protobuf.DataAccess.Response>(
-                  this, METHODID_ASSIGN_TASK_TO)))
-          .addMethod(
-            getChangeTaskMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.protobuf.DataAccess.ChangeTaskRequest,
-                com.protobuf.DataAccess.Response>(
-                  this, METHODID_CHANGE_TASK)))
+                  this, METHODID_EDIT_TASK)))
           .addMethod(
             getAddUserStoryToSprintMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1134,18 +1089,10 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public void assignTaskTo(com.protobuf.DataAccess.AssignTaskMessage request,
+    public void editTask(com.protobuf.DataAccess.TaskRequest request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getAssignTaskToMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void changeTask(com.protobuf.DataAccess.ChangeTaskRequest request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getChangeTaskMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getEditTaskMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1309,16 +1256,9 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public com.protobuf.DataAccess.Response assignTaskTo(com.protobuf.DataAccess.AssignTaskMessage request) {
+    public com.protobuf.DataAccess.Response editTask(com.protobuf.DataAccess.TaskRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getAssignTaskToMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public com.protobuf.DataAccess.Response changeTask(com.protobuf.DataAccess.ChangeTaskRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getChangeTaskMethod(), getCallOptions(), request);
+          getChannel(), getEditTaskMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1494,18 +1434,10 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> assignTaskTo(
-        com.protobuf.DataAccess.AssignTaskMessage request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> editTask(
+        com.protobuf.DataAccess.TaskRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getAssignTaskToMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> changeTask(
-        com.protobuf.DataAccess.ChangeTaskRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getChangeTaskMethod(), getCallOptions()), request);
+          getChannel().newCall(getEditTaskMethod(), getCallOptions()), request);
     }
 
     /**
@@ -1548,11 +1480,10 @@ public final class ProjectAccessGrpc {
   private static final int METHODID_REMOVE_TASK = 12;
   private static final int METHODID_ADD_TASK = 13;
   private static final int METHODID_GET_TASKS = 14;
-  private static final int METHODID_ASSIGN_TASK_TO = 15;
-  private static final int METHODID_CHANGE_TASK = 16;
-  private static final int METHODID_ADD_USER_STORY_TO_SPRINT = 17;
-  private static final int METHODID_REMOVE_USER_STORY_FROM_SPRINT = 18;
-  private static final int METHODID_GET_ALL_USER_STORIES_FROM_SPRINT = 19;
+  private static final int METHODID_EDIT_TASK = 15;
+  private static final int METHODID_ADD_USER_STORY_TO_SPRINT = 16;
+  private static final int METHODID_REMOVE_USER_STORY_FROM_SPRINT = 17;
+  private static final int METHODID_GET_ALL_USER_STORIES_FROM_SPRINT = 18;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1631,12 +1562,8 @@ public final class ProjectAccessGrpc {
           serviceImpl.getTasks((com.protobuf.DataAccess.Id) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.AllTasksMessage>) responseObserver);
           break;
-        case METHODID_ASSIGN_TASK_TO:
-          serviceImpl.assignTaskTo((com.protobuf.DataAccess.AssignTaskMessage) request,
-              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
-          break;
-        case METHODID_CHANGE_TASK:
-          serviceImpl.changeTask((com.protobuf.DataAccess.ChangeTaskRequest) request,
+        case METHODID_EDIT_TASK:
+          serviceImpl.editTask((com.protobuf.DataAccess.TaskRequest) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
           break;
         case METHODID_ADD_USER_STORY_TO_SPRINT:
@@ -1727,8 +1654,7 @@ public final class ProjectAccessGrpc {
               .addMethod(getRemoveTaskMethod())
               .addMethod(getAddTaskMethod())
               .addMethod(getGetTasksMethod())
-              .addMethod(getAssignTaskToMethod())
-              .addMethod(getChangeTaskMethod())
+              .addMethod(getEditTaskMethod())
               .addMethod(getAddUserStoryToSprintMethod())
               .addMethod(getRemoveUserStoryFromSprintMethod())
               .addMethod(getGetAllUserStoriesFromSprintMethod())

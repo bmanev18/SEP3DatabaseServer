@@ -18637,7 +18637,7 @@ public final class DataAccess {
       "UserCreationDto\032\024.UpdatedUserResponse\022\"\n" +
       "\nDeleteUser\022\t.Username\032\t.Response\0221\n\014Loo" +
       "kForUsers\022\t.Username\032\026.FilteredUsersResp" +
-      "onse2\310\007\n\rProjectAccess\0225\n\rCreateProject\022" +
+      "onse2\221\007\n\rProjectAccess\0225\n\rCreateProject\022" +
       "\023.ProjectCreationDto\032\017.ResponseWithID\022.\n" +
       "\016GetAllProjects\022\t.Username\032\021.ProjectsRes" +
       "ponse\0222\n\023GetAllCollaborators\022\003.Id\032\026.Filt" +
@@ -18654,15 +18654,14 @@ public final class DataAccess {
       "nt\022\024.RemoveSprintMessage\032\t.Response\022\034\n\nR" +
       "emoveTask\022\003.Id\032\t.Response\022\"\n\007AddTask\022\014.T" +
       "askRequest\032\t.Response\022!\n\010GetTasks\022\003.Id\032\020" +
-      ".AllTasksMessage\022-\n\014AssignTaskTo\022\022.Assig" +
-      "nTaskMessage\032\t.Response\022+\n\nChangeTask\022\022." +
-      "ChangeTaskRequest\032\t.Response\022<\n\024AddUserS" +
-      "toryToSprint\022\031.UserStoryToSprintRequest\032" +
-      "\t.Response\022A\n\031RemoveUserStoryFromSprint\022" +
-      "\031.UserStoryToSprintRequest\032\t.Response\0228\n" +
-      "\033GetAllUserStoriesFromSprint\022\003.Id\032\024.User" +
-      "StoriesResponseB!\n\014com.protobuf\252\002\020DataAc" +
-      "cessClientb\006proto3"
+      ".AllTasksMessage\022#\n\010EditTask\022\014.TaskReque" +
+      "st\032\t.Response\022<\n\024AddUserStoryToSprint\022\031." +
+      "UserStoryToSprintRequest\032\t.Response\022A\n\031R" +
+      "emoveUserStoryFromSprint\022\031.UserStoryToSp" +
+      "rintRequest\032\t.Response\0228\n\033GetAllUserStor" +
+      "iesFromSprint\022\003.Id\032\024.UserStoriesResponse" +
+      "B!\n\014com.protobuf\252\002\020DataAccessClientb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
