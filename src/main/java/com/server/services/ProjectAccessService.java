@@ -21,10 +21,38 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
+    public void getAllProjects(DataAccess.Username request, StreamObserver<DataAccess.ProjectsResponse> responseObserver) {
+        System.out.printf("Received request to get projects for user: %s %n", request.getUsername());
+        responseObserver.onNext(dao.getAllProjects(request));
+
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void addCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to add user: %s to project: %d %n", request.getUsername(), request.getProjectId());
 
         responseObserver.onNext(dao.addCollaborator(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getAllCollaborators(DataAccess.Id request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
+        System.out.printf("Received request to get all collaborators from: %d %n", request.getId());
+        responseObserver.onNext(dao.getAllCollaborators(request));
+        responseObserver.onCompleted();;
+    }
+    @Override
+    public void removeCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to remove user: %s from project: %d %n", request.getUsername(),request.getProjectId());
+        responseObserver.onNext(dao.removeCollaborator(request));
+        responseObserver.onCompleted();;
+    }
+
+    @Override
+    public void addUserStory(DataAccess.UserStoryMessage request, StreamObserver<DataAccess.ResponseWithID> responseObserver) {
+        System.out.printf("Received request to add a user story: %s to project %d %n", request.getTaskBody(),request.getProjectId());
+        responseObserver.onNext(dao.addUserStory(request));
         responseObserver.onCompleted();
     }
 
@@ -36,33 +64,11 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
-    public void getAllProjects(DataAccess.Username request, StreamObserver<DataAccess.ProjectsResponse> responseObserver) {
-        System.out.printf("Received request to get projects for user: %s %n", request.getUsername());
-        responseObserver.onNext(dao.getAllProjects(request));
-
+    public void updateUserStoryPoints(DataAccess.PointsUpdate request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to update userStory points %d %n", request.getPoints());
+        responseObserver.onNext(dao.updateUserStoryPoints(request));
         responseObserver.onCompleted();
     }
-    @Override
-    public void addUserStory(DataAccess.UserStoryMessage request, StreamObserver<DataAccess.ResponseWithID> responseObserver) {
-        System.out.printf("Received request to add a user story: %s to project %d %n", request.getTaskBody(),request.getProjectId());
-        responseObserver.onNext(dao.addUserStory(request));
-        responseObserver.onCompleted();
-    }
-
-    @Override
-    public void removeCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to remove user: %s from project: %d %n", request.getUsername(),request.getProjectId());
-        responseObserver.onNext(dao.removeCollaborator(request));
-        responseObserver.onCompleted();;
-    }
-
-    @Override
-    public void getAllCollaborators(DataAccess.Id request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
-        System.out.printf("Received request to get all collaborators from: %d %n", request.getId());
-        responseObserver.onNext(dao.getAllCollaborators(request));
-        responseObserver.onCompleted();;
-    }
-
 
     @Override
     public void createSprint(DataAccess.SprintCreationRequest request, StreamObserver<DataAccess.Response> responseObserver) {

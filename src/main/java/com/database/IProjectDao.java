@@ -19,9 +19,10 @@ public interface IProjectDao {
 
     // UserStory->
     DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) ;
-
     DataAccess.UserStoriesResponse getUserStories(DataAccess.Id id) ;
     int getTotalStoryPoints(DataAccess.Id id);
+    DataAccess.Response updateUserStoryPoints(DataAccess.PointsUpdate request);
+
 
 
     //Sprint->
@@ -47,4 +48,5 @@ public interface IProjectDao {
     DataAccess.Response deleteUserStory(DataAccess.Id request);
 
     DataAccess.Response editTask(DataAccess.TaskRequest request);
+
 }
