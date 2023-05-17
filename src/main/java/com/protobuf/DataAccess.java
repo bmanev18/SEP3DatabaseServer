@@ -12437,43 +12437,49 @@ public final class DataAccess {
     int getId();
 
     /**
-     * <code>string name = 2;</code>
+     * <code>int32 project_id = 2;</code>
+     * @return The projectId.
+     */
+    int getProjectId();
+
+    /**
+     * <code>string name = 3;</code>
      * @return The name.
      */
     java.lang.String getName();
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>string starDate = 3;</code>
+     * <code>string starDate = 4;</code>
      * @return The starDate.
      */
     java.lang.String getStarDate();
     /**
-     * <code>string starDate = 3;</code>
+     * <code>string starDate = 4;</code>
      * @return The bytes for starDate.
      */
     com.google.protobuf.ByteString
         getStarDateBytes();
 
     /**
-     * <code>string endDate = 4;</code>
+     * <code>string endDate = 5;</code>
      * @return The endDate.
      */
     java.lang.String getEndDate();
     /**
-     * <code>string endDate = 4;</code>
+     * <code>string endDate = 5;</code>
      * @return The bytes for endDate.
      */
     com.google.protobuf.ByteString
         getEndDateBytes();
 
     /**
-     * <code>int32 code = 5;</code>
+     * <code>int32 code = 6;</code>
      * @return The code.
      */
     int getCode();
@@ -12527,11 +12533,22 @@ public final class DataAccess {
       return id_;
     }
 
-    public static final int NAME_FIELD_NUMBER = 2;
+    public static final int PROJECT_ID_FIELD_NUMBER = 2;
+    private int projectId_ = 0;
+    /**
+     * <code>int32 project_id = 2;</code>
+     * @return The projectId.
+     */
+    @java.lang.Override
+    public int getProjectId() {
+      return projectId_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
     private volatile java.lang.Object name_ = "";
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @return The name.
      */
     @java.lang.Override
@@ -12548,7 +12565,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>string name = 3;</code>
      * @return The bytes for name.
      */
     @java.lang.Override
@@ -12566,11 +12583,11 @@ public final class DataAccess {
       }
     }
 
-    public static final int STARDATE_FIELD_NUMBER = 3;
+    public static final int STARDATE_FIELD_NUMBER = 4;
     @SuppressWarnings("serial")
     private volatile java.lang.Object starDate_ = "";
     /**
-     * <code>string starDate = 3;</code>
+     * <code>string starDate = 4;</code>
      * @return The starDate.
      */
     @java.lang.Override
@@ -12587,7 +12604,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string starDate = 3;</code>
+     * <code>string starDate = 4;</code>
      * @return The bytes for starDate.
      */
     @java.lang.Override
@@ -12605,11 +12622,11 @@ public final class DataAccess {
       }
     }
 
-    public static final int ENDDATE_FIELD_NUMBER = 4;
+    public static final int ENDDATE_FIELD_NUMBER = 5;
     @SuppressWarnings("serial")
     private volatile java.lang.Object endDate_ = "";
     /**
-     * <code>string endDate = 4;</code>
+     * <code>string endDate = 5;</code>
      * @return The endDate.
      */
     @java.lang.Override
@@ -12626,7 +12643,7 @@ public final class DataAccess {
       }
     }
     /**
-     * <code>string endDate = 4;</code>
+     * <code>string endDate = 5;</code>
      * @return The bytes for endDate.
      */
     @java.lang.Override
@@ -12644,10 +12661,10 @@ public final class DataAccess {
       }
     }
 
-    public static final int CODE_FIELD_NUMBER = 5;
+    public static final int CODE_FIELD_NUMBER = 6;
     private int code_ = 0;
     /**
-     * <code>int32 code = 5;</code>
+     * <code>int32 code = 6;</code>
      * @return The code.
      */
     @java.lang.Override
@@ -12672,17 +12689,20 @@ public final class DataAccess {
       if (id_ != 0) {
         output.writeInt32(1, id_);
       }
+      if (projectId_ != 0) {
+        output.writeInt32(2, projectId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(starDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, starDate_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, starDate_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endDate_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endDate_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, endDate_);
       }
       if (code_ != 0) {
-        output.writeInt32(5, code_);
+        output.writeInt32(6, code_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -12697,18 +12717,22 @@ public final class DataAccess {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
+      if (projectId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, projectId_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(starDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, starDate_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, starDate_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endDate_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endDate_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, endDate_);
       }
       if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, code_);
+          .computeInt32Size(6, code_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -12727,6 +12751,8 @@ public final class DataAccess {
 
       if (getId()
           != other.getId()) return false;
+      if (getProjectId()
+          != other.getProjectId()) return false;
       if (!getName()
           .equals(other.getName())) return false;
       if (!getStarDate()
@@ -12748,6 +12774,8 @@ public final class DataAccess {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
+      hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + STARDATE_FIELD_NUMBER;
@@ -12886,6 +12914,7 @@ public final class DataAccess {
         super.clear();
         bitField0_ = 0;
         id_ = 0;
+        projectId_ = 0;
         name_ = "";
         starDate_ = "";
         endDate_ = "";
@@ -12927,15 +12956,18 @@ public final class DataAccess {
           result.id_ = id_;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.name_ = name_;
+          result.projectId_ = projectId_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.starDate_ = starDate_;
+          result.name_ = name_;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.endDate_ = endDate_;
+          result.starDate_ = starDate_;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.endDate_ = endDate_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           result.code_ = code_;
         }
       }
@@ -12955,19 +12987,22 @@ public final class DataAccess {
         if (other.getId() != 0) {
           setId(other.getId());
         }
+        if (other.getProjectId() != 0) {
+          setProjectId(other.getProjectId());
+        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getStarDate().isEmpty()) {
           starDate_ = other.starDate_;
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getEndDate().isEmpty()) {
           endDate_ = other.endDate_;
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.getCode() != 0) {
@@ -13004,26 +13039,31 @@ public final class DataAccess {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
-              case 18: {
-                name_ = input.readStringRequireUtf8();
+              case 16: {
+                projectId_ = input.readInt32();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 18
+              } // case 16
               case 26: {
-                starDate_ = input.readStringRequireUtf8();
+                name_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
               case 34: {
-                endDate_ = input.readStringRequireUtf8();
+                starDate_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
-              case 40: {
-                code_ = input.readInt32();
+              case 42: {
+                endDate_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000010;
                 break;
-              } // case 40
+              } // case 42
+              case 48: {
+                code_ = input.readInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -13073,9 +13113,41 @@ public final class DataAccess {
         return this;
       }
 
+      private int projectId_ ;
+      /**
+       * <code>int32 project_id = 2;</code>
+       * @return The projectId.
+       */
+      @java.lang.Override
+      public int getProjectId() {
+        return projectId_;
+      }
+      /**
+       * <code>int32 project_id = 2;</code>
+       * @param value The projectId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProjectId(int value) {
+
+        projectId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 project_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProjectId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        projectId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object name_ = "";
       /**
-       * <code>string name = 2;</code>
+       * <code>string name = 3;</code>
        * @return The name.
        */
       public java.lang.String getName() {
@@ -13091,7 +13163,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string name = 3;</code>
        * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
@@ -13108,7 +13180,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string name = 3;</code>
        * @param value The name to set.
        * @return This builder for chaining.
        */
@@ -13116,22 +13188,22 @@ public final class DataAccess {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         name_ = value;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string name = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
         name_ = getDefaultInstance().getName();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 2;</code>
+       * <code>string name = 3;</code>
        * @param value The bytes for name to set.
        * @return This builder for chaining.
        */
@@ -13140,14 +13212,14 @@ public final class DataAccess {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         name_ = value;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
       private java.lang.Object starDate_ = "";
       /**
-       * <code>string starDate = 3;</code>
+       * <code>string starDate = 4;</code>
        * @return The starDate.
        */
       public java.lang.String getStarDate() {
@@ -13163,7 +13235,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string starDate = 3;</code>
+       * <code>string starDate = 4;</code>
        * @return The bytes for starDate.
        */
       public com.google.protobuf.ByteString
@@ -13180,7 +13252,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string starDate = 3;</code>
+       * <code>string starDate = 4;</code>
        * @param value The starDate to set.
        * @return This builder for chaining.
        */
@@ -13188,22 +13260,22 @@ public final class DataAccess {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         starDate_ = value;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>string starDate = 3;</code>
+       * <code>string starDate = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearStarDate() {
         starDate_ = getDefaultInstance().getStarDate();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
-       * <code>string starDate = 3;</code>
+       * <code>string starDate = 4;</code>
        * @param value The bytes for starDate to set.
        * @return This builder for chaining.
        */
@@ -13212,14 +13284,14 @@ public final class DataAccess {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         starDate_ = value;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
 
       private java.lang.Object endDate_ = "";
       /**
-       * <code>string endDate = 4;</code>
+       * <code>string endDate = 5;</code>
        * @return The endDate.
        */
       public java.lang.String getEndDate() {
@@ -13235,7 +13307,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string endDate = 4;</code>
+       * <code>string endDate = 5;</code>
        * @return The bytes for endDate.
        */
       public com.google.protobuf.ByteString
@@ -13252,7 +13324,7 @@ public final class DataAccess {
         }
       }
       /**
-       * <code>string endDate = 4;</code>
+       * <code>string endDate = 5;</code>
        * @param value The endDate to set.
        * @return This builder for chaining.
        */
@@ -13260,22 +13332,22 @@ public final class DataAccess {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         endDate_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>string endDate = 4;</code>
+       * <code>string endDate = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearEndDate() {
         endDate_ = getDefaultInstance().getEndDate();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
       /**
-       * <code>string endDate = 4;</code>
+       * <code>string endDate = 5;</code>
        * @param value The bytes for endDate to set.
        * @return This builder for chaining.
        */
@@ -13284,14 +13356,14 @@ public final class DataAccess {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         endDate_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
 
       private int code_ ;
       /**
-       * <code>int32 code = 5;</code>
+       * <code>int32 code = 6;</code>
        * @return The code.
        */
       @java.lang.Override
@@ -13299,23 +13371,23 @@ public final class DataAccess {
         return code_;
       }
       /**
-       * <code>int32 code = 5;</code>
+       * <code>int32 code = 6;</code>
        * @param value The code to set.
        * @return This builder for chaining.
        */
       public Builder setCode(int value) {
 
         code_ = value;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 code = 5;</code>
+       * <code>int32 code = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearCode() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         code_ = 0;
         onChanged();
         return this;
@@ -18614,54 +18686,54 @@ public final class DataAccess {
       "rStoriesResponse\022\037\n\013userStories\030\001 \003(\0132\n." +
       "UserStory\022\014\n\004code\030\002 \001(\005\"\\\n\025SprintCreatio" +
       "nRequest\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002 \001" +
-      "(\t\022\020\n\010starDate\030\003 \001(\t\022\017\n\007endDate\030\004 \001(\t\"Z\n" +
-      "\rSprintMessage\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t" +
-      "\022\020\n\010starDate\030\003 \001(\t\022\017\n\007endDate\030\004 \001(\t\022\014\n\004c" +
-      "ode\030\005 \001(\005\"B\n\021AllSprintsMessage\022\037\n\007sprint" +
-      "s\030\001 \003(\0132\016.SprintMessage\022\014\n\004code\030\002 \001(\005\"o\n" +
-      "\013TaskRequest\022\n\n\002id\030\001 \001(\005\022\017\n\007asignee\030\002 \001(" +
-      "\t\022\014\n\004body\030\003 \001(\t\022\023\n\013storyPoints\030\004 \001(\005\022\016\n\006" +
-      "status\030\005 \001(\010\022\020\n\010story_id\030\006 \001(\005\"l\n\021Change" +
-      "TaskRequest\022\017\n\007task_id\030\001 \001(\005\022\014\n\004body\030\002 \001" +
-      "(\t\022\022\n\nstoryPoint\030\003 \001(\005\022\024\n\014userStory_id\030\004" +
-      " \001(\005\022\016\n\006status\030\005 \001(\010\"C\n\030UserStoryToSprin" +
-      "tRequest\022\024\n\014userStory_id\030\001 \001(\005\022\021\n\tsprint" +
-      "_id\030\002 \001(\005\"<\n\017AllTasksMessage\022\033\n\005tasks\030\001 " +
-      "\003(\0132\014.TaskRequest\022\014\n\004code\030\002 \001(\005\"A\n\021Assig" +
-      "nTaskMessage\022\033\n\010username\030\001 \001(\0132\t.Usernam" +
-      "e\022\017\n\007task_id\030\002 \001(\005\":\n\023RemoveSprintMessag" +
-      "e\022\021\n\tprojectId\030\001 \001(\005\022\020\n\010sprintId\030\002 \001(\0052\363" +
-      "\001\n\nUserAccess\022)\n\nCreateUser\022\020.UserCreati" +
-      "onDto\032\t.Response\022-\n\016UserByUsername\022\t.Use" +
-      "rname\032\020.UserCreationDto\0224\n\nUpdateUser\022\020." +
-      "UserCreationDto\032\024.UpdatedUserResponse\022\"\n" +
-      "\nDeleteUser\022\t.Username\032\t.Response\0221\n\014Loo" +
-      "kForUsers\022\t.Username\032\026.FilteredUsersResp" +
-      "onse2\221\007\n\rProjectAccess\0225\n\rCreateProject\022" +
-      "\023.ProjectCreationDto\032\017.ResponseWithID\022.\n" +
-      "\016GetAllProjects\022\t.Username\032\021.ProjectsRes" +
-      "ponse\0222\n\023GetAllCollaborators\022\003.Id\032\026.Filt" +
-      "eredUsersResponse\022.\n\017AddCollaborator\022\020.A" +
-      "ddToProjectDto\032\t.Response\0221\n\022RemoveColla" +
-      "borator\022\020.AddToProjectDto\032\t.Response\0222\n\014" +
-      "AddUserStory\022\021.UserStoryMessage\032\017.Respon" +
-      "seWithID\022+\n\016GetUserStories\022\003.Id\032\024.UserSt" +
-      "oriesResponse\022!\n\017DeleteUserStory\022\003.Id\032\t." +
-      "Response\0221\n\014CreateSprint\022\026.SprintCreatio" +
-      "nRequest\032\t.Response\022$\n\rGetSprintByID\022\003.I" +
-      "d\032\016.SprintMessage\022/\n\024GetSprintByProjectI" +
-      "d\022\003.Id\032\022.AllSprintsMessage\022/\n\014RemoveSpri" +
-      "nt\022\024.RemoveSprintMessage\032\t.Response\022\034\n\nR" +
-      "emoveTask\022\003.Id\032\t.Response\022\"\n\007AddTask\022\014.T" +
-      "askRequest\032\t.Response\022!\n\010GetTasks\022\003.Id\032\020" +
-      ".AllTasksMessage\022#\n\010EditTask\022\014.TaskReque" +
-      "st\032\t.Response\022<\n\024AddUserStoryToSprint\022\031." +
-      "UserStoryToSprintRequest\032\t.Response\022A\n\031R" +
-      "emoveUserStoryFromSprint\022\031.UserStoryToSp" +
-      "rintRequest\032\t.Response\0228\n\033GetAllUserStor" +
-      "iesFromSprint\022\003.Id\032\024.UserStoriesResponse" +
-      "B!\n\014com.protobuf\252\002\020DataAccessClientb\006pro" +
-      "to3"
+      "(\t\022\020\n\010starDate\030\003 \001(\t\022\017\n\007endDate\030\004 \001(\t\"n\n" +
+      "\rSprintMessage\022\n\n\002id\030\001 \001(\005\022\022\n\nproject_id" +
+      "\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\020\n\010starDate\030\004 \001(\t\022\017" +
+      "\n\007endDate\030\005 \001(\t\022\014\n\004code\030\006 \001(\005\"B\n\021AllSpri" +
+      "ntsMessage\022\037\n\007sprints\030\001 \003(\0132\016.SprintMess" +
+      "age\022\014\n\004code\030\002 \001(\005\"o\n\013TaskRequest\022\n\n\002id\030\001" +
+      " \001(\005\022\017\n\007asignee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\023\n\013s" +
+      "toryPoints\030\004 \001(\005\022\016\n\006status\030\005 \001(\010\022\020\n\010stor" +
+      "y_id\030\006 \001(\005\"l\n\021ChangeTaskRequest\022\017\n\007task_" +
+      "id\030\001 \001(\005\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryPoint\030\003 \001" +
+      "(\005\022\024\n\014userStory_id\030\004 \001(\005\022\016\n\006status\030\005 \001(\010" +
+      "\"C\n\030UserStoryToSprintRequest\022\024\n\014userStor" +
+      "y_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 \001(\005\"<\n\017AllTask" +
+      "sMessage\022\033\n\005tasks\030\001 \003(\0132\014.TaskRequest\022\014\n" +
+      "\004code\030\002 \001(\005\"A\n\021AssignTaskMessage\022\033\n\010user" +
+      "name\030\001 \001(\0132\t.Username\022\017\n\007task_id\030\002 \001(\005\":" +
+      "\n\023RemoveSprintMessage\022\021\n\tprojectId\030\001 \001(\005" +
+      "\022\020\n\010sprintId\030\002 \001(\0052\363\001\n\nUserAccess\022)\n\nCre" +
+      "ateUser\022\020.UserCreationDto\032\t.Response\022-\n\016" +
+      "UserByUsername\022\t.Username\032\020.UserCreation" +
+      "Dto\0224\n\nUpdateUser\022\020.UserCreationDto\032\024.Up" +
+      "datedUserResponse\022\"\n\nDeleteUser\022\t.Userna" +
+      "me\032\t.Response\0221\n\014LookForUsers\022\t.Username" +
+      "\032\026.FilteredUsersResponse2\221\007\n\rProjectAcce" +
+      "ss\0225\n\rCreateProject\022\023.ProjectCreationDto" +
+      "\032\017.ResponseWithID\022.\n\016GetAllProjects\022\t.Us" +
+      "ername\032\021.ProjectsResponse\0222\n\023GetAllColla" +
+      "borators\022\003.Id\032\026.FilteredUsersResponse\022.\n" +
+      "\017AddCollaborator\022\020.AddToProjectDto\032\t.Res" +
+      "ponse\0221\n\022RemoveCollaborator\022\020.AddToProje" +
+      "ctDto\032\t.Response\0222\n\014AddUserStory\022\021.UserS" +
+      "toryMessage\032\017.ResponseWithID\022+\n\016GetUserS" +
+      "tories\022\003.Id\032\024.UserStoriesResponse\022!\n\017Del" +
+      "eteUserStory\022\003.Id\032\t.Response\0221\n\014CreateSp" +
+      "rint\022\026.SprintCreationRequest\032\t.Response\022" +
+      "$\n\rGetSprintByID\022\003.Id\032\016.SprintMessage\022/\n" +
+      "\024GetSprintByProjectId\022\003.Id\032\022.AllSprintsM" +
+      "essage\022/\n\014RemoveSprint\022\024.RemoveSprintMes" +
+      "sage\032\t.Response\022\034\n\nRemoveTask\022\003.Id\032\t.Res" +
+      "ponse\022\"\n\007AddTask\022\014.TaskRequest\032\t.Respons" +
+      "e\022!\n\010GetTasks\022\003.Id\032\020.AllTasksMessage\022#\n\010" +
+      "EditTask\022\014.TaskRequest\032\t.Response\022<\n\024Add" +
+      "UserStoryToSprint\022\031.UserStoryToSprintReq" +
+      "uest\032\t.Response\022A\n\031RemoveUserStoryFromSp" +
+      "rint\022\031.UserStoryToSprintRequest\032\t.Respon" +
+      "se\0228\n\033GetAllUserStoriesFromSprint\022\003.Id\032\024" +
+      ".UserStoriesResponseB!\n\014com.protobuf\252\002\020D" +
+      "ataAccessClientb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18774,7 +18846,7 @@ public final class DataAccess {
     internal_static_SprintMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SprintMessage_descriptor,
-        new java.lang.String[] { "Id", "Name", "StarDate", "EndDate", "Code", });
+        new java.lang.String[] { "Id", "ProjectId", "Name", "StarDate", "EndDate", "Code", });
     internal_static_AllSprintsMessage_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_AllSprintsMessage_fieldAccessorTable = new

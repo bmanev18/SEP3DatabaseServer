@@ -161,8 +161,8 @@ public class ProjectDaoImpl implements IProjectDao {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
             int status = userStory.getStatus() ? 1 : 0;
             PreparedStatement statement = connection.prepareStatement("INSERT INTO userStory( project_id,body, priority, status, storyPoint) VALUES (?,?,?,?,?) returning id");
-            statement.setString(2, userStory.getTaskBody());
             statement.setInt(1, userStory.getProjectId());
+            statement.setString(2, userStory.getTaskBody());
             statement.setString(3, userStory.getPriority());
             statement.setInt(4, status);
             statement.setInt(5, userStory.getStoryPoint());
@@ -249,6 +249,7 @@ public class ProjectDaoImpl implements IProjectDao {
             int code = 404;
             if (rs.next()) {
                 builder.setId(rs.getInt("id"))
+                        .setProjectId(rs.getInt("project_id"))
                         .setName(rs.getString("name"))
                         .setStarDate(rs.getString("startDate"))
                         .setEndDate(rs.getString("endDate"))
@@ -276,8 +277,8 @@ public class ProjectDaoImpl implements IProjectDao {
             int code = 404;
             while (rs.next()) {
                 builder.addSprints(DataAccess.SprintMessage.newBuilder().setId(rs.getInt("id"))
-                                .setName(rs.getString("name"))
-
+                        .setProjectId(rs.getInt("project_id"))
+                        .setName(rs.getString("name"))
                                 .setStarDate(rs.getString("startDate"))
                                 .setEndDate(rs.getString("endDate")).build());
                 code = 200;
