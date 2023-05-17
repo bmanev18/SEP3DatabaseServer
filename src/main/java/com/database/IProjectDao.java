@@ -21,6 +21,7 @@ public interface IProjectDao {
     DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) ;
 
     DataAccess.UserStoriesResponse getUserStories(DataAccess.Id id) ;
+    int getTotalStoryPoints(DataAccess.Id id);
 
 
     //Sprint->
@@ -31,7 +32,7 @@ public interface IProjectDao {
     //Task->
     DataAccess.Response addTask(DataAccess.TaskRequest task);
     DataAccess.AllTasksMessage getTask(DataAccess.Id id);
-    DataAccess.Response changeTask(DataAccess.ChangeTaskRequest taskRequest);
+//    DataAccess.Response changeTask(DataAccess.ChangeTaskRequest taskRequest);
     DataAccess.UserStoriesResponse getAllUserStoriesFromSprint(DataAccess.Id sprintId);
     DataAccess.Response assignTaskTo(DataAccess.AssignTaskMessage message);
 

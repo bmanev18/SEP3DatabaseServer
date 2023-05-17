@@ -105,7 +105,7 @@ message UserStoryMessage {
     int32 project_id = 1;
     string taskBody = 2;
     string priority = 3;
-    bool status= 4;
+    string status= 4;
     int32 storyPoint=5;
 }
 message ProjectMessage {
@@ -121,7 +121,7 @@ message UserStory {
     int32 project_id = 2;
     string userStory = 3;
     string priority = 4;
-    bool status= 5;
+    string status= 5;
     int32 storyPoint=6;
 }
 message UserStoriesResponse {
@@ -151,7 +151,7 @@ message TaskRequest{
     string asignee = 2;
     string body = 3;
     int32 storyPoints = 4;
-    bool status = 5;
+    string status = 5;
     int32 story_id = 6;
 }
 message ChangeTaskRequest{
@@ -159,7 +159,7 @@ message ChangeTaskRequest{
     string body = 2;
     int32 storyPoint = 3;
     int32 userStory_id=4;
-    bool status = 5;
+    string status = 5;
 }
 message UserStoryToSprintRequest{
     int32 userStory_id = 1;

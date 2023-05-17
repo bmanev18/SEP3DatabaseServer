@@ -1,10 +1,6 @@
 package com.database;
 
-import com.google.protobuf.Message;
-import com.google.protobuf.Timestamp;
 import com.protobuf.DataAccess;
-import jdk.jshell.spi.ExecutionControl;
-import org.springframework.boot.autoconfigure.web.servlet.JspTemplateAvailabilityProvider;
 
 import java.sql.*;
 
@@ -66,21 +62,7 @@ public class ProjectDaoImpl implements IProjectDao {
             throw new RuntimeException(e);
         }
 
-//        try {
-//            ResultSet result = driver.executeQuery(String.format("SELECT * from project, worksOn where id= worksOn.project_id and username = %s", username.getUsername()));
-//
-//            int code = 404;
-//            DataAccess.ProjectsResponse.Builder builder = DataAccess.ProjectsResponse.newBuilder();
-//
-//            while (result.next()) {
-//                builder.addProjects(DataAccess.ProjectMessage.newBuilder().setId(result.getInt("id")).setTitle(result.getString("title")));
-//
-//            }
-//
-//            return builder.setCode(code).build();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+
     }
 
     @Override
@@ -159,12 +141,12 @@ public class ProjectDaoImpl implements IProjectDao {
     @Override
     public DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
-            int status = userStory.getStatus() ? 1 : 0;
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO userStory( project_id,body, priority, status, storyPoint) VALUES (?,?,?,?,?) returning id");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO userStory( project_id,body, priority, status_id, storyPoint) VALUES (?,?,?,?,?) returning id");
+            statement.setString(2, userStory.getTaskBody());
             statement.setInt(1, userStory.getProjectId());
             statement.setString(2, userStory.getTaskBody());
             statement.setString(3, userStory.getPriority());
-            statement.setInt(4, status);
+           statement.setInt(4,getStatusId(userStory.getStatus()));
             statement.setInt(5, userStory.getStoryPoint());
 
             ResultSet resultSet = statement.executeQuery();
@@ -201,7 +183,7 @@ public class ProjectDaoImpl implements IProjectDao {
                         .setProjectId(rs.getInt("project_id"))
                         .setUserStory(rs.getString("body"))
                         .setPriority(rs.getString("priority"))
-                        .setStatus(Boolean.parseBoolean(rs.getString("status")))
+                        .setStatus(getStatusName(rs.getInt("status_id")))
                         .setStoryPoint(rs.getInt("storyPoint"))
                         .build());
                 code = 200;
@@ -212,6 +194,20 @@ public class ProjectDaoImpl implements IProjectDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public int getTotalStoryPoints(DataAccess.Id id) {
+//        try(Connection connection=DatabaseDriver.getInstance().getConnection()){
+//            PreparedStatement statement=connection.prepareStatement(" ");
+//
+//
+//            return 0;
+//        }
+//        catch(SQLException e){
+//            throw new RuntimeException(e);
+//        }
+        return 0;
     }
 
     @Override
@@ -296,10 +292,10 @@ public class ProjectDaoImpl implements IProjectDao {
     @Override
     public DataAccess.Response addTask(DataAccess.TaskRequest task) {
         try(Connection connection=DatabaseDriver.getInstance().getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO task(assignee, body, status,story_id,storyPoints) VALUES (?,?,?,?,?)");
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO task(assignee, body, status_id,story_id,storyPoints) VALUES (?,?,?,?,?)");
         statement.setString(1, task.getAsignee());
         statement.setString(2, task.getBody());
-        statement.setBoolean(3, task.getStatus());
+        statement.setInt(3, getStatusId(task.getStatus()));
         statement.setInt(4,task.getStoryId());
         statement.setInt(5,task.getStoryPoints());
 
@@ -318,6 +314,38 @@ public class ProjectDaoImpl implements IProjectDao {
     }
     }
 
+    private int getStatusId(String status)
+    {
+        int id = 1;
+        try(Connection connection=driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("Select id from status where status = ?");
+            statement.setString(1, status);
+            ResultSet result= statement.executeQuery();
+            if(result.next())
+            {
+                id  =  result.getInt("id");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return id;
+    }
+    private String getStatusName(int id)
+    {
+        String status = "";
+        try(Connection connection=driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("Select status from status where id = ?");
+            statement.setInt(1, id);
+            ResultSet result= statement.executeQuery();
+            if(result.next())
+            {
+                status  =  result.getString("status");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return status;
+    }
     //error404
     @Override
     public DataAccess.AllTasksMessage getTask(DataAccess.Id id) {
@@ -333,7 +361,7 @@ public class ProjectDaoImpl implements IProjectDao {
                 DataAccess.TaskRequest task = DataAccess.TaskRequest.newBuilder()
                         .setId(rs.getInt("id"))
                         .setBody(rs.getString("body"))
-                        .setStatus(rs.getBoolean("status"))
+                       .setStatus(getStatusName(rs.getInt("status_id")))
                         .setAsignee(rs.getString("assignee"))
                         .setStoryPoints(rs.getInt("storyPoints"))
                         .build();
@@ -350,33 +378,33 @@ public class ProjectDaoImpl implements IProjectDao {
     }
 
     //error404
-    @Override
-    public DataAccess.Response changeTask(DataAccess.ChangeTaskRequest taskRequest) {
-        int taskId = taskRequest.getTaskId();
-        boolean newStatus = taskRequest.getStatus();
-
-        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE task SET status = ? WHERE id = ?"
-            );
-            statement.setBoolean(1, newStatus);
-            statement.setInt(2, taskId);
-            int rowsAffected = statement.executeUpdate();
-            statement.close();
-
-            if (rowsAffected > 0) {
-                return DataAccess.Response.newBuilder()
-                        .setCode(200)
-                        .build();
-            } else {
-                return DataAccess.Response.newBuilder()
-                        .setCode(404)
-                        .build();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    @Override
+//    public DataAccess.Response changeTask(DataAccess.ChangeTaskRequest taskRequest) {
+//        int taskId = taskRequest.getTaskId();
+//        String newStatus = taskRequest.getStatus();
+//
+//        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+//            PreparedStatement statement = connection.prepareStatement(
+//                    "UPDATE task SET status_id = ? WHERE id = ?"
+//            );
+////            statement.setBoolean(1, newStatus);
+//            statement.setInt(2, taskId);
+//            int rowsAffected = statement.executeUpdate();
+//            statement.close();
+//
+//            if (rowsAffected > 0) {
+//                return DataAccess.Response.newBuilder()
+//                        .setCode(200)
+//                        .build();
+//            } else {
+//                return DataAccess.Response.newBuilder()
+//                        .setCode(404)
+//                        .build();
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @Override
     public DataAccess.UserStoriesResponse getAllUserStoriesFromSprint(DataAccess.Id sprintId) {
@@ -393,7 +421,7 @@ public class ProjectDaoImpl implements IProjectDao {
                         .setProjectId(rs.getInt("project_id"))
                         .setUserStory(rs.getString("body"))
                         .setPriority(rs.getString("priority"))
-                        .setStatus(Boolean.parseBoolean(rs.getString("status")))
+                        .setStatus(getStatusName(rs.getInt("status_id")))
                         .setStoryPoint(rs.getInt("storyPoint"))
                         .build());
                 code = 200;
@@ -543,10 +571,10 @@ public class ProjectDaoImpl implements IProjectDao {
     public DataAccess.Response editTask(DataAccess.TaskRequest request) {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE task SET assignee = ?, status = ?, storyPoints = ? WHERE id = ?"
+                    "UPDATE task SET assignee = ?, status_id = ?, storyPoints = ? WHERE id = ?"
             );
             statement.setString(1, request.getAsignee());
-            statement.setBoolean(2, request.getStatus());
+            statement.setInt(2, getStatusId(request.getStatus()));
             statement.setInt(3,request.getStoryPoints());
             statement.setInt(4,request.getId());
             int rowsAffected = statement.executeUpdate();

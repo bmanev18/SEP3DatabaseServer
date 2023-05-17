@@ -43,7 +43,7 @@ public class UserDaoImpl implements IUserDao{
         }
     }
 
-    public int getRoleId(String role)
+    private int getRoleId(String role)
     {
         int id = 0;
         try(Connection connection=driver.getConnection()) {
@@ -59,6 +59,24 @@ public class UserDaoImpl implements IUserDao{
         }
         return id;
     }
+
+    private String getRoleName(int roleid)
+    {
+       String role="null";
+        try(Connection connection=driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("Select name from role where id = ?");
+            statement.setInt(1, roleid);
+            ResultSet result= statement.executeQuery();
+            if(result.next())
+            {
+                role  =  result.getString("name");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return role;
+    }
+
     @Override
     public DataAccess.UserCreationDto getUserByUsername(DataAccess.Username username)  {
 
@@ -73,7 +91,7 @@ public class UserDaoImpl implements IUserDao{
                 builder.setPassword(rs.getString("password"));
                 builder.setFirstName(rs.getString("firstname"));
                 builder.setLastName(rs.getString("lastname"));
-                builder.setRole(String.valueOf(rs.getString("role_id")));
+                builder.setRole(getRoleName(rs.getInt("role_id")));
             }
             statement.close();
             return builder.build();

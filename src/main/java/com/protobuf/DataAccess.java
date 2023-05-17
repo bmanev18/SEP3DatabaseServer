@@ -7507,10 +7507,16 @@ public final class DataAccess {
         getPriorityBytes();
 
     /**
-     * <code>bool status = 4;</code>
+     * <code>string status = 4;</code>
      * @return The status.
      */
-    boolean getStatus();
+    java.lang.String getStatus();
+    /**
+     * <code>string status = 4;</code>
+     * @return The bytes for status.
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
 
     /**
      * <code>int32 storyPoint = 5;</code>
@@ -7533,6 +7539,7 @@ public final class DataAccess {
     private UserStoryMessage() {
       taskBody_ = "";
       priority_ = "";
+      status_ = "";
     }
 
     @java.lang.Override
@@ -7645,14 +7652,42 @@ public final class DataAccess {
     }
 
     public static final int STATUS_FIELD_NUMBER = 4;
-    private boolean status_ = false;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object status_ = "";
     /**
-     * <code>bool status = 4;</code>
+     * <code>string status = 4;</code>
      * @return The status.
      */
     @java.lang.Override
-    public boolean getStatus() {
-      return status_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string status = 4;</code>
+     * @return The bytes for status.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int STORYPOINT_FIELD_NUMBER = 5;
@@ -7689,8 +7724,8 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, priority_);
       }
-      if (status_ != false) {
-        output.writeBool(4, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, status_);
       }
       if (storyPoint_ != 0) {
         output.writeInt32(5, storyPoint_);
@@ -7714,9 +7749,8 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, priority_);
       }
-      if (status_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, status_);
       }
       if (storyPoint_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -7743,8 +7777,8 @@ public final class DataAccess {
           .equals(other.getTaskBody())) return false;
       if (!getPriority()
           .equals(other.getPriority())) return false;
-      if (getStatus()
-          != other.getStatus()) return false;
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
       if (getStoryPoint()
           != other.getStoryPoint()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -7765,8 +7799,7 @@ public final class DataAccess {
       hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
       hash = (53 * hash) + getPriority().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getStatus());
+      hash = (53 * hash) + getStatus().hashCode();
       hash = (37 * hash) + STORYPOINT_FIELD_NUMBER;
       hash = (53 * hash) + getStoryPoint();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -7901,7 +7934,7 @@ public final class DataAccess {
         projectId_ = 0;
         taskBody_ = "";
         priority_ = "";
-        status_ = false;
+        status_ = "";
         storyPoint_ = 0;
         return this;
       }
@@ -7978,8 +8011,10 @@ public final class DataAccess {
           bitField0_ |= 0x00000004;
           onChanged();
         }
-        if (other.getStatus() != false) {
-          setStatus(other.getStatus());
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
+          bitField0_ |= 0x00000008;
+          onChanged();
         }
         if (other.getStoryPoint() != 0) {
           setStoryPoint(other.getStoryPoint());
@@ -8025,11 +8060,11 @@ public final class DataAccess {
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
-              case 32: {
-                status_ = input.readBool();
+              case 34: {
+                status_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000008;
                 break;
-              } // case 32
+              } // case 34
               case 40: {
                 storyPoint_ = input.readInt32();
                 bitField0_ |= 0x00000010;
@@ -8228,34 +8263,74 @@ public final class DataAccess {
         return this;
       }
 
-      private boolean status_ ;
+      private java.lang.Object status_ = "";
       /**
-       * <code>bool status = 4;</code>
+       * <code>string status = 4;</code>
        * @return The status.
        */
-      @java.lang.Override
-      public boolean getStatus() {
-        return status_;
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bool status = 4;</code>
+       * <code>string status = 4;</code>
+       * @return The bytes for status.
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string status = 4;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(boolean value) {
-
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
         status_ = value;
         bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>bool status = 4;</code>
+       * <code>string status = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
+        status_ = getDefaultInstance().getStatus();
         bitField0_ = (bitField0_ & ~0x00000008);
-        status_ = false;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 4;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        status_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -9806,10 +9881,16 @@ public final class DataAccess {
         getPriorityBytes();
 
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
-    boolean getStatus();
+    java.lang.String getStatus();
+    /**
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
 
     /**
      * <code>int32 storyPoint = 6;</code>
@@ -9832,6 +9913,7 @@ public final class DataAccess {
     private UserStory() {
       userStory_ = "";
       priority_ = "";
+      status_ = "";
     }
 
     @java.lang.Override
@@ -9955,14 +10037,42 @@ public final class DataAccess {
     }
 
     public static final int STATUS_FIELD_NUMBER = 5;
-    private boolean status_ = false;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object status_ = "";
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
     @java.lang.Override
-    public boolean getStatus() {
-      return status_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int STORYPOINT_FIELD_NUMBER = 6;
@@ -10002,8 +10112,8 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, priority_);
       }
-      if (status_ != false) {
-        output.writeBool(5, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
       }
       if (storyPoint_ != 0) {
         output.writeInt32(6, storyPoint_);
@@ -10031,9 +10141,8 @@ public final class DataAccess {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(priority_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, priority_);
       }
-      if (status_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
       }
       if (storyPoint_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -10062,8 +10171,8 @@ public final class DataAccess {
           .equals(other.getUserStory())) return false;
       if (!getPriority()
           .equals(other.getPriority())) return false;
-      if (getStatus()
-          != other.getStatus()) return false;
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
       if (getStoryPoint()
           != other.getStoryPoint()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -10086,8 +10195,7 @@ public final class DataAccess {
       hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
       hash = (53 * hash) + getPriority().hashCode();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getStatus());
+      hash = (53 * hash) + getStatus().hashCode();
       hash = (37 * hash) + STORYPOINT_FIELD_NUMBER;
       hash = (53 * hash) + getStoryPoint();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -10223,7 +10331,7 @@ public final class DataAccess {
         projectId_ = 0;
         userStory_ = "";
         priority_ = "";
-        status_ = false;
+        status_ = "";
         storyPoint_ = 0;
         return this;
       }
@@ -10306,8 +10414,10 @@ public final class DataAccess {
           bitField0_ |= 0x00000008;
           onChanged();
         }
-        if (other.getStatus() != false) {
-          setStatus(other.getStatus());
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
+          bitField0_ |= 0x00000010;
+          onChanged();
         }
         if (other.getStoryPoint() != 0) {
           setStoryPoint(other.getStoryPoint());
@@ -10358,11 +10468,11 @@ public final class DataAccess {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
-              case 40: {
-                status_ = input.readBool();
+              case 42: {
+                status_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000010;
                 break;
-              } // case 40
+              } // case 42
               case 48: {
                 storyPoint_ = input.readInt32();
                 bitField0_ |= 0x00000020;
@@ -10593,34 +10703,74 @@ public final class DataAccess {
         return this;
       }
 
-      private boolean status_ ;
+      private java.lang.Object status_ = "";
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
        * @return The status.
        */
-      @java.lang.Override
-      public boolean getStatus() {
-        return status_;
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
+       * @return The bytes for status.
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string status = 5;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(boolean value) {
-
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
         status_ = value;
         bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
+        status_ = getDefaultInstance().getStatus();
         bitField0_ = (bitField0_ & ~0x00000010);
-        status_ = false;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 5;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        status_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -14317,10 +14467,16 @@ public final class DataAccess {
     int getStoryPoints();
 
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
-    boolean getStatus();
+    java.lang.String getStatus();
+    /**
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
 
     /**
      * <code>int32 story_id = 6;</code>
@@ -14343,6 +14499,7 @@ public final class DataAccess {
     private TaskRequest() {
       asignee_ = "";
       body_ = "";
+      status_ = "";
     }
 
     @java.lang.Override
@@ -14466,14 +14623,42 @@ public final class DataAccess {
     }
 
     public static final int STATUS_FIELD_NUMBER = 5;
-    private boolean status_ = false;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object status_ = "";
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
     @java.lang.Override
-    public boolean getStatus() {
-      return status_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int STORY_ID_FIELD_NUMBER = 6;
@@ -14513,8 +14698,8 @@ public final class DataAccess {
       if (storyPoints_ != 0) {
         output.writeInt32(4, storyPoints_);
       }
-      if (status_ != false) {
-        output.writeBool(5, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
       }
       if (storyId_ != 0) {
         output.writeInt32(6, storyId_);
@@ -14542,9 +14727,8 @@ public final class DataAccess {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, storyPoints_);
       }
-      if (status_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
       }
       if (storyId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -14573,8 +14757,8 @@ public final class DataAccess {
           .equals(other.getBody())) return false;
       if (getStoryPoints()
           != other.getStoryPoints()) return false;
-      if (getStatus()
-          != other.getStatus()) return false;
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
       if (getStoryId()
           != other.getStoryId()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -14597,8 +14781,7 @@ public final class DataAccess {
       hash = (37 * hash) + STORYPOINTS_FIELD_NUMBER;
       hash = (53 * hash) + getStoryPoints();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getStatus());
+      hash = (53 * hash) + getStatus().hashCode();
       hash = (37 * hash) + STORY_ID_FIELD_NUMBER;
       hash = (53 * hash) + getStoryId();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -14734,7 +14917,7 @@ public final class DataAccess {
         asignee_ = "";
         body_ = "";
         storyPoints_ = 0;
-        status_ = false;
+        status_ = "";
         storyId_ = 0;
         return this;
       }
@@ -14817,8 +15000,10 @@ public final class DataAccess {
         if (other.getStoryPoints() != 0) {
           setStoryPoints(other.getStoryPoints());
         }
-        if (other.getStatus() != false) {
-          setStatus(other.getStatus());
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
+          bitField0_ |= 0x00000010;
+          onChanged();
         }
         if (other.getStoryId() != 0) {
           setStoryId(other.getStoryId());
@@ -14869,11 +15054,11 @@ public final class DataAccess {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
-              case 40: {
-                status_ = input.readBool();
+              case 42: {
+                status_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000010;
                 break;
-              } // case 40
+              } // case 42
               case 48: {
                 storyId_ = input.readInt32();
                 bitField0_ |= 0x00000020;
@@ -15104,34 +15289,74 @@ public final class DataAccess {
         return this;
       }
 
-      private boolean status_ ;
+      private java.lang.Object status_ = "";
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
        * @return The status.
        */
-      @java.lang.Override
-      public boolean getStatus() {
-        return status_;
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
+       * @return The bytes for status.
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string status = 5;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(boolean value) {
-
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
         status_ = value;
         bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
+        status_ = getDefaultInstance().getStatus();
         bitField0_ = (bitField0_ & ~0x00000010);
-        status_ = false;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 5;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        status_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -15266,10 +15491,16 @@ public final class DataAccess {
     int getUserStoryId();
 
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
-    boolean getStatus();
+    java.lang.String getStatus();
+    /**
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
   }
   /**
    * Protobuf type {@code ChangeTaskRequest}
@@ -15285,6 +15516,7 @@ public final class DataAccess {
     }
     private ChangeTaskRequest() {
       body_ = "";
+      status_ = "";
     }
 
     @java.lang.Override
@@ -15380,14 +15612,42 @@ public final class DataAccess {
     }
 
     public static final int STATUS_FIELD_NUMBER = 5;
-    private boolean status_ = false;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object status_ = "";
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      * @return The status.
      */
     @java.lang.Override
-    public boolean getStatus() {
-      return status_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -15416,8 +15676,8 @@ public final class DataAccess {
       if (userStoryId_ != 0) {
         output.writeInt32(4, userStoryId_);
       }
-      if (status_ != false) {
-        output.writeBool(5, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -15443,9 +15703,8 @@ public final class DataAccess {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, userStoryId_);
       }
-      if (status_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, status_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -15470,8 +15729,8 @@ public final class DataAccess {
           != other.getStoryPoint()) return false;
       if (getUserStoryId()
           != other.getUserStoryId()) return false;
-      if (getStatus()
-          != other.getStatus()) return false;
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -15492,8 +15751,7 @@ public final class DataAccess {
       hash = (37 * hash) + USERSTORY_ID_FIELD_NUMBER;
       hash = (53 * hash) + getUserStoryId();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getStatus());
+      hash = (53 * hash) + getStatus().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15627,7 +15885,7 @@ public final class DataAccess {
         body_ = "";
         storyPoint_ = 0;
         userStoryId_ = 0;
-        status_ = false;
+        status_ = "";
         return this;
       }
 
@@ -15704,8 +15962,10 @@ public final class DataAccess {
         if (other.getUserStoryId() != 0) {
           setUserStoryId(other.getUserStoryId());
         }
-        if (other.getStatus() != false) {
-          setStatus(other.getStatus());
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
+          bitField0_ |= 0x00000010;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -15753,11 +16013,11 @@ public final class DataAccess {
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
-              case 40: {
-                status_ = input.readBool();
+              case 42: {
+                status_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000010;
                 break;
-              } // case 40
+              } // case 42
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -15943,34 +16203,74 @@ public final class DataAccess {
         return this;
       }
 
-      private boolean status_ ;
+      private java.lang.Object status_ = "";
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
        * @return The status.
        */
-      @java.lang.Override
-      public boolean getStatus() {
-        return status_;
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
+       * @return The bytes for status.
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string status = 5;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(boolean value) {
-
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
         status_ = value;
         bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>bool status = 5;</code>
+       * <code>string status = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
+        status_ = getDefaultInstance().getStatus();
         bitField0_ = (bitField0_ & ~0x00000010);
-        status_ = false;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 5;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        status_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -18676,13 +18976,13 @@ public final class DataAccess {
       "CreationDto\022\025\n\rownerUsername\030\001 \001(\t\022\r\n\005ti" +
       "tle\030\002 \001(\t\"n\n\020UserStoryMessage\022\022\n\nproject" +
       "_id\030\001 \001(\005\022\020\n\010taskBody\030\002 \001(\t\022\020\n\010priority\030" +
-      "\003 \001(\t\022\016\n\006status\030\004 \001(\010\022\022\n\nstoryPoint\030\005 \001(" +
+      "\003 \001(\t\022\016\n\006status\030\004 \001(\t\022\022\n\nstoryPoint\030\005 \001(" +
       "\005\"+\n\016ProjectMessage\022\n\n\002id\030\001 \001(\005\022\r\n\005title" +
       "\030\002 \001(\t\"C\n\020ProjectsResponse\022!\n\010projects\030\001" +
       " \003(\0132\017.ProjectMessage\022\014\n\004code\030\002 \001(\005\"t\n\tU" +
       "serStory\022\n\n\002id\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(\005" +
       "\022\021\n\tuserStory\030\003 \001(\t\022\020\n\010priority\030\004 \001(\t\022\016\n" +
-      "\006status\030\005 \001(\010\022\022\n\nstoryPoint\030\006 \001(\005\"D\n\023Use" +
+      "\006status\030\005 \001(\t\022\022\n\nstoryPoint\030\006 \001(\005\"D\n\023Use" +
       "rStoriesResponse\022\037\n\013userStories\030\001 \003(\0132\n." +
       "UserStory\022\014\n\004code\030\002 \001(\005\"\\\n\025SprintCreatio" +
       "nRequest\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002 \001" +
@@ -18693,10 +18993,10 @@ public final class DataAccess {
       "ntsMessage\022\037\n\007sprints\030\001 \003(\0132\016.SprintMess" +
       "age\022\014\n\004code\030\002 \001(\005\"o\n\013TaskRequest\022\n\n\002id\030\001" +
       " \001(\005\022\017\n\007asignee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022\023\n\013s" +
-      "toryPoints\030\004 \001(\005\022\016\n\006status\030\005 \001(\010\022\020\n\010stor" +
+      "toryPoints\030\004 \001(\005\022\016\n\006status\030\005 \001(\t\022\020\n\010stor" +
       "y_id\030\006 \001(\005\"l\n\021ChangeTaskRequest\022\017\n\007task_" +
       "id\030\001 \001(\005\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryPoint\030\003 \001" +
-      "(\005\022\024\n\014userStory_id\030\004 \001(\005\022\016\n\006status\030\005 \001(\010" +
+      "(\005\022\024\n\014userStory_id\030\004 \001(\005\022\016\n\006status\030\005 \001(\t" +
       "\"C\n\030UserStoryToSprintRequest\022\024\n\014userStor" +
       "y_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 \001(\005\"<\n\017AllTask" +
       "sMessage\022\033\n\005tasks\030\001 \003(\0132\014.TaskRequest\022\014\n" +
