@@ -67,6 +67,7 @@ message ResponseWithID {
     int32 code = 1;
     int32 id = 2;
 }
+
 message UserSearchDto {
     string firstName = 1;
     string lastName = 2;
@@ -163,7 +164,7 @@ message ChangeTaskRequest{
     int32 task_id = 1;
     string body = 2;
     int32 storyPoint = 3;
-    int32 userStory_id=4;
+    int32 userStory_id = 4;
     string status = 5;
 }
 message UserStoryToSprintRequest{
@@ -174,10 +175,12 @@ message AllTasksMessage{
     repeated TaskRequest tasks = 1;
     int32 code = 2;
 }
+
 message AssignTaskMessage{
     Username username = 1;
     int32 task_id = 2;
 }
+
 message RemoveSprintMessage{
     int32 projectId = 1;
     int32 sprintId = 2;
