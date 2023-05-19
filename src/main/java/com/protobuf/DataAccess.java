@@ -12204,6 +12204,596 @@ public final class DataAccess {
 
   }
 
+  public interface StatusUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:StatusUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 id = 1;</code>
+     * @return The id.
+     */
+    int getId();
+
+    /**
+     * <code>string status = 2;</code>
+     * @return The status.
+     */
+    java.lang.String getStatus();
+    /**
+     * <code>string status = 2;</code>
+     * @return The bytes for status.
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
+  }
+  /**
+   * Protobuf type {@code StatusUpdate}
+   */
+  public static final class StatusUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:StatusUpdate)
+      StatusUpdateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StatusUpdate.newBuilder() to construct.
+    private StatusUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StatusUpdate() {
+      status_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StatusUpdate();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.protobuf.DataAccess.internal_static_StatusUpdate_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.protobuf.DataAccess.internal_static_StatusUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.protobuf.DataAccess.StatusUpdate.class, com.protobuf.DataAccess.StatusUpdate.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_ = 0;
+    /**
+     * <code>int32 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public int getId() {
+      return id_;
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object status_ = "";
+    /**
+     * <code>string status = 2;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string status = 2;</code>
+     * @return The bytes for status.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, status_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, status_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.protobuf.DataAccess.StatusUpdate)) {
+        return super.equals(obj);
+      }
+      com.protobuf.DataAccess.StatusUpdate other = (com.protobuf.DataAccess.StatusUpdate) obj;
+
+      if (getId()
+          != other.getId()) return false;
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.StatusUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.protobuf.DataAccess.StatusUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code StatusUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:StatusUpdate)
+        com.protobuf.DataAccess.StatusUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.protobuf.DataAccess.internal_static_StatusUpdate_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.protobuf.DataAccess.internal_static_StatusUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.protobuf.DataAccess.StatusUpdate.class, com.protobuf.DataAccess.StatusUpdate.Builder.class);
+      }
+
+      // Construct using com.protobuf.DataAccess.StatusUpdate.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = 0;
+        status_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.protobuf.DataAccess.internal_static_StatusUpdate_descriptor;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.StatusUpdate getDefaultInstanceForType() {
+        return com.protobuf.DataAccess.StatusUpdate.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.StatusUpdate build() {
+        com.protobuf.DataAccess.StatusUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.StatusUpdate buildPartial() {
+        com.protobuf.DataAccess.StatusUpdate result = new com.protobuf.DataAccess.StatusUpdate(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.protobuf.DataAccess.StatusUpdate result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.status_ = status_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.protobuf.DataAccess.StatusUpdate) {
+          return mergeFrom((com.protobuf.DataAccess.StatusUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.protobuf.DataAccess.StatusUpdate other) {
+        if (other == com.protobuf.DataAccess.StatusUpdate.getDefaultInstance()) return this;
+        if (other.getId() != 0) {
+          setId(other.getId());
+        }
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                id_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                status_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int id_ ;
+      /**
+       * <code>int32 id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(int value) {
+
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object status_ = "";
+      /**
+       * <code>string status = 2;</code>
+       * @return The status.
+       */
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @return The bytes for status.
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        status_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        status_ = getDefaultInstance().getStatus();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 2;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        status_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:StatusUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:StatusUpdate)
+    private static final com.protobuf.DataAccess.StatusUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.protobuf.DataAccess.StatusUpdate();
+    }
+
+    public static com.protobuf.DataAccess.StatusUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StatusUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<StatusUpdate>() {
+      @java.lang.Override
+      public StatusUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<StatusUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StatusUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.protobuf.DataAccess.StatusUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface SprintCreationRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:SprintCreationRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -19424,6 +20014,11 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PointsUpdate_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_StatusUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_StatusUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SprintCreationRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -19504,57 +20099,60 @@ public final class DataAccess {
       "\006status\030\005 \001(\t\022\022\n\nstoryPoint\030\006 \001(\005\"D\n\023Use" +
       "rStoriesResponse\022\037\n\013userStories\030\001 \003(\0132\n." +
       "UserStory\022\014\n\004code\030\002 \001(\005\"*\n\014PointsUpdate\022" +
-      "\n\n\002id\030\001 \001(\005\022\016\n\006points\030\002 \001(\005\"\\\n\025SprintCre" +
-      "ationRequest\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name" +
-      "\030\002 \001(\t\022\020\n\010starDate\030\003 \001(\t\022\017\n\007endDate\030\004 \001(" +
-      "\t\"n\n\rSprintMessage\022\n\n\002id\030\001 \001(\005\022\022\n\nprojec" +
-      "t_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\020\n\010starDate\030\004 \001" +
-      "(\t\022\017\n\007endDate\030\005 \001(\t\022\014\n\004code\030\006 \001(\005\"B\n\021All" +
-      "SprintsMessage\022\037\n\007sprints\030\001 \003(\0132\016.Sprint" +
-      "Message\022\014\n\004code\030\002 \001(\005\"o\n\013TaskRequest\022\n\n\002" +
-      "id\030\001 \001(\005\022\017\n\007asignee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t\022" +
-      "\023\n\013storyPoints\030\004 \001(\005\022\016\n\006status\030\005 \001(\t\022\020\n\010" +
-      "story_id\030\006 \001(\005\"l\n\021ChangeTaskRequest\022\017\n\007t" +
-      "ask_id\030\001 \001(\005\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryPoint" +
-      "\030\003 \001(\005\022\024\n\014userStory_id\030\004 \001(\005\022\016\n\006status\030\005" +
-      " \001(\t\"C\n\030UserStoryToSprintRequest\022\024\n\014user" +
-      "Story_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 \001(\005\"<\n\017All" +
-      "TasksMessage\022\033\n\005tasks\030\001 \003(\0132\014.TaskReques" +
-      "t\022\014\n\004code\030\002 \001(\005\"A\n\021AssignTaskMessage\022\033\n\010" +
-      "username\030\001 \001(\0132\t.Username\022\017\n\007task_id\030\002 \001" +
-      "(\005\":\n\023RemoveSprintMessage\022\021\n\tprojectId\030\001" +
-      " \001(\005\022\020\n\010sprintId\030\002 \001(\0052\363\001\n\nUserAccess\022)\n" +
-      "\nCreateUser\022\020.UserCreationDto\032\t.Response" +
-      "\022-\n\016UserByUsername\022\t.Username\032\020.UserCrea" +
-      "tionDto\0224\n\nUpdateUser\022\020.UserCreationDto\032" +
-      "\024.UpdatedUserResponse\022\"\n\nDeleteUser\022\t.Us" +
-      "ername\032\t.Response\0221\n\014LookForUsers\022\t.User" +
-      "name\032\026.FilteredUsersResponse2\304\007\n\rProject" +
-      "Access\0225\n\rCreateProject\022\023.ProjectCreatio" +
-      "nDto\032\017.ResponseWithID\022.\n\016GetAllProjects\022" +
-      "\t.Username\032\021.ProjectsResponse\0222\n\023GetAllC" +
-      "ollaborators\022\003.Id\032\026.FilteredUsersRespons" +
-      "e\022.\n\017AddCollaborator\022\020.AddToProjectDto\032\t" +
-      ".Response\0221\n\022RemoveCollaborator\022\020.AddToP" +
-      "rojectDto\032\t.Response\0222\n\014AddUserStory\022\021.U" +
-      "serStoryMessage\032\017.ResponseWithID\022+\n\016GetU" +
-      "serStories\022\003.Id\032\024.UserStoriesResponse\0221\n" +
-      "\025UpdateUserStoryPoints\022\r.PointsUpdate\032\t." +
-      "Response\022!\n\017DeleteUserStory\022\003.Id\032\t.Respo" +
-      "nse\0221\n\014CreateSprint\022\026.SprintCreationRequ" +
-      "est\032\t.Response\022$\n\rGetSprintByID\022\003.Id\032\016.S" +
-      "printMessage\022/\n\024GetSprintByProjectId\022\003.I" +
-      "d\032\022.AllSprintsMessage\022/\n\014RemoveSprint\022\024." +
-      "RemoveSprintMessage\032\t.Response\022\034\n\nRemove" +
-      "Task\022\003.Id\032\t.Response\022\"\n\007AddTask\022\014.TaskRe" +
-      "quest\032\t.Response\022!\n\010GetTasks\022\003.Id\032\020.AllT" +
-      "asksMessage\022#\n\010EditTask\022\014.TaskRequest\032\t." +
-      "Response\022<\n\024AddUserStoryToSprint\022\031.UserS" +
-      "toryToSprintRequest\032\t.Response\022A\n\031Remove" +
-      "UserStoryFromSprint\022\031.UserStoryToSprintR" +
-      "equest\032\t.Response\0228\n\033GetAllUserStoriesFr" +
-      "omSprint\022\003.Id\032\024.UserStoriesResponseB!\n\014c" +
-      "om.protobuf\252\002\020DataAccessClientb\006proto3"
+      "\n\n\002id\030\001 \001(\005\022\016\n\006points\030\002 \001(\005\"*\n\014StatusUpd" +
+      "ate\022\n\n\002id\030\001 \001(\005\022\016\n\006status\030\002 \001(\t\"\\\n\025Sprin" +
+      "tCreationRequest\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004" +
+      "name\030\002 \001(\t\022\020\n\010starDate\030\003 \001(\t\022\017\n\007endDate\030" +
+      "\004 \001(\t\"n\n\rSprintMessage\022\n\n\002id\030\001 \001(\005\022\022\n\npr" +
+      "oject_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\020\n\010starDate" +
+      "\030\004 \001(\t\022\017\n\007endDate\030\005 \001(\t\022\014\n\004code\030\006 \001(\005\"B\n" +
+      "\021AllSprintsMessage\022\037\n\007sprints\030\001 \003(\0132\016.Sp" +
+      "rintMessage\022\014\n\004code\030\002 \001(\005\"o\n\013TaskRequest" +
+      "\022\n\n\002id\030\001 \001(\005\022\017\n\007asignee\030\002 \001(\t\022\014\n\004body\030\003 " +
+      "\001(\t\022\023\n\013storyPoints\030\004 \001(\005\022\016\n\006status\030\005 \001(\t" +
+      "\022\020\n\010story_id\030\006 \001(\005\"l\n\021ChangeTaskRequest\022" +
+      "\017\n\007task_id\030\001 \001(\005\022\014\n\004body\030\002 \001(\t\022\022\n\nstoryP" +
+      "oint\030\003 \001(\005\022\024\n\014userStory_id\030\004 \001(\005\022\016\n\006stat" +
+      "us\030\005 \001(\t\"C\n\030UserStoryToSprintRequest\022\024\n\014" +
+      "userStory_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 \001(\005\"<\n" +
+      "\017AllTasksMessage\022\033\n\005tasks\030\001 \003(\0132\014.TaskRe" +
+      "quest\022\014\n\004code\030\002 \001(\005\"A\n\021AssignTaskMessage" +
+      "\022\033\n\010username\030\001 \001(\0132\t.Username\022\017\n\007task_id" +
+      "\030\002 \001(\005\":\n\023RemoveSprintMessage\022\021\n\tproject" +
+      "Id\030\001 \001(\005\022\020\n\010sprintId\030\002 \001(\0052\363\001\n\nUserAcces" +
+      "s\022)\n\nCreateUser\022\020.UserCreationDto\032\t.Resp" +
+      "onse\022-\n\016UserByUsername\022\t.Username\032\020.User" +
+      "CreationDto\0224\n\nUpdateUser\022\020.UserCreation" +
+      "Dto\032\024.UpdatedUserResponse\022\"\n\nDeleteUser\022" +
+      "\t.Username\032\t.Response\0221\n\014LookForUsers\022\t." +
+      "Username\032\026.FilteredUsersResponse2\356\007\n\rPro" +
+      "jectAccess\0225\n\rCreateProject\022\023.ProjectCre" +
+      "ationDto\032\017.ResponseWithID\022.\n\016GetAllProje" +
+      "cts\022\t.Username\032\021.ProjectsResponse\0222\n\023Get" +
+      "AllCollaborators\022\003.Id\032\026.FilteredUsersRes" +
+      "ponse\022.\n\017AddCollaborator\022\020.AddToProjectD" +
+      "to\032\t.Response\0221\n\022RemoveCollaborator\022\020.Ad" +
+      "dToProjectDto\032\t.Response\0222\n\014AddUserStory" +
+      "\022\021.UserStoryMessage\032\017.ResponseWithID\022+\n\016" +
+      "GetUserStories\022\003.Id\032\024.UserStoriesRespons" +
+      "e\0221\n\025UpdateUserStoryPoints\022\r.PointsUpdat" +
+      "e\032\t.Response\022(\n\014UpdateStatus\022\r.StatusUpd" +
+      "ate\032\t.Response\022!\n\017DeleteUserStory\022\003.Id\032\t" +
+      ".Response\0221\n\014CreateSprint\022\026.SprintCreati" +
+      "onRequest\032\t.Response\022$\n\rGetSprintByID\022\003." +
+      "Id\032\016.SprintMessage\022/\n\024GetSprintByProject" +
+      "Id\022\003.Id\032\022.AllSprintsMessage\022/\n\014RemoveSpr" +
+      "int\022\024.RemoveSprintMessage\032\t.Response\022\034\n\n" +
+      "RemoveTask\022\003.Id\032\t.Response\022\"\n\007AddTask\022\014." +
+      "TaskRequest\032\t.Response\022!\n\010GetTasks\022\003.Id\032" +
+      "\020.AllTasksMessage\022#\n\010EditTask\022\014.TaskRequ" +
+      "est\032\t.Response\022<\n\024AddUserStoryToSprint\022\031" +
+      ".UserStoryToSprintRequest\032\t.Response\022A\n\031" +
+      "RemoveUserStoryFromSprint\022\031.UserStoryToS" +
+      "printRequest\032\t.Response\0228\n\033GetAllUserSto" +
+      "riesFromSprint\022\003.Id\032\024.UserStoriesRespons" +
+      "eB!\n\014com.protobuf\252\002\020DataAccessClientb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -19662,56 +20260,62 @@ public final class DataAccess {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PointsUpdate_descriptor,
         new java.lang.String[] { "Id", "Points", });
-    internal_static_SprintCreationRequest_descriptor =
+    internal_static_StatusUpdate_descriptor =
       getDescriptor().getMessageTypes().get(17);
+    internal_static_StatusUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_StatusUpdate_descriptor,
+        new java.lang.String[] { "Id", "Status", });
+    internal_static_SprintCreationRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
     internal_static_SprintCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SprintCreationRequest_descriptor,
         new java.lang.String[] { "ProjectId", "Name", "StarDate", "EndDate", });
     internal_static_SprintMessage_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_SprintMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SprintMessage_descriptor,
         new java.lang.String[] { "Id", "ProjectId", "Name", "StarDate", "EndDate", "Code", });
     internal_static_AllSprintsMessage_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_AllSprintsMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AllSprintsMessage_descriptor,
         new java.lang.String[] { "Sprints", "Code", });
     internal_static_TaskRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_TaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TaskRequest_descriptor,
         new java.lang.String[] { "Id", "Asignee", "Body", "StoryPoints", "Status", "StoryId", });
     internal_static_ChangeTaskRequest_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_ChangeTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChangeTaskRequest_descriptor,
         new java.lang.String[] { "TaskId", "Body", "StoryPoint", "UserStoryId", "Status", });
     internal_static_UserStoryToSprintRequest_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_UserStoryToSprintRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStoryToSprintRequest_descriptor,
         new java.lang.String[] { "UserStoryId", "SprintId", });
     internal_static_AllTasksMessage_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_AllTasksMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AllTasksMessage_descriptor,
         new java.lang.String[] { "Tasks", "Code", });
     internal_static_AssignTaskMessage_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_AssignTaskMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AssignTaskMessage_descriptor,
         new java.lang.String[] { "Username", "TaskId", });
     internal_static_RemoveSprintMessage_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_RemoveSprintMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RemoveSprintMessage_descriptor,

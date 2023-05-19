@@ -262,6 +262,37 @@ public final class ProjectAccessGrpc {
     return getUpdateUserStoryPointsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.StatusUpdate,
+      com.protobuf.DataAccess.Response> getUpdateStatusMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateStatus",
+      requestType = com.protobuf.DataAccess.StatusUpdate.class,
+      responseType = com.protobuf.DataAccess.Response.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.StatusUpdate,
+      com.protobuf.DataAccess.Response> getUpdateStatusMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.StatusUpdate, com.protobuf.DataAccess.Response> getUpdateStatusMethod;
+    if ((getUpdateStatusMethod = ProjectAccessGrpc.getUpdateStatusMethod) == null) {
+      synchronized (ProjectAccessGrpc.class) {
+        if ((getUpdateStatusMethod = ProjectAccessGrpc.getUpdateStatusMethod) == null) {
+          ProjectAccessGrpc.getUpdateStatusMethod = getUpdateStatusMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.StatusUpdate, com.protobuf.DataAccess.Response>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateStatus"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.StatusUpdate.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.Response.getDefaultInstance()))
+              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("UpdateStatus"))
+              .build();
+        }
+      }
+    }
+    return getUpdateStatusMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
       com.protobuf.DataAccess.Response> getDeleteUserStoryMethod;
 
@@ -749,6 +780,13 @@ public final class ProjectAccessGrpc {
 
     /**
      */
+    public void updateStatus(com.protobuf.DataAccess.StatusUpdate request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateStatusMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void deleteUserStory(com.protobuf.DataAccess.Id request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteUserStoryMethod(), responseObserver);
@@ -895,6 +933,13 @@ public final class ProjectAccessGrpc {
                 com.protobuf.DataAccess.PointsUpdate,
                 com.protobuf.DataAccess.Response>(
                   this, METHODID_UPDATE_USER_STORY_POINTS)))
+          .addMethod(
+            getUpdateStatusMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.protobuf.DataAccess.StatusUpdate,
+                com.protobuf.DataAccess.Response>(
+                  this, METHODID_UPDATE_STATUS)))
           .addMethod(
             getDeleteUserStoryMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1068,6 +1113,14 @@ public final class ProjectAccessGrpc {
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateUserStoryPointsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateStatus(com.protobuf.DataAccess.StatusUpdate request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateStatusMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1254,6 +1307,13 @@ public final class ProjectAccessGrpc {
 
     /**
      */
+    public com.protobuf.DataAccess.Response updateStatus(com.protobuf.DataAccess.StatusUpdate request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateStatusMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.protobuf.DataAccess.Response deleteUserStory(com.protobuf.DataAccess.Id request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteUserStoryMethod(), getCallOptions(), request);
@@ -1432,6 +1492,14 @@ public final class ProjectAccessGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> updateStatus(
+        com.protobuf.DataAccess.StatusUpdate request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateStatusMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> deleteUserStory(
         com.protobuf.DataAccess.Id request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -1541,18 +1609,19 @@ public final class ProjectAccessGrpc {
   private static final int METHODID_ADD_USER_STORY = 5;
   private static final int METHODID_GET_USER_STORIES = 6;
   private static final int METHODID_UPDATE_USER_STORY_POINTS = 7;
-  private static final int METHODID_DELETE_USER_STORY = 8;
-  private static final int METHODID_CREATE_SPRINT = 9;
-  private static final int METHODID_GET_SPRINT_BY_ID = 10;
-  private static final int METHODID_GET_SPRINT_BY_PROJECT_ID = 11;
-  private static final int METHODID_REMOVE_SPRINT = 12;
-  private static final int METHODID_REMOVE_TASK = 13;
-  private static final int METHODID_ADD_TASK = 14;
-  private static final int METHODID_GET_TASKS = 15;
-  private static final int METHODID_EDIT_TASK = 16;
-  private static final int METHODID_ADD_USER_STORY_TO_SPRINT = 17;
-  private static final int METHODID_REMOVE_USER_STORY_FROM_SPRINT = 18;
-  private static final int METHODID_GET_ALL_USER_STORIES_FROM_SPRINT = 19;
+  private static final int METHODID_UPDATE_STATUS = 8;
+  private static final int METHODID_DELETE_USER_STORY = 9;
+  private static final int METHODID_CREATE_SPRINT = 10;
+  private static final int METHODID_GET_SPRINT_BY_ID = 11;
+  private static final int METHODID_GET_SPRINT_BY_PROJECT_ID = 12;
+  private static final int METHODID_REMOVE_SPRINT = 13;
+  private static final int METHODID_REMOVE_TASK = 14;
+  private static final int METHODID_ADD_TASK = 15;
+  private static final int METHODID_GET_TASKS = 16;
+  private static final int METHODID_EDIT_TASK = 17;
+  private static final int METHODID_ADD_USER_STORY_TO_SPRINT = 18;
+  private static final int METHODID_REMOVE_USER_STORY_FROM_SPRINT = 19;
+  private static final int METHODID_GET_ALL_USER_STORIES_FROM_SPRINT = 20;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1601,6 +1670,10 @@ public final class ProjectAccessGrpc {
           break;
         case METHODID_UPDATE_USER_STORY_POINTS:
           serviceImpl.updateUserStoryPoints((com.protobuf.DataAccess.PointsUpdate) request,
+              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
+          break;
+        case METHODID_UPDATE_STATUS:
+          serviceImpl.updateStatus((com.protobuf.DataAccess.StatusUpdate) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
           break;
         case METHODID_DELETE_USER_STORY:
@@ -1720,6 +1793,7 @@ public final class ProjectAccessGrpc {
               .addMethod(getAddUserStoryMethod())
               .addMethod(getGetUserStoriesMethod())
               .addMethod(getUpdateUserStoryPointsMethod())
+              .addMethod(getUpdateStatusMethod())
               .addMethod(getDeleteUserStoryMethod())
               .addMethod(getCreateSprintMethod())
               .addMethod(getGetSprintByIDMethod())

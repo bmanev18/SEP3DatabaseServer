@@ -22,6 +22,7 @@ public interface IProjectDao {
     DataAccess.UserStoriesResponse getUserStories(DataAccess.Id id) ;
     int getTotalStoryPoints(DataAccess.Id id);
     DataAccess.Response updateUserStoryPoints(DataAccess.PointsUpdate request);
+    DataAccess.Response updateStatus(DataAccess.StatusUpdate request);
 
 
 

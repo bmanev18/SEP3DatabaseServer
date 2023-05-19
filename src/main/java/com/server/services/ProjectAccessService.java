@@ -70,6 +70,12 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onCompleted();
     }
 
+    public void updateStatus(DataAccess.StatusUpdate request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to update status %s %n", request.getStatus());
+        responseObserver.onNext(dao.updateStatus(request));
+        responseObserver.onCompleted();
+    }
+
     @Override
     public void createSprint(DataAccess.SprintCreationRequest request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to create sprint: %s %n", request.getName());

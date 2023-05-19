@@ -6,6 +6,7 @@ import java.sql.*;
 
 public class ProjectDaoImpl implements IProjectDao {
 
+
     private final DatabaseDriver driver;
 
     public ProjectDaoImpl() {
@@ -234,6 +235,28 @@ public class ProjectDaoImpl implements IProjectDao {
         }
     }
 
+    @Override
+    public DataAccess.Response updateStatus(DataAccess.StatusUpdate request) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("UPDATE userStory SET status_id=? where id =?");
+            statement.setInt(1, getStatusId(request.getStatus()));
+            statement.setInt(2, request.getId());
+            int rowsAffected = statement.executeUpdate();
+            statement.close();
+
+            if (rowsAffected > 0) {
+                return DataAccess.Response.newBuilder()
+                        .setCode(200)
+                        .build();
+            } else {
+                return DataAccess.Response.newBuilder()
+                        .setCode(404)
+                        .build();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     @Override
     public DataAccess.Response createSprint(DataAccess.SprintCreationRequest sprint) {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
