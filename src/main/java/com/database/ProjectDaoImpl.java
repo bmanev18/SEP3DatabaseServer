@@ -142,11 +142,11 @@ public class ProjectDaoImpl implements IProjectDao {
     @Override
     public DataAccess.ResponseWithID addUserStory(DataAccess.UserStoryMessage userStory) {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO userStory( project_id,body, priority, status_id, storyPoint) VALUES (?,?,?,?,?) returning id");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO userStory( project_id,body, priority_id, status_id, storyPoint) VALUES (?,?,?,?,?) returning id");
             statement.setString(2, userStory.getTaskBody());
             statement.setInt(1, userStory.getProjectId());
             statement.setString(2, userStory.getTaskBody());
-            statement.setString(3, userStory.getPriority());
+            statement.setInt(3, getPriorityId(userStory.getPriority()));
             statement.setInt(4, getStatusId(userStory.getStatus()));
             statement.setInt(5, userStory.getStoryPoint());
 
@@ -183,7 +183,7 @@ public class ProjectDaoImpl implements IProjectDao {
                         .setId(rs.getInt("id"))
                         .setProjectId(rs.getInt("project_id"))
                         .setUserStory(rs.getString("body"))
-                        .setPriority(rs.getString("priority"))
+                        .setPriority(getPriorityName(rs.getInt("priority_id")))
                         .setStatus(getStatusName(rs.getInt("status_id")))
                         .setStoryPoint(rs.getInt("storyPoint"))
                         .build());
@@ -236,7 +236,7 @@ public class ProjectDaoImpl implements IProjectDao {
     }
 
     @Override
-    public DataAccess.Response updateStatus(DataAccess.StatusUpdate request) {
+    public DataAccess.Response updateUserStoryStatus(DataAccess.StatusUpdate request) {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("UPDATE userStory SET status_id=? where id =?");
             statement.setInt(1, getStatusId(request.getStatus()));
@@ -257,6 +257,30 @@ public class ProjectDaoImpl implements IProjectDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public DataAccess.Response updateUserStoryPriority(DataAccess.PriorityUpdate request) {
+        try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("UPDATE userStory SET priority_id=? where id =?");
+            statement.setInt(1, getPriorityId(request.getPriority()));
+            statement.setInt(2, request.getId());
+            int rowsAffected = statement.executeUpdate();
+            statement.close();
+
+            if (rowsAffected > 0) {
+                return DataAccess.Response.newBuilder()
+                        .setCode(200)
+                        .build();
+            } else {
+                return DataAccess.Response.newBuilder()
+                        .setCode(404)
+                        .build();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public DataAccess.Response createSprint(DataAccess.SprintCreationRequest sprint) {
         try (Connection connection = DatabaseDriver.getInstance().getConnection()) {
@@ -375,6 +399,21 @@ public class ProjectDaoImpl implements IProjectDao {
         }
         return id;
     }
+    private int getPriorityId(String priority) {
+        int id = 1;
+        try (Connection connection = driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("Select id from priority where name = ?");
+            statement.setString(1, priority);
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+                id = result.getInt("id");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return id;
+    }
+
 
     private String getStatusName(int id) {
         String status = "";
@@ -389,6 +428,20 @@ public class ProjectDaoImpl implements IProjectDao {
             throw new RuntimeException(e);
         }
         return status;
+    }
+    private String getPriorityName(int id) {
+        String priority = "";
+        try (Connection connection = driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("Select name from priority where id = ?");
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+                priority = result.getString("status");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return priority;
     }
 
     //error404

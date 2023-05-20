@@ -70,9 +70,14 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onCompleted();
     }
 
-    public void updateStatus(DataAccess.StatusUpdate request, StreamObserver<DataAccess.Response> responseObserver) {
+    public void updateUserStoryStatus(DataAccess.StatusUpdate request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to update status %s %n", request.getStatus());
-        responseObserver.onNext(dao.updateStatus(request));
+        responseObserver.onNext(dao.updateUserStoryStatus(request));
+        responseObserver.onCompleted();
+    }
+    public void updateUserStoryPriority(DataAccess.PriorityUpdate request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to update status %s %n", request.getPriority());
+        responseObserver.onNext(dao.updateUserStoryPriority(request));
         responseObserver.onCompleted();
     }
 
