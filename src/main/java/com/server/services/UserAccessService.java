@@ -14,22 +14,30 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
 
     @Override
     public void createUser(DataAccess.UserCreationDto request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to create user: %s", request.getUsername());
+        System.out.printf("Received request to create user: %s %n", request.getUsername());
 
         responseObserver.onNext(dao.createUser(request));
         responseObserver.onCompleted();
     }
 
     @Override
+    public void getAllProjects(DataAccess.Username request, StreamObserver<DataAccess.ProjectsResponse> responseObserver) {
+        System.out.printf("Received request to get projects for user: %s %n", request.getUsername());
+        responseObserver.onNext(dao.getAllProjects(request));
+
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void userByUsername(DataAccess.Username request, StreamObserver<DataAccess.UserCreationDto> responseObserver) {
-        System.out.printf("Received request to search user by username: %s", request.getUsername());
+        System.out.printf("Received request to search user by username: %s%n", request.getUsername());
         responseObserver.onNext(dao.getUserByUsername(request));
         responseObserver.onCompleted();
     }
 
     @Override
     public void updateUser(DataAccess.UserCreationDto request, StreamObserver<DataAccess.UpdatedUserResponse> responseObserver) {
-        System.out.printf("Received request to update user: %s", request.getUsername(), request.getFirstName(), request.getLastName(), request.getPassword(), request.getRole());
+        System.out.printf("Received request to update user: %s%n", request.getUsername());
 
         responseObserver.onNext(dao.updateUser(request));
         responseObserver.onCompleted();
@@ -37,7 +45,7 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
 
     @Override
     public void deleteUser(DataAccess.Username request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to login: %s", request.getUsername());
+        System.out.printf("Received request to login: %s%n", request.getUsername());
 
         responseObserver.onNext(dao.deleteUser(request));
         responseObserver.onCompleted();
@@ -45,7 +53,7 @@ public class UserAccessService extends UserAccessGrpc.UserAccessImplBase {
 
     @Override
     public void lookForUsers(DataAccess.Username request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
-        System.out.printf("Received request to find users: %s", request.getUsername());
+        System.out.printf("Received request to find users: %s%n", request.getUsername());
         responseObserver.onNext(dao.lookForUsers(request));
         responseObserver.onCompleted();
     }

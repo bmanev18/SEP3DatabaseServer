@@ -1,6 +1,5 @@
 package com.database;
 
-import com.fasterxml.jackson.databind.ser.std.StdArraySerializers;
 import com.protobuf.DataAccess;
 
 import java.sql.Connection;
@@ -9,12 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDaoImpl implements IUserDao{
-    private final DatabaseDriver driver;
-
-
-    public UserDaoImpl() {
-        driver = DatabaseDriver.getInstance();
-    }
+    private final DatabaseDriver driver = DatabaseDriver.getInstance();
 
     @Override
     public DataAccess.Response createUser(DataAccess.UserCreationDto dto)  {
@@ -60,12 +54,12 @@ public class UserDaoImpl implements IUserDao{
         return id;
     }
 
-    private String getRoleName(int roleid)
+    private String getRoleName(int roleId)
     {
        String role="null";
         try(Connection connection=driver.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("Select name from role where id = ?");
-            statement.setInt(1, roleid);
+            statement.setInt(1, roleId);
             ResultSet result= statement.executeQuery();
             if(result.next())
             {
@@ -80,7 +74,7 @@ public class UserDaoImpl implements IUserDao{
     @Override
     public DataAccess.UserCreationDto getUserByUsername(DataAccess.Username username)  {
 
-        try(Connection connection= DatabaseDriver.getInstance().getConnection()) {
+        try(Connection connection= driver.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * from user where username=?;");
             statement.setString(1, username.getUsername());
 
@@ -117,7 +111,7 @@ public class UserDaoImpl implements IUserDao{
     @Override
     public DataAccess.FilteredUsersResponse lookForUsers(DataAccess.Username username) {
 
-        try (Connection connection=DatabaseDriver.getInstance().getConnection()){
+        try (Connection connection=driver.getConnection()){
             PreparedStatement statement = connection.prepareStatement("SELECT username, firstname, lastname, role_id from user where username like ?");
             String statementBuild = "%" + username.getUsername() + "%";
             statement.setString(1, statementBuild);
@@ -139,4 +133,28 @@ public class UserDaoImpl implements IUserDao{
         }
 
     }
+
+    @Override
+    public DataAccess.ProjectsResponse getAllProjects(DataAccess.Username username) {
+        try (Connection connection = driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from project, worksOn where id= worksOn.project_id and username = ?");
+            statement.setString(1, username.getUsername());
+            ResultSet rs = statement.executeQuery();
+            DataAccess.ProjectsResponse.Builder builder = DataAccess.ProjectsResponse.newBuilder();
+
+            int code = 404;
+            while (rs.next()) {
+                builder.addProjects(DataAccess.ProjectMessage.newBuilder().setId(rs.getInt("id")).setTitle(rs.getString("title")));
+
+                code = 200;
+            }
+            statement.close();
+            return builder.setCode(code).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
 }

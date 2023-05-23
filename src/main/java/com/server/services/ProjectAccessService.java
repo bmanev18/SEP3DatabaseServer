@@ -21,14 +21,6 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
-    public void getAllProjects(DataAccess.Username request, StreamObserver<DataAccess.ProjectsResponse> responseObserver) {
-        System.out.printf("Received request to get projects for user: %s %n", request.getUsername());
-        responseObserver.onNext(dao.getAllProjects(request));
-
-        responseObserver.onCompleted();
-    }
-
-    @Override
     public void addCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to add user: %s to project: %d %n", request.getUsername(), request.getProjectId());
 
@@ -40,13 +32,13 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     public void getAllCollaborators(DataAccess.Id request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
         System.out.printf("Received request to get all collaborators from: %d %n", request.getId());
         responseObserver.onNext(dao.getAllCollaborators(request));
-        responseObserver.onCompleted();;
+        responseObserver.onCompleted();
     }
     @Override
     public void removeCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to remove user: %s from project: %d %n", request.getUsername(),request.getProjectId());
         responseObserver.onNext(dao.removeCollaborator(request));
-        responseObserver.onCompleted();;
+        responseObserver.onCompleted();
     }
 
     @Override
@@ -107,7 +99,7 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
-    public void addTask(DataAccess.TaskRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+    public void addTask(DataAccess.TaskCreationRequest request, StreamObserver<DataAccess.Response> responseObserver) {
         System.out.printf("Received request to create task: %s %n", request.getBody());
 
         responseObserver.onNext(dao.addTask(request));
@@ -149,8 +141,8 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
     }
 
     @Override
-    public void removeSprint(DataAccess.RemoveSprintMessage request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to remove sprint: %s %n", request.getSprintId());
+    public void removeSprint(DataAccess.Id request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to remove sprint: %s %n", request.getId());
 
         responseObserver.onNext(dao.removeSprint(request));
         responseObserver.onCompleted();

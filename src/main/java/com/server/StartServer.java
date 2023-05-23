@@ -11,7 +11,6 @@ import java.sql.SQLException;
 
 public class StartServer {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
-        DatabaseDriver driver;
 
         IProjectDao projectDao = new ProjectDaoImpl();
         IUserDao userDao = new UserDaoImpl();

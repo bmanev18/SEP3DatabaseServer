@@ -12,4 +12,6 @@ public interface IUserDao {
     DataAccess.Response deleteUser(DataAccess.Username dto) ;
 
     DataAccess.FilteredUsersResponse lookForUsers(DataAccess.Username username) ;
+
+    DataAccess.ProjectsResponse getAllProjects(DataAccess.Username request);
 }

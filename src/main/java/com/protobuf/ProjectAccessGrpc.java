@@ -45,37 +45,6 @@ public final class ProjectAccessGrpc {
     return getCreateProjectMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username,
-      com.protobuf.DataAccess.ProjectsResponse> getGetAllProjectsMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetAllProjects",
-      requestType = com.protobuf.DataAccess.Username.class,
-      responseType = com.protobuf.DataAccess.ProjectsResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username,
-      com.protobuf.DataAccess.ProjectsResponse> getGetAllProjectsMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Username, com.protobuf.DataAccess.ProjectsResponse> getGetAllProjectsMethod;
-    if ((getGetAllProjectsMethod = ProjectAccessGrpc.getGetAllProjectsMethod) == null) {
-      synchronized (ProjectAccessGrpc.class) {
-        if ((getGetAllProjectsMethod = ProjectAccessGrpc.getGetAllProjectsMethod) == null) {
-          ProjectAccessGrpc.getGetAllProjectsMethod = getGetAllProjectsMethod =
-              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.Username, com.protobuf.DataAccess.ProjectsResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAllProjects"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.Username.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.ProjectsResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("GetAllProjects"))
-              .build();
-        }
-      }
-    }
-    return getGetAllProjectsMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
       com.protobuf.DataAccess.FilteredUsersResponse> getGetAllCollaboratorsMethod;
 
@@ -448,27 +417,27 @@ public final class ProjectAccessGrpc {
     return getGetSprintByProjectIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.RemoveSprintMessage,
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
       com.protobuf.DataAccess.Response> getRemoveSprintMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "RemoveSprint",
-      requestType = com.protobuf.DataAccess.RemoveSprintMessage.class,
+      requestType = com.protobuf.DataAccess.Id.class,
       responseType = com.protobuf.DataAccess.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.RemoveSprintMessage,
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
       com.protobuf.DataAccess.Response> getRemoveSprintMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.RemoveSprintMessage, com.protobuf.DataAccess.Response> getRemoveSprintMethod;
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.Response> getRemoveSprintMethod;
     if ((getRemoveSprintMethod = ProjectAccessGrpc.getRemoveSprintMethod) == null) {
       synchronized (ProjectAccessGrpc.class) {
         if ((getRemoveSprintMethod = ProjectAccessGrpc.getRemoveSprintMethod) == null) {
           ProjectAccessGrpc.getRemoveSprintMethod = getRemoveSprintMethod =
-              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.RemoveSprintMessage, com.protobuf.DataAccess.Response>newBuilder()
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveSprint"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.RemoveSprintMessage.getDefaultInstance()))
+                  com.protobuf.DataAccess.Id.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.protobuf.DataAccess.Response.getDefaultInstance()))
               .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("RemoveSprint"))
@@ -510,27 +479,27 @@ public final class ProjectAccessGrpc {
     return getRemoveTaskMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskRequest,
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskCreationRequest,
       com.protobuf.DataAccess.Response> getAddTaskMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "AddTask",
-      requestType = com.protobuf.DataAccess.TaskRequest.class,
+      requestType = com.protobuf.DataAccess.TaskCreationRequest.class,
       responseType = com.protobuf.DataAccess.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskRequest,
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskCreationRequest,
       com.protobuf.DataAccess.Response> getAddTaskMethod() {
-    io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskRequest, com.protobuf.DataAccess.Response> getAddTaskMethod;
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.TaskCreationRequest, com.protobuf.DataAccess.Response> getAddTaskMethod;
     if ((getAddTaskMethod = ProjectAccessGrpc.getAddTaskMethod) == null) {
       synchronized (ProjectAccessGrpc.class) {
         if ((getAddTaskMethod = ProjectAccessGrpc.getAddTaskMethod) == null) {
           ProjectAccessGrpc.getAddTaskMethod = getAddTaskMethod =
-              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.TaskRequest, com.protobuf.DataAccess.Response>newBuilder()
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.TaskCreationRequest, com.protobuf.DataAccess.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddTask"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.protobuf.DataAccess.TaskRequest.getDefaultInstance()))
+                  com.protobuf.DataAccess.TaskCreationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.protobuf.DataAccess.Response.getDefaultInstance()))
               .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("AddTask"))
@@ -755,13 +724,6 @@ public final class ProjectAccessGrpc {
     }
 
     /**
-     */
-    public void getAllProjects(com.protobuf.DataAccess.Username request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ProjectsResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllProjectsMethod(), responseObserver);
-    }
-
-    /**
      * <pre>
      *Collaborators
      * </pre>
@@ -856,7 +818,7 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public void removeSprint(com.protobuf.DataAccess.RemoveSprintMessage request,
+    public void removeSprint(com.protobuf.DataAccess.Id request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRemoveSprintMethod(), responseObserver);
     }
@@ -873,7 +835,7 @@ public final class ProjectAccessGrpc {
      *SprintBacklog
      * </pre>
      */
-    public void addTask(com.protobuf.DataAccess.TaskRequest request,
+    public void addTask(com.protobuf.DataAccess.TaskCreationRequest request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddTaskMethod(), responseObserver);
     }
@@ -922,13 +884,6 @@ public final class ProjectAccessGrpc {
                 com.protobuf.DataAccess.ProjectCreationDto,
                 com.protobuf.DataAccess.ResponseWithID>(
                   this, METHODID_CREATE_PROJECT)))
-          .addMethod(
-            getGetAllProjectsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.protobuf.DataAccess.Username,
-                com.protobuf.DataAccess.ProjectsResponse>(
-                  this, METHODID_GET_ALL_PROJECTS)))
           .addMethod(
             getGetAllCollaboratorsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1017,7 +972,7 @@ public final class ProjectAccessGrpc {
             getRemoveSprintMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.protobuf.DataAccess.RemoveSprintMessage,
+                com.protobuf.DataAccess.Id,
                 com.protobuf.DataAccess.Response>(
                   this, METHODID_REMOVE_SPRINT)))
           .addMethod(
@@ -1031,7 +986,7 @@ public final class ProjectAccessGrpc {
             getAddTaskMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.protobuf.DataAccess.TaskRequest,
+                com.protobuf.DataAccess.TaskCreationRequest,
                 com.protobuf.DataAccess.Response>(
                   this, METHODID_ADD_TASK)))
           .addMethod(
@@ -1096,14 +1051,6 @@ public final class ProjectAccessGrpc {
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ResponseWithID> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateProjectMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void getAllProjects(com.protobuf.DataAccess.Username request,
-        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ProjectsResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetAllProjectsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1213,7 +1160,7 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public void removeSprint(com.protobuf.DataAccess.RemoveSprintMessage request,
+    public void removeSprint(com.protobuf.DataAccess.Id request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getRemoveSprintMethod(), getCallOptions()), request, responseObserver);
@@ -1232,7 +1179,7 @@ public final class ProjectAccessGrpc {
      *SprintBacklog
      * </pre>
      */
-    public void addTask(com.protobuf.DataAccess.TaskRequest request,
+    public void addTask(com.protobuf.DataAccess.TaskCreationRequest request,
         io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getAddTaskMethod(), getCallOptions()), request, responseObserver);
@@ -1301,13 +1248,6 @@ public final class ProjectAccessGrpc {
     public com.protobuf.DataAccess.ResponseWithID createProject(com.protobuf.DataAccess.ProjectCreationDto request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateProjectMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public com.protobuf.DataAccess.ProjectsResponse getAllProjects(com.protobuf.DataAccess.Username request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetAllProjectsMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1405,7 +1345,7 @@ public final class ProjectAccessGrpc {
 
     /**
      */
-    public com.protobuf.DataAccess.Response removeSprint(com.protobuf.DataAccess.RemoveSprintMessage request) {
+    public com.protobuf.DataAccess.Response removeSprint(com.protobuf.DataAccess.Id request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRemoveSprintMethod(), getCallOptions(), request);
     }
@@ -1422,7 +1362,7 @@ public final class ProjectAccessGrpc {
      *SprintBacklog
      * </pre>
      */
-    public com.protobuf.DataAccess.Response addTask(com.protobuf.DataAccess.TaskRequest request) {
+    public com.protobuf.DataAccess.Response addTask(com.protobuf.DataAccess.TaskCreationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getAddTaskMethod(), getCallOptions(), request);
     }
@@ -1486,14 +1426,6 @@ public final class ProjectAccessGrpc {
         com.protobuf.DataAccess.ProjectCreationDto request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateProjectMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.ProjectsResponse> getAllProjects(
-        com.protobuf.DataAccess.Username request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetAllProjectsMethod(), getCallOptions()), request);
     }
 
     /**
@@ -1604,7 +1536,7 @@ public final class ProjectAccessGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> removeSprint(
-        com.protobuf.DataAccess.RemoveSprintMessage request) {
+        com.protobuf.DataAccess.Id request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getRemoveSprintMethod(), getCallOptions()), request);
     }
@@ -1623,7 +1555,7 @@ public final class ProjectAccessGrpc {
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> addTask(
-        com.protobuf.DataAccess.TaskRequest request) {
+        com.protobuf.DataAccess.TaskCreationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getAddTaskMethod(), getCallOptions()), request);
     }
@@ -1670,27 +1602,26 @@ public final class ProjectAccessGrpc {
   }
 
   private static final int METHODID_CREATE_PROJECT = 0;
-  private static final int METHODID_GET_ALL_PROJECTS = 1;
-  private static final int METHODID_GET_ALL_COLLABORATORS = 2;
-  private static final int METHODID_ADD_COLLABORATOR = 3;
-  private static final int METHODID_REMOVE_COLLABORATOR = 4;
-  private static final int METHODID_ADD_USER_STORY = 5;
-  private static final int METHODID_GET_USER_STORIES = 6;
-  private static final int METHODID_UPDATE_USER_STORY_POINTS = 7;
-  private static final int METHODID_UPDATE_USER_STORY_STATUS = 8;
-  private static final int METHODID_UPDATE_USER_STORY_PRIORITY = 9;
-  private static final int METHODID_DELETE_USER_STORY = 10;
-  private static final int METHODID_CREATE_SPRINT = 11;
-  private static final int METHODID_GET_SPRINT_BY_ID = 12;
-  private static final int METHODID_GET_SPRINT_BY_PROJECT_ID = 13;
-  private static final int METHODID_REMOVE_SPRINT = 14;
-  private static final int METHODID_REMOVE_TASK = 15;
-  private static final int METHODID_ADD_TASK = 16;
-  private static final int METHODID_GET_TASKS = 17;
-  private static final int METHODID_EDIT_TASK = 18;
-  private static final int METHODID_ADD_USER_STORY_TO_SPRINT = 19;
-  private static final int METHODID_REMOVE_USER_STORY_FROM_SPRINT = 20;
-  private static final int METHODID_GET_ALL_USER_STORIES_FROM_SPRINT = 21;
+  private static final int METHODID_GET_ALL_COLLABORATORS = 1;
+  private static final int METHODID_ADD_COLLABORATOR = 2;
+  private static final int METHODID_REMOVE_COLLABORATOR = 3;
+  private static final int METHODID_ADD_USER_STORY = 4;
+  private static final int METHODID_GET_USER_STORIES = 5;
+  private static final int METHODID_UPDATE_USER_STORY_POINTS = 6;
+  private static final int METHODID_UPDATE_USER_STORY_STATUS = 7;
+  private static final int METHODID_UPDATE_USER_STORY_PRIORITY = 8;
+  private static final int METHODID_DELETE_USER_STORY = 9;
+  private static final int METHODID_CREATE_SPRINT = 10;
+  private static final int METHODID_GET_SPRINT_BY_ID = 11;
+  private static final int METHODID_GET_SPRINT_BY_PROJECT_ID = 12;
+  private static final int METHODID_REMOVE_SPRINT = 13;
+  private static final int METHODID_REMOVE_TASK = 14;
+  private static final int METHODID_ADD_TASK = 15;
+  private static final int METHODID_GET_TASKS = 16;
+  private static final int METHODID_EDIT_TASK = 17;
+  private static final int METHODID_ADD_USER_STORY_TO_SPRINT = 18;
+  private static final int METHODID_REMOVE_USER_STORY_FROM_SPRINT = 19;
+  private static final int METHODID_GET_ALL_USER_STORIES_FROM_SPRINT = 20;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1712,10 +1643,6 @@ public final class ProjectAccessGrpc {
         case METHODID_CREATE_PROJECT:
           serviceImpl.createProject((com.protobuf.DataAccess.ProjectCreationDto) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ResponseWithID>) responseObserver);
-          break;
-        case METHODID_GET_ALL_PROJECTS:
-          serviceImpl.getAllProjects((com.protobuf.DataAccess.Username) request,
-              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.ProjectsResponse>) responseObserver);
           break;
         case METHODID_GET_ALL_COLLABORATORS:
           serviceImpl.getAllCollaborators((com.protobuf.DataAccess.Id) request,
@@ -1766,7 +1693,7 @@ public final class ProjectAccessGrpc {
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.AllSprintsMessage>) responseObserver);
           break;
         case METHODID_REMOVE_SPRINT:
-          serviceImpl.removeSprint((com.protobuf.DataAccess.RemoveSprintMessage) request,
+          serviceImpl.removeSprint((com.protobuf.DataAccess.Id) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
           break;
         case METHODID_REMOVE_TASK:
@@ -1774,7 +1701,7 @@ public final class ProjectAccessGrpc {
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
           break;
         case METHODID_ADD_TASK:
-          serviceImpl.addTask((com.protobuf.DataAccess.TaskRequest) request,
+          serviceImpl.addTask((com.protobuf.DataAccess.TaskCreationRequest) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
           break;
         case METHODID_GET_TASKS:
@@ -1859,7 +1786,6 @@ public final class ProjectAccessGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ProjectAccessFileDescriptorSupplier())
               .addMethod(getCreateProjectMethod())
-              .addMethod(getGetAllProjectsMethod())
               .addMethod(getGetAllCollaboratorsMethod())
               .addMethod(getAddCollaboratorMethod())
               .addMethod(getRemoveCollaboratorMethod())
