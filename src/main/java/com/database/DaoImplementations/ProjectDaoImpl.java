@@ -14,7 +14,7 @@ public class ProjectDaoImpl implements IProjectDao {
     @Override
     public DataAccess.Response createProject(DataAccess.ProjectCreationRequest request) {
         try (Connection connection = driver.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO project(title) VALUES(?) returning id;");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO project(title) VALUES(?) ;");
 
             statement.setString(1, request.getTitle());
             boolean successful = statement.executeUpdate() > 0;
