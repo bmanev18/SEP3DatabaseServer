@@ -76,4 +76,5 @@ public class UserStoryAccessService extends UserStoryAccessGrpc.UserStoryAccessI
         responseObserver.onNext(dao.removeTask(request));
         responseObserver.onCompleted();
     }
+
 }

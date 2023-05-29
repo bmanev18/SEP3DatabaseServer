@@ -1124,6 +1124,1640 @@ public final class DataAccess {
 
   }
 
+  public interface MeetingNoteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MeetingNote)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 project_id = 1;</code>
+     * @return The projectId.
+     */
+    int getProjectId();
+
+    /**
+     * <code>string note = 2;</code>
+     * @return The note.
+     */
+    java.lang.String getNote();
+    /**
+     * <code>string note = 2;</code>
+     * @return The bytes for note.
+     */
+    com.google.protobuf.ByteString
+        getNoteBytes();
+
+    /**
+     * <code>string author = 3;</code>
+     * @return The author.
+     */
+    java.lang.String getAuthor();
+    /**
+     * <code>string author = 3;</code>
+     * @return The bytes for author.
+     */
+    com.google.protobuf.ByteString
+        getAuthorBytes();
+
+    /**
+     * <code>string title = 4;</code>
+     * @return The title.
+     */
+    java.lang.String getTitle();
+    /**
+     * <code>string title = 4;</code>
+     * @return The bytes for title.
+     */
+    com.google.protobuf.ByteString
+        getTitleBytes();
+  }
+  /**
+   * Protobuf type {@code MeetingNote}
+   */
+  public static final class MeetingNote extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MeetingNote)
+      MeetingNoteOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MeetingNote.newBuilder() to construct.
+    private MeetingNote(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MeetingNote() {
+      note_ = "";
+      author_ = "";
+      title_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MeetingNote();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.protobuf.DataAccess.internal_static_MeetingNote_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.protobuf.DataAccess.internal_static_MeetingNote_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.protobuf.DataAccess.MeetingNote.class, com.protobuf.DataAccess.MeetingNote.Builder.class);
+    }
+
+    public static final int PROJECT_ID_FIELD_NUMBER = 1;
+    private int projectId_ = 0;
+    /**
+     * <code>int32 project_id = 1;</code>
+     * @return The projectId.
+     */
+    @java.lang.Override
+    public int getProjectId() {
+      return projectId_;
+    }
+
+    public static final int NOTE_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object note_ = "";
+    /**
+     * <code>string note = 2;</code>
+     * @return The note.
+     */
+    @java.lang.Override
+    public java.lang.String getNote() {
+      java.lang.Object ref = note_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        note_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string note = 2;</code>
+     * @return The bytes for note.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNoteBytes() {
+      java.lang.Object ref = note_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        note_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AUTHOR_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object author_ = "";
+    /**
+     * <code>string author = 3;</code>
+     * @return The author.
+     */
+    @java.lang.Override
+    public java.lang.String getAuthor() {
+      java.lang.Object ref = author_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        author_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string author = 3;</code>
+     * @return The bytes for author.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAuthorBytes() {
+      java.lang.Object ref = author_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        author_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TITLE_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object title_ = "";
+    /**
+     * <code>string title = 4;</code>
+     * @return The title.
+     */
+    @java.lang.Override
+    public java.lang.String getTitle() {
+      java.lang.Object ref = title_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        title_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string title = 4;</code>
+     * @return The bytes for title.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTitleBytes() {
+      java.lang.Object ref = title_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        title_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (projectId_ != 0) {
+        output.writeInt32(1, projectId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(note_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, note_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(author_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, author_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, title_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (projectId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, projectId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(note_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, note_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(author_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, author_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, title_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.protobuf.DataAccess.MeetingNote)) {
+        return super.equals(obj);
+      }
+      com.protobuf.DataAccess.MeetingNote other = (com.protobuf.DataAccess.MeetingNote) obj;
+
+      if (getProjectId()
+          != other.getProjectId()) return false;
+      if (!getNote()
+          .equals(other.getNote())) return false;
+      if (!getAuthor()
+          .equals(other.getAuthor())) return false;
+      if (!getTitle()
+          .equals(other.getTitle())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectId();
+      hash = (37 * hash) + NOTE_FIELD_NUMBER;
+      hash = (53 * hash) + getNote().hashCode();
+      hash = (37 * hash) + AUTHOR_FIELD_NUMBER;
+      hash = (53 * hash) + getAuthor().hashCode();
+      hash = (37 * hash) + TITLE_FIELD_NUMBER;
+      hash = (53 * hash) + getTitle().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.MeetingNote parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.protobuf.DataAccess.MeetingNote prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code MeetingNote}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MeetingNote)
+        com.protobuf.DataAccess.MeetingNoteOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.protobuf.DataAccess.internal_static_MeetingNote_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.protobuf.DataAccess.internal_static_MeetingNote_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.protobuf.DataAccess.MeetingNote.class, com.protobuf.DataAccess.MeetingNote.Builder.class);
+      }
+
+      // Construct using com.protobuf.DataAccess.MeetingNote.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        projectId_ = 0;
+        note_ = "";
+        author_ = "";
+        title_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.protobuf.DataAccess.internal_static_MeetingNote_descriptor;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.MeetingNote getDefaultInstanceForType() {
+        return com.protobuf.DataAccess.MeetingNote.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.MeetingNote build() {
+        com.protobuf.DataAccess.MeetingNote result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.MeetingNote buildPartial() {
+        com.protobuf.DataAccess.MeetingNote result = new com.protobuf.DataAccess.MeetingNote(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.protobuf.DataAccess.MeetingNote result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.projectId_ = projectId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.note_ = note_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.author_ = author_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.title_ = title_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.protobuf.DataAccess.MeetingNote) {
+          return mergeFrom((com.protobuf.DataAccess.MeetingNote)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.protobuf.DataAccess.MeetingNote other) {
+        if (other == com.protobuf.DataAccess.MeetingNote.getDefaultInstance()) return this;
+        if (other.getProjectId() != 0) {
+          setProjectId(other.getProjectId());
+        }
+        if (!other.getNote().isEmpty()) {
+          note_ = other.note_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getAuthor().isEmpty()) {
+          author_ = other.author_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        if (!other.getTitle().isEmpty()) {
+          title_ = other.title_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                projectId_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                note_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                author_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                title_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int projectId_ ;
+      /**
+       * <code>int32 project_id = 1;</code>
+       * @return The projectId.
+       */
+      @java.lang.Override
+      public int getProjectId() {
+        return projectId_;
+      }
+      /**
+       * <code>int32 project_id = 1;</code>
+       * @param value The projectId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProjectId(int value) {
+
+        projectId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 project_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProjectId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        projectId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object note_ = "";
+      /**
+       * <code>string note = 2;</code>
+       * @return The note.
+       */
+      public java.lang.String getNote() {
+        java.lang.Object ref = note_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          note_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string note = 2;</code>
+       * @return The bytes for note.
+       */
+      public com.google.protobuf.ByteString
+          getNoteBytes() {
+        java.lang.Object ref = note_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          note_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string note = 2;</code>
+       * @param value The note to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNote(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        note_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string note = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNote() {
+        note_ = getDefaultInstance().getNote();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string note = 2;</code>
+       * @param value The bytes for note to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNoteBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        note_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object author_ = "";
+      /**
+       * <code>string author = 3;</code>
+       * @return The author.
+       */
+      public java.lang.String getAuthor() {
+        java.lang.Object ref = author_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          author_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string author = 3;</code>
+       * @return The bytes for author.
+       */
+      public com.google.protobuf.ByteString
+          getAuthorBytes() {
+        java.lang.Object ref = author_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          author_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string author = 3;</code>
+       * @param value The author to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAuthor(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        author_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string author = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAuthor() {
+        author_ = getDefaultInstance().getAuthor();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string author = 3;</code>
+       * @param value The bytes for author to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAuthorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        author_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object title_ = "";
+      /**
+       * <code>string title = 4;</code>
+       * @return The title.
+       */
+      public java.lang.String getTitle() {
+        java.lang.Object ref = title_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          title_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @return The bytes for title.
+       */
+      public com.google.protobuf.ByteString
+          getTitleBytes() {
+        java.lang.Object ref = title_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          title_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @param value The title to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTitle(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        title_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTitle() {
+        title_ = getDefaultInstance().getTitle();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string title = 4;</code>
+       * @param value The bytes for title to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        title_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:MeetingNote)
+    }
+
+    // @@protoc_insertion_point(class_scope:MeetingNote)
+    private static final com.protobuf.DataAccess.MeetingNote DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.protobuf.DataAccess.MeetingNote();
+    }
+
+    public static com.protobuf.DataAccess.MeetingNote getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MeetingNote>
+        PARSER = new com.google.protobuf.AbstractParser<MeetingNote>() {
+      @java.lang.Override
+      public MeetingNote parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<MeetingNote> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MeetingNote> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.protobuf.DataAccess.MeetingNote getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MeetingResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MeetingResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    java.util.List<com.protobuf.DataAccess.MeetingNote> 
+        getMeetingNotesList();
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    com.protobuf.DataAccess.MeetingNote getMeetingNotes(int index);
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    int getMeetingNotesCount();
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    java.util.List<? extends com.protobuf.DataAccess.MeetingNoteOrBuilder> 
+        getMeetingNotesOrBuilderList();
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    com.protobuf.DataAccess.MeetingNoteOrBuilder getMeetingNotesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code MeetingResponse}
+   */
+  public static final class MeetingResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MeetingResponse)
+      MeetingResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MeetingResponse.newBuilder() to construct.
+    private MeetingResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MeetingResponse() {
+      meetingNotes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MeetingResponse();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.protobuf.DataAccess.internal_static_MeetingResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.protobuf.DataAccess.internal_static_MeetingResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.protobuf.DataAccess.MeetingResponse.class, com.protobuf.DataAccess.MeetingResponse.Builder.class);
+    }
+
+    public static final int MEETINGNOTES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private java.util.List<com.protobuf.DataAccess.MeetingNote> meetingNotes_;
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.protobuf.DataAccess.MeetingNote> getMeetingNotesList() {
+      return meetingNotes_;
+    }
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.protobuf.DataAccess.MeetingNoteOrBuilder> 
+        getMeetingNotesOrBuilderList() {
+      return meetingNotes_;
+    }
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    @java.lang.Override
+    public int getMeetingNotesCount() {
+      return meetingNotes_.size();
+    }
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    @java.lang.Override
+    public com.protobuf.DataAccess.MeetingNote getMeetingNotes(int index) {
+      return meetingNotes_.get(index);
+    }
+    /**
+     * <code>repeated .MeetingNote meetingNotes = 1;</code>
+     */
+    @java.lang.Override
+    public com.protobuf.DataAccess.MeetingNoteOrBuilder getMeetingNotesOrBuilder(
+        int index) {
+      return meetingNotes_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < meetingNotes_.size(); i++) {
+        output.writeMessage(1, meetingNotes_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < meetingNotes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, meetingNotes_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.protobuf.DataAccess.MeetingResponse)) {
+        return super.equals(obj);
+      }
+      com.protobuf.DataAccess.MeetingResponse other = (com.protobuf.DataAccess.MeetingResponse) obj;
+
+      if (!getMeetingNotesList()
+          .equals(other.getMeetingNotesList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getMeetingNotesCount() > 0) {
+        hash = (37 * hash) + MEETINGNOTES_FIELD_NUMBER;
+        hash = (53 * hash) + getMeetingNotesList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.MeetingResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.protobuf.DataAccess.MeetingResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code MeetingResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MeetingResponse)
+        com.protobuf.DataAccess.MeetingResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.protobuf.DataAccess.internal_static_MeetingResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.protobuf.DataAccess.internal_static_MeetingResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.protobuf.DataAccess.MeetingResponse.class, com.protobuf.DataAccess.MeetingResponse.Builder.class);
+      }
+
+      // Construct using com.protobuf.DataAccess.MeetingResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (meetingNotesBuilder_ == null) {
+          meetingNotes_ = java.util.Collections.emptyList();
+        } else {
+          meetingNotes_ = null;
+          meetingNotesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.protobuf.DataAccess.internal_static_MeetingResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.MeetingResponse getDefaultInstanceForType() {
+        return com.protobuf.DataAccess.MeetingResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.MeetingResponse build() {
+        com.protobuf.DataAccess.MeetingResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.MeetingResponse buildPartial() {
+        com.protobuf.DataAccess.MeetingResponse result = new com.protobuf.DataAccess.MeetingResponse(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.protobuf.DataAccess.MeetingResponse result) {
+        if (meetingNotesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            meetingNotes_ = java.util.Collections.unmodifiableList(meetingNotes_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.meetingNotes_ = meetingNotes_;
+        } else {
+          result.meetingNotes_ = meetingNotesBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(com.protobuf.DataAccess.MeetingResponse result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.protobuf.DataAccess.MeetingResponse) {
+          return mergeFrom((com.protobuf.DataAccess.MeetingResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.protobuf.DataAccess.MeetingResponse other) {
+        if (other == com.protobuf.DataAccess.MeetingResponse.getDefaultInstance()) return this;
+        if (meetingNotesBuilder_ == null) {
+          if (!other.meetingNotes_.isEmpty()) {
+            if (meetingNotes_.isEmpty()) {
+              meetingNotes_ = other.meetingNotes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureMeetingNotesIsMutable();
+              meetingNotes_.addAll(other.meetingNotes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.meetingNotes_.isEmpty()) {
+            if (meetingNotesBuilder_.isEmpty()) {
+              meetingNotesBuilder_.dispose();
+              meetingNotesBuilder_ = null;
+              meetingNotes_ = other.meetingNotes_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              meetingNotesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMeetingNotesFieldBuilder() : null;
+            } else {
+              meetingNotesBuilder_.addAllMessages(other.meetingNotes_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.protobuf.DataAccess.MeetingNote m =
+                    input.readMessage(
+                        com.protobuf.DataAccess.MeetingNote.parser(),
+                        extensionRegistry);
+                if (meetingNotesBuilder_ == null) {
+                  ensureMeetingNotesIsMutable();
+                  meetingNotes_.add(m);
+                } else {
+                  meetingNotesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.protobuf.DataAccess.MeetingNote> meetingNotes_ =
+        java.util.Collections.emptyList();
+      private void ensureMeetingNotesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          meetingNotes_ = new java.util.ArrayList<com.protobuf.DataAccess.MeetingNote>(meetingNotes_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.protobuf.DataAccess.MeetingNote, com.protobuf.DataAccess.MeetingNote.Builder, com.protobuf.DataAccess.MeetingNoteOrBuilder> meetingNotesBuilder_;
+
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public java.util.List<com.protobuf.DataAccess.MeetingNote> getMeetingNotesList() {
+        if (meetingNotesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(meetingNotes_);
+        } else {
+          return meetingNotesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public int getMeetingNotesCount() {
+        if (meetingNotesBuilder_ == null) {
+          return meetingNotes_.size();
+        } else {
+          return meetingNotesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public com.protobuf.DataAccess.MeetingNote getMeetingNotes(int index) {
+        if (meetingNotesBuilder_ == null) {
+          return meetingNotes_.get(index);
+        } else {
+          return meetingNotesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder setMeetingNotes(
+          int index, com.protobuf.DataAccess.MeetingNote value) {
+        if (meetingNotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMeetingNotesIsMutable();
+          meetingNotes_.set(index, value);
+          onChanged();
+        } else {
+          meetingNotesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder setMeetingNotes(
+          int index, com.protobuf.DataAccess.MeetingNote.Builder builderForValue) {
+        if (meetingNotesBuilder_ == null) {
+          ensureMeetingNotesIsMutable();
+          meetingNotes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          meetingNotesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder addMeetingNotes(com.protobuf.DataAccess.MeetingNote value) {
+        if (meetingNotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMeetingNotesIsMutable();
+          meetingNotes_.add(value);
+          onChanged();
+        } else {
+          meetingNotesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder addMeetingNotes(
+          int index, com.protobuf.DataAccess.MeetingNote value) {
+        if (meetingNotesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMeetingNotesIsMutable();
+          meetingNotes_.add(index, value);
+          onChanged();
+        } else {
+          meetingNotesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder addMeetingNotes(
+          com.protobuf.DataAccess.MeetingNote.Builder builderForValue) {
+        if (meetingNotesBuilder_ == null) {
+          ensureMeetingNotesIsMutable();
+          meetingNotes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          meetingNotesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder addMeetingNotes(
+          int index, com.protobuf.DataAccess.MeetingNote.Builder builderForValue) {
+        if (meetingNotesBuilder_ == null) {
+          ensureMeetingNotesIsMutable();
+          meetingNotes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          meetingNotesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder addAllMeetingNotes(
+          java.lang.Iterable<? extends com.protobuf.DataAccess.MeetingNote> values) {
+        if (meetingNotesBuilder_ == null) {
+          ensureMeetingNotesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, meetingNotes_);
+          onChanged();
+        } else {
+          meetingNotesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder clearMeetingNotes() {
+        if (meetingNotesBuilder_ == null) {
+          meetingNotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          meetingNotesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public Builder removeMeetingNotes(int index) {
+        if (meetingNotesBuilder_ == null) {
+          ensureMeetingNotesIsMutable();
+          meetingNotes_.remove(index);
+          onChanged();
+        } else {
+          meetingNotesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public com.protobuf.DataAccess.MeetingNote.Builder getMeetingNotesBuilder(
+          int index) {
+        return getMeetingNotesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public com.protobuf.DataAccess.MeetingNoteOrBuilder getMeetingNotesOrBuilder(
+          int index) {
+        if (meetingNotesBuilder_ == null) {
+          return meetingNotes_.get(index);  } else {
+          return meetingNotesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public java.util.List<? extends com.protobuf.DataAccess.MeetingNoteOrBuilder> 
+           getMeetingNotesOrBuilderList() {
+        if (meetingNotesBuilder_ != null) {
+          return meetingNotesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(meetingNotes_);
+        }
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public com.protobuf.DataAccess.MeetingNote.Builder addMeetingNotesBuilder() {
+        return getMeetingNotesFieldBuilder().addBuilder(
+            com.protobuf.DataAccess.MeetingNote.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public com.protobuf.DataAccess.MeetingNote.Builder addMeetingNotesBuilder(
+          int index) {
+        return getMeetingNotesFieldBuilder().addBuilder(
+            index, com.protobuf.DataAccess.MeetingNote.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .MeetingNote meetingNotes = 1;</code>
+       */
+      public java.util.List<com.protobuf.DataAccess.MeetingNote.Builder> 
+           getMeetingNotesBuilderList() {
+        return getMeetingNotesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.protobuf.DataAccess.MeetingNote, com.protobuf.DataAccess.MeetingNote.Builder, com.protobuf.DataAccess.MeetingNoteOrBuilder> 
+          getMeetingNotesFieldBuilder() {
+        if (meetingNotesBuilder_ == null) {
+          meetingNotesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.protobuf.DataAccess.MeetingNote, com.protobuf.DataAccess.MeetingNote.Builder, com.protobuf.DataAccess.MeetingNoteOrBuilder>(
+                  meetingNotes_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          meetingNotes_ = null;
+        }
+        return meetingNotesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:MeetingResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:MeetingResponse)
+    private static final com.protobuf.DataAccess.MeetingResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.protobuf.DataAccess.MeetingResponse();
+    }
+
+    public static com.protobuf.DataAccess.MeetingResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MeetingResponse>
+        PARSER = new com.google.protobuf.AbstractParser<MeetingResponse>() {
+      @java.lang.Override
+      public MeetingResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<MeetingResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MeetingResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.protobuf.DataAccess.MeetingResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface IdOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Id)
       com.google.protobuf.MessageOrBuilder {
@@ -2004,6 +3638,448 @@ public final class DataAccess {
 
     @java.lang.Override
     public com.protobuf.DataAccess.Response getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SumResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SumResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 sum = 1;</code>
+     * @return The sum.
+     */
+    int getSum();
+  }
+  /**
+   * Protobuf type {@code SumResponse}
+   */
+  public static final class SumResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SumResponse)
+      SumResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SumResponse.newBuilder() to construct.
+    private SumResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SumResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SumResponse();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.protobuf.DataAccess.internal_static_SumResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.protobuf.DataAccess.internal_static_SumResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.protobuf.DataAccess.SumResponse.class, com.protobuf.DataAccess.SumResponse.Builder.class);
+    }
+
+    public static final int SUM_FIELD_NUMBER = 1;
+    private int sum_ = 0;
+    /**
+     * <code>int32 sum = 1;</code>
+     * @return The sum.
+     */
+    @java.lang.Override
+    public int getSum() {
+      return sum_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (sum_ != 0) {
+        output.writeInt32(1, sum_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (sum_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, sum_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.protobuf.DataAccess.SumResponse)) {
+        return super.equals(obj);
+      }
+      com.protobuf.DataAccess.SumResponse other = (com.protobuf.DataAccess.SumResponse) obj;
+
+      if (getSum()
+          != other.getSum()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SUM_FIELD_NUMBER;
+      hash = (53 * hash) + getSum();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.protobuf.DataAccess.SumResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.protobuf.DataAccess.SumResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SumResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SumResponse)
+        com.protobuf.DataAccess.SumResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.protobuf.DataAccess.internal_static_SumResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.protobuf.DataAccess.internal_static_SumResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.protobuf.DataAccess.SumResponse.class, com.protobuf.DataAccess.SumResponse.Builder.class);
+      }
+
+      // Construct using com.protobuf.DataAccess.SumResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        sum_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.protobuf.DataAccess.internal_static_SumResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.SumResponse getDefaultInstanceForType() {
+        return com.protobuf.DataAccess.SumResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.SumResponse build() {
+        com.protobuf.DataAccess.SumResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.protobuf.DataAccess.SumResponse buildPartial() {
+        com.protobuf.DataAccess.SumResponse result = new com.protobuf.DataAccess.SumResponse(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.protobuf.DataAccess.SumResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sum_ = sum_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.protobuf.DataAccess.SumResponse) {
+          return mergeFrom((com.protobuf.DataAccess.SumResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.protobuf.DataAccess.SumResponse other) {
+        if (other == com.protobuf.DataAccess.SumResponse.getDefaultInstance()) return this;
+        if (other.getSum() != 0) {
+          setSum(other.getSum());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                sum_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int sum_ ;
+      /**
+       * <code>int32 sum = 1;</code>
+       * @return The sum.
+       */
+      @java.lang.Override
+      public int getSum() {
+        return sum_;
+      }
+      /**
+       * <code>int32 sum = 1;</code>
+       * @param value The sum to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSum(int value) {
+
+        sum_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 sum = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSum() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        sum_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SumResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:SumResponse)
+    private static final com.protobuf.DataAccess.SumResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.protobuf.DataAccess.SumResponse();
+    }
+
+    public static com.protobuf.DataAccess.SumResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SumResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SumResponse>() {
+      @java.lang.Override
+      public SumResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<SumResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SumResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.protobuf.DataAccess.SumResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -16961,6 +19037,16 @@ public final class DataAccess {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UserMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MeetingNote_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MeetingNote_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MeetingResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_MeetingResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Id_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -16970,6 +19056,11 @@ public final class DataAccess {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Response_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SumResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SumResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UserSearchDto_descriptor;
   private static final 
@@ -17082,76 +19173,83 @@ public final class DataAccess {
       "\n\020dataAccess.proto\"d\n\013UserMessage\022\020\n\010use" +
       "rname\030\001 \001(\t\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastNa" +
       "me\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\014\n\004role\030\005 \001(\t" +
-      "\"\020\n\002Id\022\n\n\002id\030\001 \001(\005\"\034\n\010Response\022\020\n\010respon" +
-      "se\030\001 \001(\010\"T\n\rUserSearchDto\022\021\n\tfirstName\030\001" +
-      " \001(\t\022\020\n\010lastName\030\002 \001(\t\022\020\n\010username\030\003 \001(\t" +
-      "\022\014\n\004role\030\004 \001(\t\".\n\rUsersResponse\022\035\n\005users" +
-      "\030\001 \003(\0132\016.UserSearchDto\"\034\n\010Username\022\020\n\010us" +
-      "ername\030\001 \001(\t\"9\n\022UserProjectRequest\022\020\n\010us" +
-      "ername\030\001 \001(\t\022\021\n\tprojectId\030\002 \001(\005\">\n\026Proje" +
-      "ctCreationRequest\022\025\n\rownerUsername\030\001 \001(\t" +
-      "\022\r\n\005title\030\002 \001(\t\"f\n\030UserStoryCreationRequ" +
-      "est\022\022\n\nproject_id\030\001 \001(\005\022\020\n\010taskBody\030\002 \001(" +
-      "\t\022\020\n\010priority\030\003 \001(\t\022\022\n\nstoryPoint\030\004 \001(\005\"" +
-      "\'\n\nProjectDto\022\n\n\002id\030\001 \001(\005\022\r\n\005title\030\002 \001(\t" +
-      "\"1\n\020ProjectsResponse\022\035\n\010projects\030\001 \003(\0132\013" +
-      ".ProjectDto\"{\n\020UserStoryMessage\022\n\n\002id\030\001 " +
-      "\001(\005\022\022\n\nproject_id\030\002 \001(\005\022\021\n\tuserStory\030\003 \001" +
-      "(\t\022\020\n\010priority\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\022\n\n" +
-      "storyPoint\030\006 \001(\005\"=\n\023UserStoriesResponse\022" +
-      "&\n\013userStories\030\001 \003(\0132\021.UserStoryMessage\"" +
-      "*\n\014PointsUpdate\022\n\n\002id\030\001 \001(\005\022\016\n\006points\030\002 " +
-      "\001(\005\"*\n\014StatusUpdate\022\n\n\002id\030\001 \001(\005\022\016\n\006statu" +
-      "s\030\002 \001(\t\".\n\016PriorityUpdate\022\n\n\002id\030\001 \001(\005\022\020\n" +
-      "\010priority\030\002 \001(\t\"\\\n\025SprintCreationRequest" +
-      "\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\020\n\010st" +
-      "arDate\030\003 \001(\t\022\017\n\007endDate\030\004 \001(\t\"`\n\rSprintM" +
-      "essage\022\n\n\002id\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(\005\022\014" +
-      "\n\004name\030\003 \001(\t\022\020\n\010starDate\030\004 \001(\t\022\017\n\007endDat" +
-      "e\030\005 \001(\t\"4\n\021AllSprintsMessage\022\037\n\007sprints\030" +
-      "\001 \003(\0132\016.SprintMessage\"p\n\013TaskMessage\022\n\n\002" +
-      "id\030\001 \001(\005\022\020\n\010assignee\030\002 \001(\t\022\014\n\004body\030\003 \001(\t" +
-      "\022\023\n\013storyPoints\030\004 \001(\005\022\016\n\006status\030\005 \001(\t\022\020\n" +
-      "\010story_id\030\006 \001(\005\"p\n\023TaskCreationRequest\022\024" +
-      "\n\014userStory_id\030\001 \001(\005\022\020\n\010assignee\030\002 \001(\t\022\014" +
-      "\n\004body\030\003 \001(\t\022\023\n\013storyPoints\030\004 \001(\005\022\016\n\006sta" +
-      "tus\030\005 \001(\t\"A\n\026UserStorySprintRequest\022\024\n\014u" +
-      "serStory_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 \001(\005\"+\n\014" +
-      "TasksMessage\022\033\n\005tasks\030\001 \003(\0132\014.TaskMessag" +
-      "e2\204\002\n\nUserAccess\022%\n\nCreateUser\022\014.UserMes" +
-      "sage\032\t.Response\022)\n\016UserByUsername\022\t.User" +
-      "name\032\014.UserMessage\022.\n\016GetAllProjects\022\t.U" +
-      "sername\032\021.ProjectsResponse\022)\n\014LookForUse" +
-      "rs\022\t.Username\032\016.UsersResponse\022%\n\nUpdateU" +
-      "ser\022\014.UserMessage\032\t.Response\022\"\n\nDeleteUs" +
-      "er\022\t.Username\032\t.Response2\240\003\n\rProjectAcce" +
-      "ss\0223\n\rCreateProject\022\027.ProjectCreationReq" +
-      "uest\032\t.Response\0221\n\017AddCollaborator\022\023.Use" +
-      "rProjectRequest\032\t.Response\022*\n\023GetAllColl" +
-      "aborators\022\003.Id\032\016.UsersResponse\0224\n\022Remove" +
-      "Collaborator\022\023.UserProjectRequest\032\t.Resp" +
-      "onse\0224\n\014AddUserStory\022\031.UserStoryCreation" +
-      "Request\032\t.Response\022+\n\016GetUserStories\022\003.I" +
-      "d\032\024.UserStoriesResponse\0221\n\014CreateSprint\022" +
-      "\026.SprintCreationRequest\032\t.Response\022/\n\024Ge" +
-      "tSprintByProjectId\022\003.Id\032\022.AllSprintsMess" +
-      "age2\340\002\n\017UserStoryAccess\0221\n\025UpdateUserSto" +
-      "ryPoints\022\r.PointsUpdate\032\t.Response\0221\n\025Up" +
-      "dateUserStoryStatus\022\r.StatusUpdate\032\t.Res" +
-      "ponse\0225\n\027UpdateUserStoryPriority\022\017.Prior" +
-      "ityUpdate\032\t.Response\022!\n\017DeleteUserStory\022" +
-      "\003.Id\032\t.Response\022*\n\007AddTask\022\024.TaskCreatio" +
-      "nRequest\032\t.Response\022\036\n\010GetTasks\022\003.Id\032\r.T" +
-      "asksMessage\022#\n\010EditTask\022\014.TaskMessage\032\t." +
-      "Response\022\034\n\nRemoveTask\022\003.Id\032\t.Response2\213" +
-      "\002\n\014SprintAccess\022$\n\rGetSprintByID\022\003.Id\032\016." +
-      "SprintMessage\022\036\n\014RemoveSprint\022\003.Id\032\t.Res" +
-      "ponse\022:\n\024AddUserStoryToSprint\022\027.UserStor" +
-      "ySprintRequest\032\t.Response\0228\n\033GetAllUserS" +
-      "toriesFromSprint\022\003.Id\032\024.UserStoriesRespo" +
-      "nse\022?\n\031RemoveUserStoryFromSprint\022\027.UserS" +
-      "torySprintRequest\032\t.ResponseB!\n\014com.prot" +
-      "obuf\252\002\020DataAccessClientb\006proto3"
+      "\"N\n\013MeetingNote\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004n" +
+      "ote\030\002 \001(\t\022\016\n\006author\030\003 \001(\t\022\r\n\005title\030\004 \001(\t" +
+      "\"5\n\017MeetingResponse\022\"\n\014meetingNotes\030\001 \003(" +
+      "\0132\014.MeetingNote\"\020\n\002Id\022\n\n\002id\030\001 \001(\005\"\034\n\010Res" +
+      "ponse\022\020\n\010response\030\001 \001(\010\"\032\n\013SumResponse\022\013" +
+      "\n\003sum\030\001 \001(\005\"T\n\rUserSearchDto\022\021\n\tfirstNam" +
+      "e\030\001 \001(\t\022\020\n\010lastName\030\002 \001(\t\022\020\n\010username\030\003 " +
+      "\001(\t\022\014\n\004role\030\004 \001(\t\".\n\rUsersResponse\022\035\n\005us" +
+      "ers\030\001 \003(\0132\016.UserSearchDto\"\034\n\010Username\022\020\n" +
+      "\010username\030\001 \001(\t\"9\n\022UserProjectRequest\022\020\n" +
+      "\010username\030\001 \001(\t\022\021\n\tprojectId\030\002 \001(\005\">\n\026Pr" +
+      "ojectCreationRequest\022\025\n\rownerUsername\030\001 " +
+      "\001(\t\022\r\n\005title\030\002 \001(\t\"f\n\030UserStoryCreationR" +
+      "equest\022\022\n\nproject_id\030\001 \001(\005\022\020\n\010taskBody\030\002" +
+      " \001(\t\022\020\n\010priority\030\003 \001(\t\022\022\n\nstoryPoint\030\004 \001" +
+      "(\005\"\'\n\nProjectDto\022\n\n\002id\030\001 \001(\005\022\r\n\005title\030\002 " +
+      "\001(\t\"1\n\020ProjectsResponse\022\035\n\010projects\030\001 \003(" +
+      "\0132\013.ProjectDto\"{\n\020UserStoryMessage\022\n\n\002id" +
+      "\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(\005\022\021\n\tuserStory\030" +
+      "\003 \001(\t\022\020\n\010priority\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022" +
+      "\022\n\nstoryPoint\030\006 \001(\005\"=\n\023UserStoriesRespon" +
+      "se\022&\n\013userStories\030\001 \003(\0132\021.UserStoryMessa" +
+      "ge\"*\n\014PointsUpdate\022\n\n\002id\030\001 \001(\005\022\016\n\006points" +
+      "\030\002 \001(\005\"*\n\014StatusUpdate\022\n\n\002id\030\001 \001(\005\022\016\n\006st" +
+      "atus\030\002 \001(\t\".\n\016PriorityUpdate\022\n\n\002id\030\001 \001(\005" +
+      "\022\020\n\010priority\030\002 \001(\t\"\\\n\025SprintCreationRequ" +
+      "est\022\022\n\nproject_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\020\n" +
+      "\010starDate\030\003 \001(\t\022\017\n\007endDate\030\004 \001(\t\"`\n\rSpri" +
+      "ntMessage\022\n\n\002id\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(" +
+      "\005\022\014\n\004name\030\003 \001(\t\022\020\n\010starDate\030\004 \001(\t\022\017\n\007end" +
+      "Date\030\005 \001(\t\"4\n\021AllSprintsMessage\022\037\n\007sprin" +
+      "ts\030\001 \003(\0132\016.SprintMessage\"p\n\013TaskMessage\022" +
+      "\n\n\002id\030\001 \001(\005\022\020\n\010assignee\030\002 \001(\t\022\014\n\004body\030\003 " +
+      "\001(\t\022\023\n\013storyPoints\030\004 \001(\005\022\016\n\006status\030\005 \001(\t" +
+      "\022\020\n\010story_id\030\006 \001(\005\"p\n\023TaskCreationReques" +
+      "t\022\024\n\014userStory_id\030\001 \001(\005\022\020\n\010assignee\030\002 \001(" +
+      "\t\022\014\n\004body\030\003 \001(\t\022\023\n\013storyPoints\030\004 \001(\005\022\016\n\006" +
+      "status\030\005 \001(\t\"A\n\026UserStorySprintRequest\022\024" +
+      "\n\014userStory_id\030\001 \001(\005\022\021\n\tsprint_id\030\002 \001(\005\"" +
+      "+\n\014TasksMessage\022\033\n\005tasks\030\001 \003(\0132\014.TaskMes" +
+      "sage2\204\002\n\nUserAccess\022%\n\nCreateUser\022\014.User" +
+      "Message\032\t.Response\022)\n\016UserByUsername\022\t.U" +
+      "sername\032\014.UserMessage\022.\n\016GetAllProjects\022" +
+      "\t.Username\032\021.ProjectsResponse\022)\n\014LookFor" +
+      "Users\022\t.Username\032\016.UsersResponse\022%\n\nUpda" +
+      "teUser\022\014.UserMessage\032\t.Response\022\"\n\nDelet" +
+      "eUser\022\t.Username\032\t.Response2\370\003\n\rProjectA" +
+      "ccess\0223\n\rCreateProject\022\027.ProjectCreation" +
+      "Request\032\t.Response\0221\n\017AddCollaborator\022\023." +
+      "UserProjectRequest\032\t.Response\022*\n\023GetAllC" +
+      "ollaborators\022\003.Id\032\016.UsersResponse\0224\n\022Rem" +
+      "oveCollaborator\022\023.UserProjectRequest\032\t.R" +
+      "esponse\0224\n\014AddUserStory\022\031.UserStoryCreat" +
+      "ionRequest\032\t.Response\022+\n\016GetUserStories\022" +
+      "\003.Id\032\024.UserStoriesResponse\0221\n\014CreateSpri" +
+      "nt\022\026.SprintCreationRequest\032\t.Response\022/\n" +
+      "\024GetSprintByProjectId\022\003.Id\032\022.AllSprintsM" +
+      "essage\022,\n\021CreateMeetingNote\022\014.MeetingNot" +
+      "e\032\t.Response\022(\n\017GetMeetingNotes\022\003.Id\032\020.M" +
+      "eetingResponse2\340\002\n\017UserStoryAccess\0221\n\025Up" +
+      "dateUserStoryPoints\022\r.PointsUpdate\032\t.Res" +
+      "ponse\0221\n\025UpdateUserStoryStatus\022\r.StatusU" +
+      "pdate\032\t.Response\0225\n\027UpdateUserStoryPrior" +
+      "ity\022\017.PriorityUpdate\032\t.Response\022!\n\017Delet" +
+      "eUserStory\022\003.Id\032\t.Response\022*\n\007AddTask\022\024." +
+      "TaskCreationRequest\032\t.Response\022\036\n\010GetTas" +
+      "ks\022\003.Id\032\r.TasksMessage\022#\n\010EditTask\022\014.Tas" +
+      "kMessage\032\t.Response\022\034\n\nRemoveTask\022\003.Id\032\t" +
+      ".Response2\213\002\n\014SprintAccess\022$\n\rGetSprintB" +
+      "yID\022\003.Id\032\016.SprintMessage\022\036\n\014RemoveSprint" +
+      "\022\003.Id\032\t.Response\022:\n\024AddUserStoryToSprint" +
+      "\022\027.UserStorySprintRequest\032\t.Response\0228\n\033" +
+      "GetAllUserStoriesFromSprint\022\003.Id\032\024.UserS" +
+      "toriesResponse\022?\n\031RemoveUserStoryFromSpr" +
+      "int\022\027.UserStorySprintRequest\032\t.ResponseB" +
+      "!\n\014com.protobuf\252\002\020DataAccessClientb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17163,134 +19261,152 @@ public final class DataAccess {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserMessage_descriptor,
         new java.lang.String[] { "Username", "FirstName", "LastName", "Password", "Role", });
-    internal_static_Id_descriptor =
+    internal_static_MeetingNote_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_MeetingNote_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MeetingNote_descriptor,
+        new java.lang.String[] { "ProjectId", "Note", "Author", "Title", });
+    internal_static_MeetingResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_MeetingResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MeetingResponse_descriptor,
+        new java.lang.String[] { "MeetingNotes", });
+    internal_static_Id_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Id_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Id_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_Response_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Response_descriptor,
         new java.lang.String[] { "Response", });
+    internal_static_SumResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_SumResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SumResponse_descriptor,
+        new java.lang.String[] { "Sum", });
     internal_static_UserSearchDto_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_UserSearchDto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserSearchDto_descriptor,
         new java.lang.String[] { "FirstName", "LastName", "Username", "Role", });
     internal_static_UsersResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_UsersResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UsersResponse_descriptor,
         new java.lang.String[] { "Users", });
     internal_static_Username_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_Username_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Username_descriptor,
         new java.lang.String[] { "Username", });
     internal_static_UserProjectRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_UserProjectRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserProjectRequest_descriptor,
         new java.lang.String[] { "Username", "ProjectId", });
     internal_static_ProjectCreationRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_ProjectCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectCreationRequest_descriptor,
         new java.lang.String[] { "OwnerUsername", "Title", });
     internal_static_UserStoryCreationRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_UserStoryCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStoryCreationRequest_descriptor,
         new java.lang.String[] { "ProjectId", "TaskBody", "Priority", "StoryPoint", });
     internal_static_ProjectDto_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_ProjectDto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectDto_descriptor,
         new java.lang.String[] { "Id", "Title", });
     internal_static_ProjectsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_ProjectsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProjectsResponse_descriptor,
         new java.lang.String[] { "Projects", });
     internal_static_UserStoryMessage_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_UserStoryMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStoryMessage_descriptor,
         new java.lang.String[] { "Id", "ProjectId", "UserStory", "Priority", "Status", "StoryPoint", });
     internal_static_UserStoriesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_UserStoriesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStoriesResponse_descriptor,
         new java.lang.String[] { "UserStories", });
     internal_static_PointsUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_PointsUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PointsUpdate_descriptor,
         new java.lang.String[] { "Id", "Points", });
     internal_static_StatusUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_StatusUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_StatusUpdate_descriptor,
         new java.lang.String[] { "Id", "Status", });
     internal_static_PriorityUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_PriorityUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PriorityUpdate_descriptor,
         new java.lang.String[] { "Id", "Priority", });
     internal_static_SprintCreationRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_SprintCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SprintCreationRequest_descriptor,
         new java.lang.String[] { "ProjectId", "Name", "StarDate", "EndDate", });
     internal_static_SprintMessage_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_SprintMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SprintMessage_descriptor,
         new java.lang.String[] { "Id", "ProjectId", "Name", "StarDate", "EndDate", });
     internal_static_AllSprintsMessage_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_AllSprintsMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AllSprintsMessage_descriptor,
         new java.lang.String[] { "Sprints", });
     internal_static_TaskMessage_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_TaskMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TaskMessage_descriptor,
         new java.lang.String[] { "Id", "Assignee", "Body", "StoryPoints", "Status", "StoryId", });
     internal_static_TaskCreationRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_TaskCreationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TaskCreationRequest_descriptor,
         new java.lang.String[] { "UserStoryId", "Assignee", "Body", "StoryPoints", "Status", });
     internal_static_UserStorySprintRequest_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_UserStorySprintRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStorySprintRequest_descriptor,
         new java.lang.String[] { "UserStoryId", "SprintId", });
     internal_static_TasksMessage_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_TasksMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TasksMessage_descriptor,

@@ -179,6 +179,49 @@ public class ProjectDaoImpl implements IProjectDao {
         }
     }
 
+    @Override
+    public DataAccess.Response createMeetingNote(DataAccess.MeetingNote request) {
+        try (Connection connection = driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO projectMeeting(project_id, note, author, title) VALUES(?,?,?,?);");
+
+            statement.setInt(1, request.getProjectId());
+            statement.setString(2, request.getNote());
+            statement.setString(3, request.getAuthor());
+            statement.setString(4, request.getTitle());
+
+            boolean successful = statement.executeUpdate() > 0;
+            statement.close();
+
+            return DataAccess.Response.newBuilder().setResponse(successful).build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public DataAccess.MeetingResponse getMeetingNotes(DataAccess.Id id) {
+        try (Connection connection = driver.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * from projectMeeting where project_id=?;");
+            statement.setInt(1, id.getId());
+            ResultSet resultSet = statement.executeQuery();
+
+            DataAccess.MeetingResponse.Builder builder = DataAccess.MeetingResponse.newBuilder();
+
+            while (resultSet.next()) {
+                builder.addMeetingNotes(DataAccess.MeetingNote.newBuilder()
+                        .setProjectId(resultSet.getInt("project_id"))
+                        .setNote(resultSet.getString("note"))
+                        .setAuthor(resultSet.getString("author"))
+                        .setTitle(resultSet.getString("title")))
+                        .build();
+            }
+            statement.close();
+            return builder.build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }    }
+
 
     private int getPriorityId(String priority) {
         int id = 1;

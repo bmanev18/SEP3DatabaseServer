@@ -262,6 +262,68 @@ public final class ProjectAccessGrpc {
     return getGetSprintByProjectIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.MeetingNote,
+      com.protobuf.DataAccess.Response> getCreateMeetingNoteMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateMeetingNote",
+      requestType = com.protobuf.DataAccess.MeetingNote.class,
+      responseType = com.protobuf.DataAccess.Response.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.MeetingNote,
+      com.protobuf.DataAccess.Response> getCreateMeetingNoteMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.MeetingNote, com.protobuf.DataAccess.Response> getCreateMeetingNoteMethod;
+    if ((getCreateMeetingNoteMethod = ProjectAccessGrpc.getCreateMeetingNoteMethod) == null) {
+      synchronized (ProjectAccessGrpc.class) {
+        if ((getCreateMeetingNoteMethod = ProjectAccessGrpc.getCreateMeetingNoteMethod) == null) {
+          ProjectAccessGrpc.getCreateMeetingNoteMethod = getCreateMeetingNoteMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.MeetingNote, com.protobuf.DataAccess.Response>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateMeetingNote"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.MeetingNote.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.Response.getDefaultInstance()))
+              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("CreateMeetingNote"))
+              .build();
+        }
+      }
+    }
+    return getCreateMeetingNoteMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
+      com.protobuf.DataAccess.MeetingResponse> getGetMeetingNotesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetMeetingNotes",
+      requestType = com.protobuf.DataAccess.Id.class,
+      responseType = com.protobuf.DataAccess.MeetingResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id,
+      com.protobuf.DataAccess.MeetingResponse> getGetMeetingNotesMethod() {
+    io.grpc.MethodDescriptor<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.MeetingResponse> getGetMeetingNotesMethod;
+    if ((getGetMeetingNotesMethod = ProjectAccessGrpc.getGetMeetingNotesMethod) == null) {
+      synchronized (ProjectAccessGrpc.class) {
+        if ((getGetMeetingNotesMethod = ProjectAccessGrpc.getGetMeetingNotesMethod) == null) {
+          ProjectAccessGrpc.getGetMeetingNotesMethod = getGetMeetingNotesMethod =
+              io.grpc.MethodDescriptor.<com.protobuf.DataAccess.Id, com.protobuf.DataAccess.MeetingResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetMeetingNotes"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.Id.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.protobuf.DataAccess.MeetingResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ProjectAccessMethodDescriptorSupplier("GetMeetingNotes"))
+              .build();
+        }
+      }
+    }
+    return getGetMeetingNotesMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -366,6 +428,20 @@ public final class ProjectAccessGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetSprintByProjectIdMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void createMeetingNote(com.protobuf.DataAccess.MeetingNote request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateMeetingNoteMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getMeetingNotes(com.protobuf.DataAccess.Id request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.MeetingResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetMeetingNotesMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -424,6 +500,20 @@ public final class ProjectAccessGrpc {
                 com.protobuf.DataAccess.Id,
                 com.protobuf.DataAccess.AllSprintsMessage>(
                   this, METHODID_GET_SPRINT_BY_PROJECT_ID)))
+          .addMethod(
+            getCreateMeetingNoteMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.protobuf.DataAccess.MeetingNote,
+                com.protobuf.DataAccess.Response>(
+                  this, METHODID_CREATE_MEETING_NOTE)))
+          .addMethod(
+            getGetMeetingNotesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.protobuf.DataAccess.Id,
+                com.protobuf.DataAccess.MeetingResponse>(
+                  this, METHODID_GET_MEETING_NOTES)))
           .build();
     }
   }
@@ -505,6 +595,22 @@ public final class ProjectAccessGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetSprintByProjectIdMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void createMeetingNote(com.protobuf.DataAccess.MeetingNote request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateMeetingNoteMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getMeetingNotes(com.protobuf.DataAccess.Id request,
+        io.grpc.stub.StreamObserver<com.protobuf.DataAccess.MeetingResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetMeetingNotesMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -575,6 +681,20 @@ public final class ProjectAccessGrpc {
     public com.protobuf.DataAccess.AllSprintsMessage getSprintByProjectId(com.protobuf.DataAccess.Id request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetSprintByProjectIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.protobuf.DataAccess.Response createMeetingNote(com.protobuf.DataAccess.MeetingNote request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateMeetingNoteMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.protobuf.DataAccess.MeetingResponse getMeetingNotes(com.protobuf.DataAccess.Id request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetMeetingNotesMethod(), getCallOptions(), request);
     }
   }
 
@@ -655,6 +775,22 @@ public final class ProjectAccessGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetSprintByProjectIdMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.Response> createMeetingNote(
+        com.protobuf.DataAccess.MeetingNote request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateMeetingNoteMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.protobuf.DataAccess.MeetingResponse> getMeetingNotes(
+        com.protobuf.DataAccess.Id request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetMeetingNotesMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_PROJECT = 0;
@@ -665,6 +801,8 @@ public final class ProjectAccessGrpc {
   private static final int METHODID_GET_USER_STORIES = 5;
   private static final int METHODID_CREATE_SPRINT = 6;
   private static final int METHODID_GET_SPRINT_BY_PROJECT_ID = 7;
+  private static final int METHODID_CREATE_MEETING_NOTE = 8;
+  private static final int METHODID_GET_MEETING_NOTES = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -714,6 +852,14 @@ public final class ProjectAccessGrpc {
         case METHODID_GET_SPRINT_BY_PROJECT_ID:
           serviceImpl.getSprintByProjectId((com.protobuf.DataAccess.Id) request,
               (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.AllSprintsMessage>) responseObserver);
+          break;
+        case METHODID_CREATE_MEETING_NOTE:
+          serviceImpl.createMeetingNote((com.protobuf.DataAccess.MeetingNote) request,
+              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.Response>) responseObserver);
+          break;
+        case METHODID_GET_MEETING_NOTES:
+          serviceImpl.getMeetingNotes((com.protobuf.DataAccess.Id) request,
+              (io.grpc.stub.StreamObserver<com.protobuf.DataAccess.MeetingResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -784,6 +930,8 @@ public final class ProjectAccessGrpc {
               .addMethod(getGetUserStoriesMethod())
               .addMethod(getCreateSprintMethod())
               .addMethod(getGetSprintByProjectIdMethod())
+              .addMethod(getCreateMeetingNoteMethod())
+              .addMethod(getGetMeetingNotesMethod())
               .build();
         }
       }

@@ -2,6 +2,8 @@ package com.database.DaoInterfaces;
 
 import com.protobuf.DataAccess;
 
+import javax.xml.crypto.Data;
+
 public interface IProjectDao {
     DataAccess.Response createProject(DataAccess.ProjectCreationRequest request);
 
@@ -13,6 +15,9 @@ public interface IProjectDao {
     DataAccess.UserStoriesResponse getUserStories(DataAccess.Id id) ;
     DataAccess.Response createSprint(DataAccess.SprintCreationRequest sprint);
     DataAccess.AllSprintsMessage getSprintByProjectId(DataAccess.Id id);
+
+    DataAccess.Response createMeetingNote(DataAccess.MeetingNote request);
+    DataAccess.MeetingResponse getMeetingNotes(DataAccess.Id id);
 
 
     //Task->

@@ -71,4 +71,17 @@ public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBas
         responseObserver.onNext(dao.getSprintByProjectId(request));
         responseObserver.onCompleted();
     }
+
+    @Override
+    public void createMeetingNote(DataAccess.MeetingNote request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to create meeting note: %s %n", request.getTitle());
+        responseObserver.onNext(dao.createMeetingNote(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getMeetingNotes(DataAccess.Id request, StreamObserver<DataAccess.MeetingResponse> responseObserver) {
+        System.out.printf("Received request to get meeting notes: %d %n", request.getId());
+        responseObserver.onNext(dao.getMeetingNotes(request));
+        responseObserver.onCompleted();    }
 }
