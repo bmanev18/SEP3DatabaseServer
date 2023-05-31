@@ -1,95 +1,87 @@
 package com.server.services;
 
-import com.database.DAO;
+import com.database.DaoInterfaces.IProjectDao;
 import com.protobuf.DataAccess;
 import com.protobuf.ProjectAccessGrpc;
 import io.grpc.stub.StreamObserver;
 
-import javax.xml.crypto.Data;
-import java.sql.SQLException;
-
 public class ProjectAccessService extends ProjectAccessGrpc.ProjectAccessImplBase{
-    private final DAO dao;
+    private final IProjectDao dao;
 
-    public ProjectAccessService(DAO dao) {
+    public ProjectAccessService(IProjectDao dao) {
         this.dao = dao;
     }
 
     @Override
-    public void createProject(DataAccess.ProjectCreationDto request, StreamObserver<DataAccess.ResponseWithID> responseObserver) {
-        System.out.printf("Received request to create project: %s", request.getTitle());
+    public void createProject(DataAccess.ProjectCreationRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to create project: %s %n", request.getTitle());
 
-        try {
-            responseObserver.onNext(dao.createProject(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        responseObserver.onNext(dao.createProject(request));
         responseObserver.onCompleted();
     }
 
     @Override
-    public void addCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.Response> responseObserver) {
-        System.out.printf("Received request to add user to project: %s", request.getUsername());
+    public void addCollaborator(DataAccess.UserProjectRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to add user: %s to project: %d %n", request.getUsername(), request.getProjectId());
 
-        try {
-            responseObserver.onNext(dao.addCollaborator(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        responseObserver.onNext(dao.addCollaborator(request));
         responseObserver.onCompleted();
     }
 
     @Override
-    public void getProductBacklog(DataAccess.Id request, StreamObserver<DataAccess.ProductBacklogResponse> responseObserver) {
-        System.out.printf("Received request to get product backlog: %s", request.getId());
-        try {
-            responseObserver.onNext(dao.getProductBacklog(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onCompleted();
-    }
-    @Override
-    public void getAllProjects(DataAccess.Username request, StreamObserver<DataAccess.ProjectsResponse> responseObserver) {
-        System.out.printf("Received request to get projects for user: %s", request.getUsername());
-        try {
-            responseObserver.onNext(dao.getAllProjects(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onCompleted();
-    }
-    @Override
-    public void addUserStory(DataAccess.UserStoryMessage request, StreamObserver<DataAccess.ResponseWithID> responseObserver) {
-        System.out.printf("Received request to add a user story: %s", request.getTaskBody(),request.getProjectId());
-        try {
-            responseObserver.onNext(dao.addUserStory(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void getAllCollaborators(DataAccess.Id request, StreamObserver<DataAccess.UsersResponse> responseObserver) {
+        System.out.printf("Received request to get all collaborators from: %d %n", request.getId());
+        responseObserver.onNext(dao.getAllCollaborators(request));
         responseObserver.onCompleted();
     }
 
     @Override
-    public void removeCollaborator(DataAccess.AddToProjectDto request, StreamObserver<DataAccess.ResponseWithID> responseObserver) {
-        System.out.printf("Received request to remove user from project: %s", request.getUsername(),request.getProjectId());
-        try {
-            responseObserver.onNext(dao.removeCollaborator(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onCompleted();;
+    public void removeCollaborator(DataAccess.UserProjectRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to remove user: %s from project: %d %n", request.getUsername(),request.getProjectId());
+        responseObserver.onNext(dao.removeCollaborator(request));
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void getAllCollaborators(DataAccess.Id request, StreamObserver<DataAccess.FilteredUsersResponse> responseObserver) {
-        System.out.printf("Received request to get all collaborators from: %s", request.getId());
-        try {
-            responseObserver.onNext(dao.getAllCollaborators(request));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        responseObserver.onCompleted();;
+    public void addUserStory(DataAccess.UserStoryCreationRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to add a user story: %s to project %d %n", request.getTaskBody(),request.getProjectId());
+        responseObserver.onNext(dao.addUserStory(request));
+        responseObserver.onCompleted();
     }
 
+    @Override
+    public void getUserStories(DataAccess.Id request, StreamObserver<DataAccess.UserStoriesResponse> responseObserver) {
+        System.out.printf("Received request to get product backlog: %d %n", request.getId());
+        responseObserver.onNext(dao.getUserStories(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void createSprint(DataAccess.SprintCreationRequest request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to create sprint: %s %n", request.getName());
+
+        responseObserver.onNext(dao.createSprint(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getSprintByProjectId(DataAccess.Id request, StreamObserver<DataAccess.AllSprintsMessage> responseObserver) {
+        System.out.printf("Received request to get sprints for project: %s %n", request.getId());
+
+        responseObserver.onNext(dao.getSprintByProjectId(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void createMeetingNote(DataAccess.MeetingNote request, StreamObserver<DataAccess.Response> responseObserver) {
+        System.out.printf("Received request to create meeting note: %s %n", request.getTitle());
+        responseObserver.onNext(dao.createMeetingNote(request));
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getMeetingNotes(DataAccess.Id request, StreamObserver<DataAccess.MeetingResponse> responseObserver) {
+        System.out.printf("Received request to get meeting notes: %d %n", request.getId());
+        responseObserver.onNext(dao.getMeetingNotes(request));
+        responseObserver.onCompleted();    }
 }

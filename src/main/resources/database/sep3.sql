@@ -1,69 +1,104 @@
-CREATE TABLE user
-(
-    username  varchar(25) PRIMARY KEY not null,
-    firstname varchar(15)             NOT NULL,
-    lastname  varchar(15)             NOT NULL,
-    password  varchar(15)             NOT NULL check ( length(password) >= 8 ),
-    role_id   int                     not null references role (id)
-);
+-- TODO You don't need to run this when you have pulled the latest database file
 
-CREATE TABLE project
+/*
+create table project
 (
-    id    integer primary key,
+    id    integer
+        primary key autoincrement,
     title varchar(100)
 );
 
 create table role
 (
-    id   integer primary key,
+    id   integer
+        primary key autoincrement,
     name varchar(30)
-);
-
-create table worksOn
-(
-    username   varchar(25) references user (username),
-    project_id int references project (id),
-    primary key (username, project_id)
-);
-
---
-create table productBacklog
-(
-    id        integer primary key autoincrement,
-    userStory varchar(200) not null
 );
 
 create table sprint
 (
-    id integer primary key autoincrement,
-    project_id references project (id)
+    id         integer
+        primary key autoincrement,
+    project_id int
+        references project,
+    name       text default 'New Sprint' not null,
+    startDate  text default (date('now')),
+    endDate    text                      not null
 );
 
-create table storyInSprint
+create table user
 (
-    sprint    int references sprint (id),
-    userStory int references productBacklog (id),
-    primary key (sprint, userStory)
-);
-
-create table sprintBacklog
-(
-    id   integer primary key autoincrement,
-    task varchar(100)
+    username  varchar(25) not null
+        primary key,
+    firstname varchar(15) not null,
+    lastname  varchar(15) not null,
+    password  varchar(15) not null,
+    role_id   int         not null
+        references role,
+    check (length(password) >= 8)
 );
 
 create table projectMeeting
 (
-    id         integer primary key autoincrement,
-    project_id int references sprint (id),
+    id         integer
+        primary key autoincrement,
+    project_id int
+        references sprint,
     note       varchar(300),
-    author     varchar(25) references user (username)
+    author     varchar(25)
+        references user
 );
 
 create table sprintMeeting
 (
-    id        integer primary key autoincrement,
-    sprint_id int references sprint (id),
+    id        integer
+        primary key autoincrement,
+    sprint_id int
+        references sprint,
     note      varchar(300),
-    author    varchar(25) references user (username)
+    author    varchar(25)
+        references user
 );
+
+create table task
+(
+    id       integer
+        primary key autoincrement,
+    assignee text
+        references user,
+    body     text          not null,
+    status   int default 0 not null,
+    check (status in (0, 1))
+);
+
+create table userStory
+(
+    id         integer
+        primary key autoincrement,
+    project_id integer           not null
+        references project,
+    body       text              not null,
+    priority   text              not null,
+    status     integer default 0 not null,
+    storyPoint integer default 0,
+    check (priority IN ('low', 'high', 'critical'))
+);
+
+create table storyInSprint
+(
+    sprint    int
+        references sprint,
+    userStory int
+        references userStory,
+    primary key (sprint, userStory)
+);
+
+create table worksOn
+(
+    username   varchar(25)
+        references user,
+    project_id int
+        references project,
+    primary key (username, project_id)
+);
+*/
